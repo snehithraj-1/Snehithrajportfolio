@@ -1,6 +1,6 @@
 import React from "react";
 import { User, GraduationCap, MapPin, Trophy, Compass, ArrowRight, Brain, Search, Layers, Zap, Quote } from "lucide-react";
-import { portfolioData } from "../data/portfolioData";
+import { portfolioData, portfolioAssets } from "../data/portfolioData";
 import TiltCard from "./TiltCard";
 import { soundFX } from "../utils/audioFX";
 
@@ -92,25 +92,52 @@ export default function About() {
           {/* Narrative & Story Box */}
           <div
             style={{
-              padding: "1.75rem 2rem",
+              padding: "2rem",
               borderRadius: "18px",
               background: "rgba(15, 23, 42, 0.6)",
               border: "1px solid rgba(56, 189, 248, 0.15)",
               color: "var(--text-secondary)",
               fontSize: "1.05rem",
               lineHeight: 1.8,
-              display: "flex",
-              flexDirection: "column",
-              gap: "1.1rem",
+              display: "grid",
+              gridTemplateColumns: "150px 1fr",
+              gap: "2.25rem",
+              alignItems: "center",
               backdropFilter: "blur(12px)",
             }}
+            className="about-narrative-grid"
           >
-            <p style={{ color: "#ffffff", fontWeight: 600, fontSize: "1.15rem" }}>
-              {about.intro}
-            </p>
-            {about.narrative.map((para, idx) => (
-              <p key={idx}>{para}</p>
-            ))}
+            <div
+              style={{
+                width: "150px",
+                height: "150px",
+                borderRadius: "22px",
+                overflow: "hidden",
+                border: "2px solid rgba(56, 189, 248, 0.35)",
+                boxShadow: "0 0 25px rgba(56, 189, 248, 0.2)",
+                flexShrink: 0,
+              }}
+            >
+              <img
+                src={portfolioAssets.heroProfile}
+                alt="Snehith Raj"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center 20%",
+                  display: "block",
+                }}
+              />
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+              <p style={{ color: "#ffffff", fontWeight: 600, fontSize: "1.15rem" }}>
+                {about.intro}
+              </p>
+              {about.narrative.map((para, idx) => (
+                <p key={idx}>{para}</p>
+              ))}
+            </div>
           </div>
 
           {/* Profile Info & Quote Row */}

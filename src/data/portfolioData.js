@@ -1,3 +1,4 @@
+import snehithRajImg from "../assets/images/snehith_raj.jpg";
 import heroCosmicImg from "../assets/images/hero_cosmic.jpg";
 import projectEdupathImg from "../assets/images/project_edupath.jpg";
 import projectWaterImg from "../assets/images/project_water_quality.jpg";
@@ -5,9 +6,15 @@ import projectSmartvisionImg from "../assets/images/project_smartvision.jpg";
 import projectExoplanetImg from "../assets/images/project_exoplanet.jpg";
 import contactAstronautImg from "../assets/images/contact_astronaut.jpg";
 import humanWorkspaceImg from "../assets/images/human_workspace.jpg";
+import projectCycleCareImg from "../assets/images/project_cycle_care.jpg";
+import projectUneedsImg from "../assets/images/project_uneeds.jpg";
 
 export const portfolioAssets = {
-  heroCosmic: heroCosmicImg,
+  heroProfile: snehithRajImg,
+  heroCosmic: snehithRajImg,
+  heroArtistic: heroCosmicImg,
+  projectCycleCare: projectCycleCareImg,
+  projectUneeds: projectUneedsImg,
   projectEdupath: projectEdupathImg,
   projectWater: projectWaterImg,
   projectSmartvision: projectSmartvisionImg,
@@ -19,6 +26,7 @@ export const portfolioAssets = {
 export const portfolioData = {
   personal: {
     name: "Snehith Raj",
+    avatar: snehithRajImg,
     title: "AI/ML Engineer & Full Stack Developer",
     badgeRole: "👋 HELLO WORLD • ENGINEER & BUILDER",
     headline: "Engineering Intelligent AI Systems & Robust Machine Learning Pipelines.",
@@ -30,7 +38,7 @@ export const portfolioData = {
     
     // Location & Contact
     location: "SRM University AP, Andhra Pradesh, India",
-    email: "snehithraj.dev@example.com",
+    email: "snehithraj007@gmail.com",
     github: "https://github.com/snehithraj-1",
     linkedin: "https://www.linkedin.com/in/snehithraj-gaddam-454852322/?skipRedirect=true",
     leetcode: "https://leetcode.com/u/hcdiMGr9EW/",
@@ -45,8 +53,8 @@ export const portfolioData = {
     
     // Stats for Hero Bar (Screen 1)
     stats: [
-      { value: "5+", label: "AI/ML & Core Systems" },
-      { value: "96.2%", label: "Peak Validation AUC" },
+      { value: "6+", label: "Deployed Systems & Apps" },
+      { value: "100%", label: "Client-Side Privacy (PWA)" },
       { value: "8.44", label: "Academic CGPA (SRM AP)" },
       { value: "150+", label: "Algorithmic Challenges" }
     ],
@@ -199,284 +207,247 @@ export const portfolioData = {
 
   projects: [
     {
-      id: "edupath-ai",
-      title: "EduPath AI",
-      subtitle: "Multilingual Career Guidance Chatbot for Rural Students",
-      category: "AI/ML",
-      tags: ["AI/ML", "Generative AI", "RAG"],
-      image: projectEdupathImg,
+      id: "cycle-care",
+      title: "Cycle-Care",
+      subtitle: "Menstrual Health & Cycle Tracker Progressive Web App",
+      category: "Web Apps",
+      tags: ["React", "TypeScript", "PWA", "Dexie.js", "Chart.js"],
+      image: projectCycleCareImg,
       featured: true,
       hasLiveDemo: true,
-      demoUrl: "https://edupath-ai-demo.vercel.app",
-      githubUrl: "https://github.com/snehithraj-1/EduPath-AI",
-      shortDescription: "Multilingual career guidance chatbot designed to empower rural students with AI-driven personalized roadmaps, vernacular Q&A, and mentorship pathways.",
+      demoUrl: "https://cycle-care-six.vercel.app",
+      githubUrl: "https://github.com/snehithraj-1/Cycle-Care",
+      shortDescription: "Offline-first progressive web application for menstrual health tracking, ovulation telemetry, symptom journaling, and cycle analytics powered by IndexedDB (Dexie).",
       stats: [
-        { value: "94.2%", label: "Retrieval Relevance" },
-        { value: "<850ms", label: "Inference Latency" },
-        { value: "3", label: "Languages Supported" }
+        { value: "PWA", label: "Offline-First" },
+        { value: "5", label: "Core Screens" },
+        { value: "100%", label: "Local Privacy" }
       ],
       keyFeatures: [
-        "Multilingual conversational engine supporting English, Telugu, and Hindi",
-        "Personalized career roadmap generation tailored to student academic background",
-        "Retrieval-Augmented Generation (RAG) using LangChain and ChromaDB vector embeddings",
-        "Local LLM inference orchestration via Ollama (quantized Llama 3 / Mistral 7B)",
-        "Curated repository of accredited Indian government scholarships and entrance examinations",
-        "Ultra-lightweight responsive frontend designed for low-bandwidth mobile connections"
+        "Interactive cycle phase visualizer and ovulation window prediction engine",
+        "Offline-first client storage using Dexie.js (IndexedDB) with zero external tracker leaks",
+        "Symptom, mood, and flow intensity daily loggers with interactive calendar telemetry",
+        "Visual health trend analytics charts powered by Chart.js and react-chartjs-2",
+        "PWA installable app manifest with Capacitor Android and iOS build support"
       ],
-      techStack: ["Python", "Flask", "LangChain", "ChromaDB", "Ollama", "React", "Tailwind CSS", "SQLite"],
-      
-      // Case Study In-Depth Data
+      techStack: ["React 19", "TypeScript", "Dexie.js", "Chart.js", "Capacitor", "Tailwind CSS", "Vite"],
       caseStudy: {
-        problemStatement: "Over 68% of rural and tier-3 high school students in India lack access to qualified career counselors and are unaware of vocational pathways, scholarships, and modern tech curricula. Existing commercial tools require high-end devices and function strictly in formal English.",
+        problemStatement: "Most commercial menstrual health applications transmit sensitive personal hormonal and biometric data to remote ad servers, while failing to operate offline in low-connectivity settings.",
         objectives: [
-          "Provide conversational career guidance in vernacular languages (Telugu, Hindi, English).",
-          "Eliminate LLM hallucinations by grounding responses strictly on a curated educational knowledge base via RAG.",
-          "Enable low-latency inference on budget edge servers without expensive closed-source API tokens."
+          "Architect an offline-first PWA storing 100% of cycle and symptom data locally in IndexedDB.",
+          "Deliver clinical-standard cycle phase predictions without network round-trips.",
+          "Provide intuitive data visualization with multi-month cycle trend telemetry."
         ],
         dataset: {
-          name: "Curated Indian Higher Education & Vocational Curricula Knowledge Base",
-          source: "Ministry of Education (India), AICTE guidelines, state scholarship portals, and standard engineering/arts career frameworks",
-          size: "1,200+ structured markdown documents, 4,500+ text chunks",
-          embeddingModel: "sentence-transformers/all-MiniLM-L6-v2 (384-dimensional embeddings)",
-          vectorStore: "ChromaDB with cosine similarity indexing"
+          name: "Personal Health Symptom Logs & Local IndexedDB Store",
+          source: "Client-side private IndexedDB database via Dexie.js",
+          size: "Multi-year period records, symptom matrices, and custom reminder triggers",
+          embeddingModel: "Client-side algorithmic statistics & moving average predictors",
+          vectorStore: "Dexie IndexedDB Engine"
         },
-        preprocessing: "Recursive character text splitting (chunk size: 500, overlap: 50), language identification token filters, stopword handling for Telugu/Hindi transliterations, and metadata tagging by domain, degree level, and eligibility.",
-        architecture: "User Query -> Language Detection & Intent Router -> ChromaDB Vector Embeddings Search (Top-k=4) -> Context Synthesis & Prompt Formatting -> Ollama Local LLM (Llama 3 8B quantized) -> Post-processing Filter -> React Client Stream",
+        preprocessing: "Local schema validation, date-normalized cycle interval calculations, and statistical outlier smoothing.",
+        architecture: "User Input -> CycleEngine Analytics -> Dexie.js Local Store -> Chart.js Visualization Engine -> React 19 UI",
         metricsTable: [
-          { metric: "Retrieval Hit Rate @ 4", value: "94.2%", benchmark: "81.0% (BM25 baseline)" },
-          { metric: "Generation Faithfulness (RAGAS)", value: "92.5%", benchmark: "74.3% (Vanilla Prompting)" },
-          { metric: "Average End-to-End Latency", value: "820ms", benchmark: "2,100ms (Cloud API)" },
-          { metric: "Vernacular Response Quality (BLEU)", value: "0.88", benchmark: "0.71 (Generic Translator)" }
+          { metric: "Data Privacy", value: "100% Client-Side", benchmark: "Remote Cloud Servers" },
+          { metric: "App Load & Offline Readiness", value: "<150ms", benchmark: "1,200ms (Network API)" },
+          { metric: "PWA Audit Score", value: "98 / 100", benchmark: "75 (Standard Web App)" }
         ],
-        limitations: "Complex dialectal nuances and heavy colloquial slang can occasionally reduce retrieval accuracy; currently relies on server-side GPU acceleration for multi-user concurrent streams.",
-        futureWork: "Fine-tuning a dedicated Llama-3-LoRA model on state education syllabi and integrating speech-to-text (Whisper) for voice-driven accessibility."
+        limitations: "Irregular cycle predictions require at least 3-4 consecutive recorded cycles for accurate variance bounds.",
+        futureWork: "Adding local encrypted export/import capabilities and wearable biometric sync."
       },
-      architecture: "User Query -> Language Detection -> Vector Store RAG Retrieval -> Mistral / Llama 3 Reasoning -> Formatted Guidance Response",
-      results: "Evaluated across 500+ student queries with 94.2% relevance accuracy and sub-second retrieval times.",
-      learnings: "Prompt framing for vernacular languages, efficient embedding caching in ChromaDB, and mitigating hallucinations through strict retrieved context bounding."
-    },
-    {
-      id: "water-quality",
-      title: "Water Quality Classification",
-      subtitle: "Quantum Machine Learning approach for water quality prediction",
-      category: "Research",
-      tags: ["Research", "ML", "Quantum ML"],
-      image: projectWaterImg,
-      featured: true,
-      hasLiveDemo: true,
-      demoUrl: "https://github.com/snehithraj-1",
-      githubUrl: "https://github.com/snehithraj-1/water-quality-qml",
-      shortDescription: "Compared classical ML (Random Forest, SVM, XGBoost) and quantum ML (Variational Quantum Circuits via PennyLane) using physicochemical river potability datasets.",
-      stats: [
-        { value: "92.4%", label: "Quantum VQC Acc" },
-        { value: "99.1%", label: "Classical RF Acc" },
-        { value: "12", label: "Physicochemical Features" }
-      ],
-      keyFeatures: [
-        "Variational Quantum Circuit (VQC) with angle embedding and parameterized rotation gates (RX, RY, RZ)",
-        "Entangling CNOT layers for quantum feature correlation modeling",
-        "Benchmarked against Random Forest, Support Vector Machines (RBF Kernel), and XGBoost",
-        "Physicochemical feature scaling, IQR outlier rejection, and correlation matrix analysis",
-        "Pauli-Z expectation measurement for binary potability classification",
-        "Interactive Streamlit demonstration with real-time decision boundary telemetry"
-      ],
-      techStack: ["Python", "PennyLane", "Scikit-learn", "Pandas", "NumPy", "Streamlit", "Matplotlib"],
-      
-      // Case Study In-Depth Data
-      caseStudy: {
-        problemStatement: "Traditional water testing relies on slow biochemical lab assays. Real-time predictive potability modeling must accurately handle non-linear physicochemical cross-correlations (e.g., pH, Turbidity, Chloramines, Sulfates, Solids) where classical linear boundaries struggle.",
-        objectives: [
-          "Assess whether parameterized Variational Quantum Circuits (VQCs) offer representational expressiveness on environmental datasets.",
-          "Benchmark 4-qubit quantum state simulators against state-of-the-art ensemble classifiers.",
-          "Identify how quantum circuit depth and noise sensitivity affect classification accuracy."
-        ],
-        dataset: {
-          name: "Water Potability Dataset & Achenkovil River Physicochemical Records",
-          source: "Kaggle Water Potability Repository & Kerala State Pollution Control Board environmental data",
-          size: "3,276 water samples across 9 continuous physical parameters (pH, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic Carbon, Trihalomethanes, Turbidity)",
-          split: "70% Training (2,293 samples), 15% Validation (491 samples), 15% Testing (492 samples)"
-        },
-        preprocessing: "Iterative median imputation for missing values in Sulfate & pH; RobustScaler to mitigate extreme ionic concentration outliers; PCA dimension reduction to 4 principal components to match current NISQ qubit constraints.",
-        architecture: "Input Vector (x in R^4) -> Angle Embedding Gate U(x) -> Parameterized Entangling Ansatz (Rot(theta) + CNOT chain) x 3 layers -> Hermitian Pauli-Z Observable Measurement <sigma_z> -> Loss Function (MSE / Cross-Entropy) -> Adam Quantum Gradient Descent",
-        metricsTable: [
-          { metric: "Random Forest (Classical)", value: "99.1% Acc | 0.99 AUC", benchmark: "Baseline Champion" },
-          { metric: "Support Vector Machine (RBF)", value: "91.8% Acc | 0.92 AUC", benchmark: "Classical Kernel" },
-          { metric: "PennyLane VQC (4 Qubits, 3 Layers)", value: "92.4% Acc | 0.93 AUC", benchmark: "Quantum Ansatz" },
-          { metric: "Logistic Regression (Linear)", value: "62.4% Acc | 0.63 AUC", benchmark: "Linear Baseline" }
-        ],
-        limitations: "Classical simulation of quantum states scales exponentially with qubit count; current NISQ hardware suffers from decoherence and gate infidelities that require error mitigation.",
-        futureWork: "Deploying quantum kernel estimation (QKE) with PennyLane on actual IBM Quantum hardware backends to measure real hardware noise impact."
-      },
-      architecture: "Physicochemical Data -> PCA (4 Components) -> Quantum Angle Embedding -> Parameterized Variational Layers -> Pauli-Z Measurement -> Potability Decision",
-      results: "Achieved competitive 92.4% test accuracy with 4-qubit quantum state simulation, outperforming classical SVM and approaching ensemble models.",
-      learnings: "Quantum circuit noise models, barren plateau gradients in quantum optimization, and hybrid classical-quantum parameter optimization."
-    },
-    {
-      id: "smartvision-ai",
-      title: "SmartVision AI",
-      subtitle: "Image classification and object detection using deep learning",
-      category: "Computer Vision",
-      tags: ["Computer Vision", "Deep Learning", "PyTorch"],
-      image: projectSmartvisionImg,
-      featured: true,
-      hasLiveDemo: true,
-      demoUrl: "https://github.com/snehithraj-1",
-      githubUrl: "https://github.com/snehithraj-1/SmartVision-AI",
-      shortDescription: "Real-time multi-class object detection and spatial tracking system using fine-tuned neural networks, YOLOv8, and OpenCV.",
-      stats: [
-        { value: "91.2%", label: "Precision Score" },
-        { value: "45 FPS", label: "Real-time Inference" },
-        { value: "80+", label: "Object Classes" }
-      ],
-      keyFeatures: [
-        "Real-time video stream bounding-box detection with sub-22ms GPU inference latency",
-        "Dynamic telemetry HUD with class probabilities, FPS counter, and detection overlays",
-        "Non-Maximum Suppression (NMS) tuning with custom IoU thresholds to eliminate false duplicates",
-        "Dual input modes: Live webcam stream processing and high-resolution video file analysis",
-        "Exported ONNX / TensorRT runtime weights optimized for embedded edge deployment"
-      ],
-      techStack: ["Python", "PyTorch", "OpenCV", "YOLOv8", "NumPy", "FastAPI", "React"],
-      
-      // Case Study In-Depth Data
-      caseStudy: {
-        problemStatement: "Deploying deep learning computer vision models on resource-constrained consumer hardware often causes severe frame drops, latency spikes, and degraded detection accuracy in dynamic lighting.",
-        objectives: [
-          "Deliver sustained 40+ FPS real-time detection on standard GPUs without dropping frames.",
-          "Achieve >90% precision across common urban and indoor object classes (pedestrians, vehicles, electronics).",
-          "Build an intuitive interactive telemetry HUD interface for real-time visualization."
-        ],
-        dataset: {
-          name: "MS COCO (Common Objects in Context) + Custom Campus Surveillance Validation Set",
-          source: "COCO 2017 Object Detection Benchmark (118k train images, 5k val images) + 500 locally collected frames",
-          size: "80 standard object classes with dense bounding box annotations",
-          split: "Fine-tuned validation split with 5,000 balanced evaluation images"
-        },
-        preprocessing: "Letterbox image resizing to 640x640 with aspect ratio preservation; mosaic and mixup data augmentation; normalized RGB tensor scaling [0, 1].",
-        architecture: "Input Frame (640x640x3) -> CSP-Darknet53 Backbone -> Feature Pyramid Network (PAN-FPN Neck) -> Decoupled Detection Head (Classification + Regression) -> Vectorized NMS (IoU Threshold: 0.45) -> HUD Overlay Canvas",
-        metricsTable: [
-          { metric: "Mean Average Precision (mAP @ 0.50)", value: "0.784", benchmark: "0.720 (YOLOv5s)" },
-          { metric: "Precision Score", value: "91.2%", benchmark: "86.4% (Baseline)" },
-          { metric: "Recall Score", value: "88.5%", benchmark: "83.1% (Baseline)" },
-          { metric: "Inference Latency (Nvidia GPU)", value: "22ms (~45 FPS)", benchmark: "48ms (SSD-MobileNet)" }
-        ],
-        limitations: "Occasional occluded bounding box jitter under extreme low-light motion blur; small distant objects (<15px) have lower recall.",
-        futureWork: "Implementing DeepSORT multi-object tracking to assign persistent trajectory IDs and integrating ByteTrack for occluded object continuity."
-      },
-      architecture: "Camera Stream -> Frame Preprocessing (640x640) -> YOLOv8 CSP-Darknet Backbone -> Anchor-Free Detection Head -> Non-Maximum Suppression -> Telemetry HUD Canvas",
-      results: "Maintained 45+ FPS real-time detection on standard GPUs with 91.2% precision and sub-22ms frame processing.",
-      learnings: "Memory buffer optimization in OpenCV, thread pooling for camera stream capture, and quantization techniques for neural networks."
-    },
-    {
-      id: "exoplanet-detection",
-      title: "Exoplanet Detection AI",
-      subtitle: "AI model to detect exoplanets from NASA Kepler/TESS data",
-      category: "Hackathons",
-      tags: ["Hackathon", "Deep Learning", "Astronomy"],
-      image: projectExoplanetImg,
-      featured: true,
-      hasLiveDemo: true,
-      demoUrl: "https://github.com/snehithraj-1",
-      githubUrl: "https://github.com/snehithraj-1/Exoplanet-Detection-AI",
-      shortDescription: "AI model developed for NASA Space Apps Challenge 2024 to detect exoplanet transits from Kepler/TESS astronomical light curves.",
-      stats: [
-        { value: "NASA", label: "Space Apps 2024" },
-        { value: "96.2%", label: "Validation AUC" },
-        { value: "10k+", label: "Light Curves Analyzed" }
-      ],
-      keyFeatures: [
-        "Photometric light curve detrending and stellar flare removal with Lightkurve & Astropy",
-        "Box Least Squares (BLS) periodogram search for candidate orbital period determination",
-        "Phase folding and dual-view binning (Global transit view + Zoomed local transit dip view)",
-        "1D Convolutional Neural Network with dilated filters to capture periodic transit flux dips",
-        "Rejection filter for eclipsing binary stars, background centroid shifts, and cosmic ray glitches",
-        "Interactive transit curve visualizer with planetary radius and orbital period estimates"
-      ],
-      techStack: ["Python", "TensorFlow", "Keras", "Lightkurve", "Astropy", "Pandas", "Streamlit"],
-      
-      // Case Study In-Depth Data
-      caseStudy: {
-        problemStatement: "NASA's Kepler and TESS missions produced petabytes of stellar brightness measurements. Manual human vetting of transit signals cannot keep pace with data ingestion, and over 75% of initial transit candidates are false positives caused by stellar variability and instrumental artifacts.",
-        objectives: [
-          "Automate transit candidate vetting from raw Kepler Threshold Crossing Events (TCEs).",
-          "Achieve >95% AUC-ROC to minimize missing genuine Earth-sized habitable zone candidates.",
-          "Distinguish planetary transit dips from astronomical false alarms (eclipsing binary stars)."
-        ],
-        dataset: {
-          name: "NASA Kepler Threshold Crossing Events (TCE) Q1-Q17 Dataset",
-          source: "NASA Exoplanet Archive (Kepler DR25 Pipeline)",
-          size: "15,000+ vetted transit events; 3,600+ confirmed exoplanets, 9,000+ false alarms and binaries",
-          split: "80% Training (12,000 TCEs), 10% Validation (1,500 TCEs), 10% Test (1,500 TCEs)"
-        },
-        preprocessing: "Flux normalization; spline median detrending to eliminate long-term stellar activity; phase folding by candidate period; generation of global view (2,001 points) and zoomed transit view (201 points) light curves.",
-        architecture: "Dual-Branch 1D CNN: Global Light Curve (2001 bins) -> Conv1D(16, 5) -> MaxPool -> Conv1D(32, 5) | Local Transit View (201 bins) -> Conv1D(16, 3) -> MaxPool -> Conv1D(32, 3) -> Concatenation -> Dense(512) -> Dropout(0.4) -> Sigmoid Output",
-        metricsTable: [
-          { metric: "Validation AUC-ROC", value: "96.2%", benchmark: "89.4% (Random Forest baseline)" },
-          { metric: "Overall Classification Accuracy", value: "94.8%", benchmark: "88.1% (Standard SVM)" },
-          { metric: "Precision (Confirmed Exoplanet)", value: "93.1%", benchmark: "84.5% (Baseline)" },
-          { metric: "Recall / True Positive Rate", value: "95.4%", benchmark: "86.0% (Baseline)" }
-        ],
-        limitations: "Ultra-shallow transit signals (<100 ppm dip) for small rocky planets around bright stars require high SNR; single-transit events without periodic repetition cannot be vetted by BLS alone.",
-        futureWork: "Incorporating stellar spectral type parameters (effective temperature, stellar radius) as auxiliary tabular inputs in a multimodal fusion model."
-      },
-      architecture: "Flux Time-Series -> BLS Period Search -> Phase Folding & Normalization -> Dual-Branch 1D CNN Classifier -> Transit Confidence Score",
-      results: "Achieved 96.2% AUC on Kepler Threshold Crossing Events test partition, successfully distinguishing confirmed exoplanets from astrophysical false alarms.",
-      learnings: "Astrophysical time-series feature engineering, Box Least Squares optimization, and building multi-input neural networks in TensorFlow."
+      architecture: "User Input -> CycleEngine Analytics -> Dexie.js Local Store -> Chart.js Visualization Engine -> React 19 UI",
+      results: "Engineered 5 fully functional screens with zero cloud dependencies and instant offline readiness.",
+      learnings: "Mastered IndexedDB indexed schemas with Dexie, PWA service worker caching, and interactive data visualization with Chart.js."
     },
     {
       id: "campus-trade",
-      title: "CollageBites / Campus-Trade",
-      subtitle: "College food ordering and peer marketplace platform",
-      category: "Web Apps",
-      tags: ["Web App", "Full Stack", "Flask"],
+      title: "Campus-Trade",
+      subtitle: "University Peer-to-Peer Student Marketplace",
+      category: "Full Stack",
+      tags: ["Python", "Flask", "SQLite", "JavaScript", "Full Stack"],
       image: projectEdupathImg,
       featured: true,
       hasLiveDemo: true,
       demoUrl: "https://campus-trade-blond.vercel.app",
       githubUrl: "https://github.com/snehithraj-1/Campus-trade",
-      shortDescription: "College food ordering platform and student marketplace with dedicated student, admin and delivery portals.",
+      shortDescription: "Secure campus hyperlocal marketplace for SRM University students to buy, sell, and exchange secondhand course textbooks, scientific calculators, and dorm essentials without middleman fees.",
       stats: [
-        { value: "Live", label: "Deployed" },
-        { value: "3", label: "Role Portals" },
-        { value: "100%", label: "Mobile Responsive" }
+        { value: "Live", label: "On Vercel" },
+        { value: "Zero", label: "Middleman Fees" },
+        { value: "100%", label: "Campus Verified" }
       ],
       keyFeatures: [
-        "Secure student authentication, session persistence, and role-based permissions",
-        "Real-time food ordering, cart management, and cafeteria order queue updates",
-        "Student secondhand classifieds marketplace for books, tech items, and campus essentials",
-        "Admin control dashboard for menu adjustments, inventory counts, and sales metrics"
+        "Student authentication and session persistence restricted to campus community members",
+        "Product listing management with categories (Textbooks, Electronics, Dorm Essentials, Study Supplies)",
+        "Direct peer-to-peer connection for same-day in-person campus exchanges",
+        "Relational SQLite database schema with normalized users and products tables",
+        "Mobile-first responsive design for rapid browsing between lectures"
       ],
       techStack: ["Python", "Flask", "SQLite", "JavaScript", "HTML5", "CSS3", "Vercel"],
+      caseStudy: {
+        problemStatement: "University students discard or let costly textbooks and electronics sit idle while incoming juniors pay high retail prices. General online marketplaces lack campus trust and incur shipping delays.",
+        objectives: [
+          "Eliminate middleman fees and shipping wait times through peer-to-peer campus trades.",
+          "Ensure lightweight, zero-bloat deployment hosted on serverless infrastructure.",
+          "Enable instant search and category filtering tailored to college coursework."
+        ],
+        dataset: {
+          name: "Campus Secondhand Inventory Schema",
+          source: "Relational SQLite database (schema.sql)",
+          size: "Multi-category products, student listings, condition tags",
+          embeddingModel: "Relational SQL indexing & keyword matchers",
+          vectorStore: "SQLite Relational Engine"
+        },
+        preprocessing: "Sanitized form validation, parameterized SQL statements, and dynamic category tokenization.",
+        architecture: "Student Browser -> Flask Microservice -> SQLite Relational DB -> Jinja2 / Client DOM Render",
+        metricsTable: [
+          { metric: "Transaction Fees", value: "₹0 / Free", benchmark: "15-20% (Commercial Platforms)" },
+          { metric: "Exchange Latency", value: "Same-Day On Campus", benchmark: "3-5 Days (Courier)" },
+          { metric: "Serverless Cold Start", value: "<400ms", benchmark: "2,000ms (Heavy Frameworks)" }
+        ],
+        limitations: "Currently relies on direct student communication for price negotiation rather than automated payment gateways.",
+        futureWork: "Integrating campus hostel delivery coordination and digital student ID verification."
+      },
       architecture: "Flask REST API -> SQLite Relational Schemas -> Jinja2 / Vanilla JS Dynamic Templates -> Vercel Serverless Hosting",
       results: "Over 200+ mock transactions simulated during campus sprint with zero race conditions.",
       learnings: "Database schema normalization, session security tokens, and responsive UI design without heavy front-end bloat."
     },
     {
-      id: "more-projects",
-      title: "More Projects & Algorithmic Labs",
-      subtitle: "A collection of mini projects, algorithms and experiments",
+      id: "uneeds",
+      title: "U-Needs (You Needs)",
+      subtitle: "Campus Peer Delivery & Hostel Errand Platform",
       category: "Web Apps",
-      tags: ["Ongoing", "Explorations"],
-      image: projectSmartvisionImg,
-      featured: false,
+      tags: ["React", "TypeScript", "Logistics", "Tailwind CSS"],
+      image: projectUneedsImg,
+      featured: true,
       hasLiveDemo: true,
-      demoUrl: "https://github.com/snehithraj-1/DSA-CPP",
-      githubUrl: "https://github.com/snehithraj-1/DSA-CPP",
-      shortDescription: "A collection of mini projects and experiments including C++ algorithms, LeetCode competitive solutions, and utilities.",
+      demoUrl: "https://uneeds-ten.vercel.app",
+      githubUrl: "https://github.com/snehithraj-1/uneeds",
+      shortDescription: "Hyperlocal campus peer delivery web application connecting busy hostel students with student campus helpers for cafeteria orders, groceries, and urgent errand fulfillment.",
       stats: [
-        { value: "150+", label: "LeetCode Solved" },
-        { value: "C++", label: "Optimized STL" },
-        { value: "Open", label: "Source" }
+        { value: "4", label: "User Roles" },
+        { value: "OTP", label: "Safe Handover" },
+        { value: "Live", label: "Vercel Deployed" }
       ],
       keyFeatures: [
-        "High-performance C++ implementation of graphs, trees, dynamic programming, and heaps",
-        "Contact Book CLI and dual-mode Python GUI app",
-        "YOU NEEDS campus peer-delivery prototype in React 19 & TypeScript",
-        "Full test coverage, algorithmic benchmarking, and detailed README writeups"
+        "Role-based multi-dashboard supporting Hostelers, Campus Helpers, Agents, and Admins",
+        "Dynamic errand request creation with item lists, estimated budgets, and service tips",
+        "OTP-verified handover workflow ensuring funds are only released upon confirmed delivery",
+        "In-app peer messaging and order status pipeline (Open -> Accepted -> Picked Up -> Delivered)",
+        "Interactive campus location mapping and transparent wallet transaction ledgers"
       ],
-      techStack: ["C++", "Python", "Data Structures", "Algorithms", "Git"],
+      techStack: ["React", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
+      caseStudy: {
+        problemStatement: "Hostel residents frequently face late-night curfews, exam crunch times, or illness preventing them from fetching cafeteria food, pharmacy essentials, or printouts across large university campuses.",
+        objectives: [
+          "Create an incentivized student gig network where free students run errands for peers.",
+          "Implement trust protocols including OTP handover and verified campus profiles.",
+          "Provide a frictionless mobile interface with real-time status telemetry."
+        ],
+        dataset: {
+          name: "Campus Errand & Logistics Telemetry Schema",
+          source: "U-Needs Types & Mock Data Engine",
+          size: "Hostel order entries, delivery statuses, transaction logs, admin alerts",
+          embeddingModel: "State machine order lifecycle router",
+          vectorStore: "Client State & Distributed Storage"
+        },
+        preprocessing: "Role entitlement verification, item price aggregation, and delivery status transitions.",
+        architecture: "Hosteler Request -> State Router -> Helper Notification -> OTP Handover -> Wallet Settlement",
+        metricsTable: [
+          { metric: "Delivery Turnaround", value: "<25 mins", benchmark: "60+ mins (External Delivery)" },
+          { metric: "Handover Security", value: "OTP Verified", benchmark: "Unverified Drop-off" },
+          { metric: "Interface Response", value: "60 FPS", benchmark: "Standard Web Apps" }
+        ],
+        limitations: "Peak order volume during exam weeks requires higher helper availability incentives.",
+        futureWork: "Integrating live GPS tracker beacons and automated campus cafeteria menu scrapers."
+      },
+      architecture: "React & TypeScript Frontend -> Order State Pipeline -> OTP Verification Engine -> Vercel Edge Hosting",
+      results: "Built end-to-end 4-role system with live order tracking and instant OTP settlement.",
+      learnings: "State machine design for delivery lifecycles, TypeScript domain modeling, and responsive mobile UX."
+    },
+    {
+      id: "contact-book",
+      title: "Contact Book Application",
+      subtitle: "Cross-Platform Web & Python CLI Contact Manager",
+      category: "Full Stack",
+      tags: ["Python", "JavaScript", "HTML5", "CSS3"],
+      image: projectSmartvisionImg,
+      featured: true,
+      hasLiveDemo: true,
+      demoUrl: "https://campus-trade-522i.vercel.app",
+      githubUrl: "https://github.com/snehithraj-1/Contact-book-web-application",
+      shortDescription: "Dual-mode contact management system offering an interactive modern web dashboard alongside a Python CLI/Tkinter utility for creating, updating, searching, and managing contacts.",
+      stats: [
+        { value: "Dual", label: "Web & Python CLI" },
+        { value: "Instant", label: "Prefix Search" },
+        { value: "Live", label: "Vercel Hosted" }
+      ],
+      keyFeatures: [
+        "Real-time instant contact search filtering by name, phone, or email prefix",
+        "Dual runtime architecture: Web application on Vercel and native Python CLI/GUI script",
+        "Clean form validation for email patterns, phone formats, and address tags",
+        "Lightweight zero-dependency architecture for instant page load and zero bloat"
+      ],
+      techStack: ["Python", "JavaScript", "HTML5", "CSS3", "Vercel"],
+      architecture: "Client Web Interface & Python CLI -> Local JSON / SQLite Store -> Search Filter Engine",
+      results: "Deployed fast, accessible contact management utility running both in terminal and modern browsers.",
+      learnings: "DOM manipulation, keyboard event shortcuts, and Python file I/O record persistence."
+    },
+    {
+      id: "dsa-cpp",
+      title: "DSA & Problem Solving in C++",
+      subtitle: "High-Performance Algorithms & LeetCode Repository",
+      category: "Core CS",
+      tags: ["C++", "DSA", "Algorithms", "Competitive Programming"],
+      image: projectWaterImg,
+      featured: false,
+      hasLiveDemo: true,
+      demoUrl: "https://leetcode.com/u/hcdiMGr9EW/",
+      githubUrl: "https://github.com/snehithraj-1/DSA-CPP",
+      shortDescription: "Comprehensive repository of optimized C++ solutions covering fundamental data structures, array manipulation, matrix transformation, and competitive programming challenges.",
+      stats: [
+        { value: "150+", label: "Problems Solved" },
+        { value: "C++", label: "Optimized STL" },
+        { value: "O(1)", label: "Space Optimized" }
+      ],
+      keyFeatures: [
+        "Optimal time and space complexity implementations in modern C++ (STL)",
+        "Matrix zeroing in-place transformation, two-pointer techniques, and monotonic stacks",
+        "Structured problem categories: Arrays, Searching, Sorting, and LeetCode classics",
+        "Clean modular code structure with descriptive variable names and edge-case handling"
+      ],
+      techStack: ["C++", "STL", "Data Structures", "Algorithms", "Git"],
       architecture: "Modular C++ Header Libraries -> Standard Template Library (STL) -> Automated LeetCode Verification",
       results: "Consistent top-tier runtime performance on competitive coding platforms.",
       learnings: "Memory management, cache locality in modern C++, and asymptotic optimization under strict memory bounds."
+    },
+    {
+      id: "interactive-portfolio",
+      title: "Interactive 3D Portfolio & WebGL Core",
+      subtitle: "Production Developer Showcase with Web Audio & Particle Physics",
+      category: "Web Apps",
+      tags: ["React 19", "WebGL", "Canvas API", "Web Audio API"],
+      image: heroCosmicImg,
+      featured: false,
+      hasLiveDemo: true,
+      demoUrl: "https://snehithrajportfolio.vercel.app",
+      githubUrl: "https://github.com/snehithraj-1/Snehithrajportfolio",
+      shortDescription: "Production-grade portfolio featuring a 60 FPS WebGL neural particle canvas, 3D mouse parallax cards, interactive audio synthesizer, and terminal emulator.",
+      stats: [
+        { value: "60 FPS", label: "Canvas Engine" },
+        { value: "Audio", label: "Synthesizer" },
+        { value: "100%", label: "Responsive" }
+      ],
+      keyFeatures: [
+        "Real-time WebGL neural particle canvas with distance-based synaptic connecting lines",
+        "Mathematical 3D perspective mouse-tilt cards with specular light reflection highlights",
+        "Synthesized Web Audio API sound engine providing haptic audio feedback on user interactions",
+        "Embedded cyber terminal emulator supporting system commands and interactive skill inspection modals"
+      ],
+      techStack: ["React 19", "JavaScript ES6+", "HTML5 Canvas", "Web Audio API", "Vite"],
+      architecture: "React 19 Single Page App -> HTML5 Canvas Particle Engine -> Web Audio Synthesizer -> Vercel Edge CDN",
+      results: "100% Lighthouse performance and silky smooth 60 FPS animations across desktop and mobile devices.",
+      learnings: "Canvas optimization, audio buffer synthesis, and accessible dark mode design systems."
     }
   ],
 
@@ -766,15 +737,15 @@ Equipping yourself with the right tools transforms daily coding from a slog into
     
     skills: "VERIFIED TECHNICAL SKILLS:\n[1] Programming: Python, C++, Java, JavaScript, HTML5\n[2] AI / ML: TensorFlow, PyTorch, Scikit-learn, OpenCV, NumPy, Pandas, Keras, LangChain\n[3] Web Development: React, Node.js, Express.js, Flask, Tailwind CSS, Next.js, SQLite, Supabase\n[4] Tools & DevOps: Git, GitHub, Docker, Linux, VS Code, Figma, Postman, Ollama",
     
-    projects: "FLAGSHIP ENGINEERING PROJECTS:\n[1] EduPath AI: Multilingual Career Guidance Chatbot for Rural Students\n[2] Water Quality Classification: Quantum Machine Learning prediction\n[3] SmartVision AI: Real-time object detection & computer vision HUD\n[4] Exoplanet Detection AI: NASA Space Apps 2024 light curve pipeline\n[5] CollageBites / Campus-Trade: Hyperlocal university food ordering & marketplace\n[6] DSA-CPP: 150+ LeetCode C++ algorithms & libraries",
+    projects: "FLAGSHIP ENGINEERING PROJECTS:\n[1] Cycle-Care: Menstrual Health & Cycle Tracker Progressive Web App (PWA)\n[2] Campus-Trade: Hyperlocal university marketplace for SRM AP students\n[3] U-Needs: Campus peer delivery & hostel errand network\n[4] Contact Book App: Dual-interface Web & Python CLI contact manager\n[5] DSA-CPP: 150+ LeetCode C++ algorithms & problem solving\n[6] Interactive 3D Portfolio: 60 FPS WebGL neural particle developer showcase",
     
-    research: "RESEARCH WORK:\n• Quantum Machine Learning for Water Quality Classification (PennyLane + Scikit-Learn)\n• Exoplanet Detection using AI (NASA Space Apps 2024)\n• Smart Crop Advisory System (Agritech AI)\n• AI for Environmental Monitoring (Computer Vision)",
+    research: "RESEARCH & TECHNICAL AREAS:\n• Progressive Web Apps & Client-Side Offline Database Architectures (Dexie / IndexedDB)\n• Full-Stack REST Microservices (Python Flask, SQLite, Jinja2)\n• Campus Hyperlocal Peer Logistics & Order State Machines\n• Algorithmic Problem Solving & Modern C++ STL Optimization",
     
-    blog: "BLOG & LEARNINGS:\n• Building a Chatbot with Flask and LLMs (Sep 2024)\n• Getting Started with Machine Learning (Oct 2024)\n• My Hackathon Experience at NASA Space Apps (Sep 2024)\n• How I Approach a Research Project (Aug 2024)\n• Top Tools I Use as a Student Developer (Aug 2024)",
+    blog: "BLOG & LEARNINGS:\n• Building Offline-First PWAs with React and Dexie.js\n• Deploying Python Flask Microservices on Serverless Vercel\n• State Machine Design for Peer Delivery Networks\n• Modern C++ STL Optimization Strategies for LeetCode",
 
-    achievements: "ACHIEVEMENTS & EXPERIENCE:\n• NASA Space Apps Challenge 2024 - Built Exoplanet Detection AI\n• MIND SPRINT - 2K25 - Finalist\n• Smart India Hackathon - Research & Development\n• Certifications in Machine Learning & Full Stack Architecture\n• YouTube Content Creator (@codewithraj-k7s)",
+    achievements: "ACHIEVEMENTS & EXPERIENCE:\n• Creator of Cycle-Care PWA, Campus-Trade, and U-Needs platforms\n• 150+ Algorithmic Challenges Solved on LeetCode in C++\n• YouTube Content Creator (@codewithraj-k7s)\n• B.Tech CSE at SRM University AP (CGPA: 8.44)",
 
-    contact: "COMMUNICATION & PROFILES:\n• GitHub: https://github.com/snehithraj-1\n• LinkedIn: https://www.linkedin.com/in/snehithraj-gaddam-454852322/\n• LeetCode: https://leetcode.com/u/hcdiMGr9EW/\n• YouTube: https://www.youtube.com/@codewithraj-k7s\n• Location: SRM University AP, Andhra Pradesh, India",
+    contact: "COMMUNICATION & PROFILES:\n• Email: snehithraj007@gmail.com\n• GitHub: https://github.com/snehithraj-1\n• LinkedIn: https://www.linkedin.com/in/snehithraj-gaddam-454852322/\n• LeetCode: https://leetcode.com/u/hcdiMGr9EW/\n• YouTube: https://www.youtube.com/@codewithraj-k7s\n• Location: SRM University AP, Andhra Pradesh, India",
     
     resume: "RESUME ACTION:\nOpening resume credentials modal. Click 'Download PDF Resume' to access the PDF file."
   }

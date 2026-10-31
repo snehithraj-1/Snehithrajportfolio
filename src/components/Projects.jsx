@@ -11,13 +11,15 @@ export default function Projects() {
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [activeProject, setActiveProject] = useState(null);
 
-  const filters = ["All", "AI/ML", "Generative AI", "Computer Vision", "Research", "Hackathons", "Web Apps"];
+  const filters = ["All", "Web Apps", "Full Stack", "TypeScript", "Python", "C++ / DSA"];
 
   const filteredProjects = projects.filter((project) => {
     if (selectedFilter === "All") return true;
-    if (selectedFilter === "Generative AI") return project.tags.includes("Generative AI") || project.category === "Generative AI";
-    if (selectedFilter === "Web Apps") return project.category === "Web Apps" || project.tags.includes("Web App");
-    if (selectedFilter === "Hackathons") return project.category === "Hackathons" || project.tags.includes("Hackathon");
+    if (selectedFilter === "Web Apps") return project.category === "Web Apps" || project.tags.includes("Web Apps") || project.tags.includes("PWA");
+    if (selectedFilter === "Full Stack") return project.category === "Full Stack" || project.tags.includes("Full Stack");
+    if (selectedFilter === "TypeScript") return project.tags.includes("TypeScript");
+    if (selectedFilter === "Python") return project.tags.includes("Python");
+    if (selectedFilter === "C++ / DSA") return project.category === "Core CS" || project.tags.includes("C++") || project.tags.includes("DSA");
     return project.category === selectedFilter || project.tags.includes(selectedFilter);
   });
 
@@ -51,6 +53,7 @@ export default function Projects() {
 
         {/* Filter Chips matching Screen 4 */}
         <div
+          className="filter-chips-row"
           style={{
             display: "flex",
             flexWrap: "wrap",

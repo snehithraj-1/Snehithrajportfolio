@@ -47,6 +47,7 @@ export default function Achievements() {
 
         {/* Category Tabs matching Screen 8 */}
         <div
+          className="filter-chips-row"
           style={{
             display: "flex",
             flexWrap: "wrap",

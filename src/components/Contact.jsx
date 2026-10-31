@@ -18,12 +18,16 @@ export default function Contact() {
     soundFX.playClick();
     setIsSubmitting(true);
 
+    const mailSubject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
+    const mailBody = encodeURIComponent(`Hello Snehith,\n\n${formData.message}\n\n--\nFrom: ${formData.name}\nEmail: ${formData.email}`);
+    window.location.href = `mailto:${personal.email}?subject=${mailSubject}&body=${mailBody}`;
+
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
       soundFX.playSuccess();
       setFormData({ name: "", email: "", message: "" });
-    }, 800);
+    }, 600);
   };
 
   return (
@@ -138,7 +142,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <span style={{ fontSize: "0.72rem", color: "var(--text-muted)", display: "block" }}>LinkedIn</span>
-                  <span style={{ fontSize: "0.9rem", color: "#ffffff", fontWeight: 600 }}>linkedin.com/in/snehithraj</span>
+                  <span style={{ fontSize: "0.9rem", color: "#ffffff", fontWeight: 600 }}>linkedin.com/in/snehithraj-gaddam</span>
                 </div>
               </a>
 

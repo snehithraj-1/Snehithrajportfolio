@@ -3,18 +3,6 @@ import {
   X,
   ExternalLink,
   CheckCircle2,
-  Send,
-  Sparkles,
-  Sliders,
-  Play,
-  RotateCcw,
-  Activity,
-  Layers,
-  Database,
-  ShieldCheck,
-  Cpu,
-  BarChart2,
-  AlertTriangle,
 } from "lucide-react";
 import { GithubIcon } from "./Icons";
 import { soundFX } from "../utils/audioFX";
@@ -22,42 +10,20 @@ import { soundFX } from "../utils/audioFX";
 export default function ProjectDetailsModal({ project, onClose }) {
   const [activeTab, setActiveTab] = useState("overview");
 
-  // State for EduPath AI Chat Simulator
-  const [chatMessages, setChatMessages] = useState([
-    {
-      sender: "bot",
-      text: "Namaste! I am EduPath AI. I can guide you through AI/ML careers, higher education roadmaps, and scholarships in English, Telugu, or Hindi. What would you like to explore today?",
-    },
-    {
-      sender: "user",
-      text: "I am a 3rd-year CS student interested in AI Engineering. What skills should I master first?",
-    },
-    {
-      sender: "bot",
-      text: "Great career target! Focus on: 1. Strong Python & Vectorized NumPy. 2. Supervised Learning & Scikit-learn. 3. PyTorch for Deep Learning & CNNs. 4. RAG pipelines with LangChain & Vector DBs. 5. FastAPI microservice deployment.",
-    },
-  ]);
-  const [userInput, setUserInput] = useState("");
-
-  // State for Water Quality Simulator
-  const [waterParams, setWaterParams] = useState({
-    ph: 7.2,
-    hardness: 195,
-    chloramines: 7.1,
-    sulfate: 330,
-  });
-
-  // State for SmartVision Telemetry Simulator
-  const [visionScene, setVisionScene] = useState("campus");
-  const [visionDetecting, setVisionDetecting] = useState(true);
-
-  // State for Exoplanet Transit Inspector
-  const [exoplanetCandidate, setExoplanetCandidate] = useState("kepler186f");
-  const [phaseFold, setPhaseFold] = useState(0.5);
+  // State for CycleCare Simulator
+  const [cycleDay, setCycleDay] = useState(14);
+  const [loggedSymptom, setLoggedSymptom] = useState("High Energy");
 
   // State for Campus-Trade Simulator
   const [tradeRole, setTradeRole] = useState("student");
   const [escrowStep, setEscrowStep] = useState(2);
+
+  // State for U-Needs Delivery Simulator
+  const [uneedsRole, setUneedsRole] = useState("hosteler");
+  const [orderStage, setOrderStage] = useState(2);
+
+  // State for Contact Book Simulator
+  const [contactSearch, setContactSearch] = useState("");
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -69,564 +35,402 @@ export default function ProjectDetailsModal({ project, onClose }) {
 
   if (!project) return null;
 
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    if (!userInput.trim()) return;
-
-    soundFX.playClick();
-    const newMsg = { sender: "user", text: userInput };
-    const promptText = userInput.toLowerCase();
-    setUserInput("");
-
-    setChatMessages((prev) => [...prev, newMsg]);
-
-    setTimeout(() => {
-      soundFX.playSuccess();
-      let reply =
-        "That's a vital question. For modern AI/ML roles, having strong problem-solving skills (DSA in C++), empirical modeling experience, and deployed demo applications creates a competitive edge.";
-      if (promptText.includes("telugu") || promptText.includes("తెలుగు")) {
-        reply =
-          "మీరు అడిగిన ప్రశ్నకు సమాధానం: AI/ML మరియు Deep Learning రంగాలలో పరిశోధన మరియు ప్రాక్టికల్ ప్రాజెక్ట్‌ల అనుభవం ఉద్యోగ అవకాశాలను మెరుగుపరుస్తుంది!";
-      } else if (promptText.includes("hindi") || promptText.includes("हिंदी")) {
-        reply =
-          "आपके प्रश्न का उत्तर: मशीन लर्निंग, पायथन और डीप लर्निंग में प्रोजेक्ट्स बनाकर आप बेहतरीन तकनीकी अवसर प्राप्त कर सकते हैं।";
-      } else if (promptText.includes("roadmap") || promptText.includes("learn")) {
-        reply =
-          "Recommended 3-step roadmap: Step 1 - Linear algebra, calculus & Scikit-learn. Step 2 - Deep Learning architectures (CNNs/Transformers) in PyTorch. Step 3 - Containerized REST APIs with Docker & FastAPI.";
-      }
-
-      setChatMessages((prev) => [...prev, { sender: "bot", text: reply }]);
-    }, 600);
-  };
-
   const tabs = [
     { id: "overview", label: "Overview & Objectives" },
     { id: "architecture", label: "Architecture & Pipeline" },
-    { id: "dataset", label: "Dataset & Preprocessing" },
-    { id: "metrics", label: "Evaluation & Benchmarks" },
-    { id: "learnings", label: "Challenges & Limitations" },
+    { id: "dataset", label: "Data Schema & Design" },
+    { id: "metrics", label: "Benchmarks & Impact" },
+    { id: "learnings", label: "Key Learnings & Future Work" },
   ];
 
   // Render Project-Specific Interactive Simulator
   const renderInteractiveDemo = () => {
-    if (project.id === "edupath-ai") {
+    // 1. Cycle-Care Simulator
+    if (project.id === "cycle-care") {
+      let phaseName = "Menstrual Phase";
+      let fertility = "Low Fertility";
+      let phaseColor = "#f43f5e";
+      let estrogen = 25;
+      let progesterone = 15;
+
+      if (cycleDay >= 6 && cycleDay <= 11) {
+        phaseName = "Follicular Phase";
+        fertility = "Moderate (Opening Window)";
+        phaseColor = "#38bdf8";
+        estrogen = 70;
+        progesterone = 20;
+      } else if (cycleDay >= 12 && cycleDay <= 16) {
+        phaseName = "Ovulation Window";
+        fertility = "Peak Fertility (LH Surge)";
+        phaseColor = "#a855f7";
+        estrogen = 95;
+        progesterone = 50;
+      } else if (cycleDay >= 17) {
+        phaseName = "Luteal Phase";
+        fertility = "Low Fertility";
+        phaseColor = "#eab308";
+        estrogen = 45;
+        progesterone = 85;
+      }
+
       return (
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          {/* Chat Simulator Content */}
-          <div
-            style={{
-              padding: "1.25rem",
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.85rem",
-              minHeight: "220px",
-              maxHeight: "260px",
-              overflowY: "auto",
-              background: "radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.6) 0%, rgba(8, 12, 20, 0.95) 100%)",
-            }}
-          >
-            {chatMessages.map((msg, idx) => (
-              <div
-                key={idx}
-                style={{
-                  display: "flex",
-                  justifyContent: msg.sender === "user" ? "flex-end" : "flex-start",
-                }}
-              >
-                <div
-                  style={{
-                    maxWidth: "80%",
-                    padding: "0.75rem 1rem",
-                    borderRadius: msg.sender === "user" ? "14px 14px 4px 14px" : "14px 14px 14px 4px",
-                    background:
-                      msg.sender === "user"
-                        ? "linear-gradient(135deg, #0284c7 0%, #2563eb 100%)"
-                        : "rgba(30, 41, 59, 0.8)",
-                    color: "#ffffff",
-                    fontSize: "0.88rem",
-                    lineHeight: 1.5,
-                    border: msg.sender === "user" ? "none" : "1px solid rgba(255, 255, 255, 0.1)",
-                  }}
-                >
-                  {msg.text}
-                </div>
-              </div>
-            ))}
+        <div style={{ padding: "1.25rem", background: "rgba(8, 12, 20, 0.9)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
+            <span style={{ fontSize: "0.82rem", color: "var(--text-secondary)", fontFamily: "var(--font-mono)" }}>
+              INTERACTIVE CYCLE TELEMETRY • CLIENT-SIDE DEXIE.JS
+            </span>
+            <span style={{ fontSize: "0.78rem", color: "var(--emerald-neon)", fontFamily: "var(--font-mono)" }}>
+              ● 100% Offline-First IndexedDB
+            </span>
           </div>
 
-          {/* Quick Prompts Bar */}
+          <div style={{ marginBottom: "1rem" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.85rem", color: "#ffffff", marginBottom: "0.35rem" }}>
+              <span>Simulate Cycle Day: <strong style={{ color: "var(--cyan-neon)" }}>Day {cycleDay} of 28</strong></span>
+              <span style={{ fontWeight: 700, color: phaseColor }}>{phaseName}</span>
+            </div>
+            <input
+              type="range"
+              min="1"
+              max="28"
+              value={cycleDay}
+              onChange={(e) => setCycleDay(parseInt(e.target.value))}
+              style={{ width: "100%", accentColor: phaseColor }}
+            />
+          </div>
+
           <div
             style={{
-              padding: "0.5rem 1.25rem",
-              background: "rgba(10, 15, 28, 0.9)",
-              borderTop: "1px solid rgba(255, 255, 255, 0.05)",
-              display: "flex",
-              gap: "0.5rem",
-              overflowX: "auto",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+              gap: "0.75rem",
+              marginBottom: "1rem",
             }}
           >
-            {[
-              "AI Engineer Roadmap?",
-              "Scholarships for Rural CS?",
-              "తెలుగులో కెరీర్ సలహా",
-            ].map((qp, idx) => (
+            <div style={{ padding: "0.75rem 1rem", borderRadius: "10px", background: "rgba(15, 23, 42, 0.7)", border: `1px solid ${phaseColor}40` }}>
+              <span style={{ fontSize: "0.72rem", color: "var(--text-muted)", display: "block" }}>FERTILITY WINDOW</span>
+              <strong style={{ fontSize: "0.92rem", color: phaseColor }}>{fertility}</strong>
+            </div>
+
+            <div style={{ padding: "0.75rem 1rem", borderRadius: "10px", background: "rgba(15, 23, 42, 0.7)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+              <span style={{ fontSize: "0.72rem", color: "var(--text-muted)", display: "block" }}>HORMONE PROFILE</span>
+              <div style={{ fontSize: "0.82rem", color: "#ffffff", display: "flex", gap: "0.8rem", marginTop: "0.15rem" }}>
+                <span>Estrogen: <strong style={{ color: "var(--cyan-neon)" }}>{estrogen}%</strong></span>
+                <span>Progesterone: <strong style={{ color: "#f59e0b" }}>{progesterone}%</strong></span>
+              </div>
+            </div>
+
+            <div style={{ padding: "0.75rem 1rem", borderRadius: "10px", background: "rgba(15, 23, 42, 0.7)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+              <span style={{ fontSize: "0.72rem", color: "var(--text-muted)", display: "block" }}>LOGGED SYMPTOM</span>
+              <strong style={{ fontSize: "0.92rem", color: "var(--emerald-neon)" }}>{loggedSymptom}</strong>
+            </div>
+          </div>
+
+          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", alignItems: "center" }}>
+            <span style={{ fontSize: "0.75rem", color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>Quick Log:</span>
+            {["High Energy", "Mild Cramps", "Deep Focus", "Rest Needed", "Hydration Checked"].map((sym) => (
               <button
-                key={idx}
+                key={sym}
                 type="button"
                 onClick={() => {
-                  setUserInput(qp);
+                  setLoggedSymptom(sym);
                   soundFX.playClick();
                 }}
                 style={{
                   padding: "0.25rem 0.65rem",
                   borderRadius: "var(--radius-full)",
-                  background: "rgba(56, 189, 248, 0.1)",
-                  border: "1px solid rgba(56, 189, 248, 0.25)",
-                  color: "var(--cyan-neon)",
+                  background: loggedSymptom === sym ? "rgba(56, 189, 248, 0.2)" : "rgba(255, 255, 255, 0.05)",
+                  border: loggedSymptom === sym ? "1px solid var(--cyan-neon)" : "1px solid rgba(255, 255, 255, 0.1)",
+                  color: loggedSymptom === sym ? "#ffffff" : "var(--text-secondary)",
                   fontSize: "0.75rem",
-                  fontFamily: "var(--font-mono)",
                   cursor: "pointer",
-                  whiteSpace: "nowrap",
                 }}
               >
-                + {qp}
+                + {sym}
               </button>
             ))}
           </div>
-
-          {/* Chat Input Box */}
-          <form
-            onSubmit={handleSendMessage}
-            style={{
-              padding: "0.75rem 1.25rem",
-              background: "rgba(15, 23, 42, 0.95)",
-              borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-              display: "flex",
-              gap: "0.75rem",
-            }}
-          >
-            <input
-              type="text"
-              value={userInput}
-              onChange={(e) => setUserInput(e.target.value)}
-              placeholder="Ask EduPath AI in English, Telugu or Hindi..."
-              style={{
-                flex: 1,
-                background: "rgba(8, 12, 20, 0.7)",
-                border: "1px solid rgba(56, 189, 248, 0.25)",
-                borderRadius: "10px",
-                padding: "0.55rem 0.9rem",
-                color: "#ffffff",
-                fontSize: "0.85rem",
-                fontFamily: "var(--font-heading)",
-                outline: "none",
-              }}
-            />
-            <button
-              type="submit"
-              style={{
-                padding: "0.55rem 1.1rem",
-                borderRadius: "10px",
-                background: "var(--cyan-neon)",
-                border: "none",
-                color: "#080c14",
-                fontWeight: 700,
-                display: "flex",
-                alignItems: "center",
-                gap: "0.4rem",
-                cursor: "pointer",
-                fontSize: "0.85rem",
-              }}
-            >
-              <span>Ask</span>
-              <Send size={14} />
-            </button>
-          </form>
         </div>
       );
     }
 
-    if (project.id === "water-quality") {
-      const isPotable =
-        waterParams.ph >= 6.5 &&
-        waterParams.ph <= 8.5 &&
-        waterParams.chloramines <= 8.0 &&
-        waterParams.sulfate <= 350;
-      const vqcScore = isPotable ? 0.92 : 0.21;
-      const rfScore = isPotable ? 0.98 : 0.08;
-
-      return (
-        <div style={{ padding: "1.5rem", background: "rgba(8, 12, 20, 0.85)" }}>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap: "1.25rem",
-              marginBottom: "1.25rem",
-            }}
-          >
-            <div>
-              <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.82rem", color: "var(--text-secondary)", marginBottom: "0.35rem" }}>
-                <span>pH Level (Safe: 6.5 - 8.5)</span>
-                <span style={{ color: "var(--cyan-neon)", fontFamily: "var(--font-mono)", fontWeight: 700 }}>{waterParams.ph}</span>
-              </div>
-              <input
-                type="range"
-                min="4"
-                max="10"
-                step="0.1"
-                value={waterParams.ph}
-                onChange={(e) => setWaterParams({ ...waterParams, ph: parseFloat(e.target.value) })}
-                style={{ width: "100%", accentColor: "var(--cyan-neon)" }}
-              />
-            </div>
-
-            <div>
-              <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.82rem", color: "var(--text-secondary)", marginBottom: "0.35rem" }}>
-                <span>Chloramines (Safe: &lt;8.0 ppm)</span>
-                <span style={{ color: "var(--cyan-neon)", fontFamily: "var(--font-mono)", fontWeight: 700 }}>{waterParams.chloramines} ppm</span>
-              </div>
-              <input
-                type="range"
-                min="2"
-                max="12"
-                step="0.2"
-                value={waterParams.chloramines}
-                onChange={(e) => setWaterParams({ ...waterParams, chloramines: parseFloat(e.target.value) })}
-                style={{ width: "100%", accentColor: "var(--cyan-neon)" }}
-              />
-            </div>
-
-            <div>
-              <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.82rem", color: "var(--text-secondary)", marginBottom: "0.35rem" }}>
-                <span>Hardness (mg/L)</span>
-                <span style={{ color: "var(--cyan-neon)", fontFamily: "var(--font-mono)", fontWeight: 700 }}>{waterParams.hardness}</span>
-              </div>
-              <input
-                type="range"
-                min="80"
-                max="320"
-                step="5"
-                value={waterParams.hardness}
-                onChange={(e) => setWaterParams({ ...waterParams, hardness: parseInt(e.target.value) })}
-                style={{ width: "100%", accentColor: "var(--cyan-neon)" }}
-              />
-            </div>
-
-            <div>
-              <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.82rem", color: "var(--text-secondary)", marginBottom: "0.35rem" }}>
-                <span>Sulfate (Safe: &lt;350 mg/L)</span>
-                <span style={{ color: "var(--cyan-neon)", fontFamily: "var(--font-mono)", fontWeight: 700 }}>{waterParams.sulfate}</span>
-              </div>
-              <input
-                type="range"
-                min="150"
-                max="450"
-                step="5"
-                value={waterParams.sulfate}
-                onChange={(e) => setWaterParams({ ...waterParams, sulfate: parseInt(e.target.value) })}
-                style={{ width: "100%", accentColor: "var(--cyan-neon)" }}
-              />
-            </div>
-          </div>
-
-          {/* Model Inference Results Bar */}
-          <div
-            style={{
-              padding: "1rem 1.25rem",
-              borderRadius: "12px",
-              background: isPotable ? "rgba(16, 185, 129, 0.12)" : "rgba(239, 68, 68, 0.12)",
-              border: isPotable ? "1px solid rgba(16, 185, 129, 0.35)" : "1px solid rgba(239, 68, 68, 0.35)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexWrap: "wrap",
-              gap: "1rem",
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-              <div
-                style={{
-                  width: "36px",
-                  height: "36px",
-                  borderRadius: "50%",
-                  background: isPotable ? "var(--emerald-neon)" : "#ef4444",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#080c14",
-                  fontWeight: 800,
-                }}
-              >
-                {isPotable ? "✓" : "✕"}
-              </div>
-              <div>
-                <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#ffffff" }}>
-                  Water Status: {isPotable ? "Potable & Safe to Drink" : "Non-Potable / Contaminated"}
-                </div>
-                <div style={{ fontSize: "0.78rem", color: "var(--text-secondary)", fontFamily: "var(--font-mono)" }}>
-                  PennyLane Angle Embedding: [RY({(waterParams.ph * 0.3).toFixed(2)}), RY({(waterParams.chloramines * 0.25).toFixed(2)})]
-                </div>
-              </div>
-            </div>
-
-            <div style={{ display: "flex", gap: "1.5rem", fontFamily: "var(--font-mono)", fontSize: "0.82rem" }}>
-              <div>
-                <span style={{ color: "var(--text-secondary)" }}>Classical RF: </span>
-                <span style={{ color: "#ffffff", fontWeight: 700 }}>{(rfScore * 100).toFixed(1)}%</span>
-              </div>
-              <div>
-                <span style={{ color: "var(--text-secondary)" }}>PennyLane VQC: </span>
-                <span style={{ color: "var(--cyan-neon)", fontWeight: 700 }}>{(vqcScore * 100).toFixed(1)}%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    if (project.id === "smartvision-ai") {
-      const scenes = {
-        campus: { title: "Campus Walkway", objects: [{ label: "Student Pedestrian", conf: "94.2%", bbox: "x: 120, y: 80, w: 90, h: 210" }, { label: "Backpack", conf: "89.1%", bbox: "x: 140, y: 130, w: 40, h: 60" }] },
-        traffic: { title: "Intersection", objects: [{ label: "Electric Vehicle", conf: "97.5%", bbox: "x: 280, y: 150, w: 220, h: 140" }, { label: "Bicycle", conf: "91.8%", bbox: "x: 80, y: 200, w: 70, h: 110" }] },
-        lab: { title: "Robotics Lab", objects: [{ label: "Laptop / Display", conf: "98.1%", bbox: "x: 180, y: 110, w: 130, h: 90" }, { label: "Robot Chassis", conf: "93.4%", bbox: "x: 350, y: 170, w: 150, h: 120" }] },
-      };
-      const curScene = scenes[visionScene];
-
-      return (
-        <div style={{ padding: "1.25rem", background: "rgba(8, 12, 20, 0.9)" }}>
-          {/* Controls Bar */}
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
-            <div style={{ display: "flex", gap: "0.5rem" }}>
-              {Object.keys(scenes).map((key) => (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => setVisionScene(key)}
-                  style={{
-                    padding: "0.3rem 0.8rem",
-                    borderRadius: "6px",
-                    background: visionScene === key ? "rgba(56, 189, 248, 0.25)" : "rgba(255, 255, 255, 0.05)",
-                    border: visionScene === key ? "1px solid var(--cyan-neon)" : "1px solid rgba(255, 255, 255, 0.1)",
-                    color: visionScene === key ? "#ffffff" : "var(--text-secondary)",
-                    fontSize: "0.78rem",
-                    fontFamily: "var(--font-mono)",
-                    cursor: "pointer",
-                  }}
-                >
-                  {scenes[key].title}
-                </button>
-              ))}
-            </div>
-
-            <div style={{ display: "flex", alignItems: "center", gap: "1rem", fontFamily: "var(--font-mono)", fontSize: "0.8rem" }}>
-              <span style={{ color: "var(--emerald-neon)" }}>● 45.2 FPS (TensorRT)</span>
-              <span style={{ color: "var(--text-secondary)" }}>Latency: 22.1ms</span>
-            </div>
-          </div>
-
-          {/* Visual Telemetry Canvas HUD */}
-          <div
-            style={{
-              height: "170px",
-              borderRadius: "10px",
-              border: "1px dashed rgba(56, 189, 248, 0.35)",
-              background: "linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(2, 6, 23, 0.95) 100%)",
-              position: "relative",
-              padding: "1rem",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-            }}
-          >
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <span style={{ fontSize: "0.75rem", fontFamily: "var(--font-mono)", color: "var(--cyan-neon)" }}>
-                INPUT: 640x640 RGB STREAM • YOLOv8 CSP-Darknet Backbone
-              </span>
-              <span style={{ fontSize: "0.75rem", fontFamily: "var(--font-mono)", color: "var(--text-secondary)" }}>
-                CONF_THRESH: 0.45
-              </span>
-            </div>
-
-            {/* Simulated Bounding Boxes */}
-            <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-              {curScene.objects.map((obj, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    padding: "0.5rem 0.85rem",
-                    borderRadius: "6px",
-                    background: "rgba(56, 189, 248, 0.12)",
-                    border: "1px solid var(--cyan-neon)",
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "0.8rem",
-                  }}
-                >
-                  <div style={{ color: "#ffffff", fontWeight: 700 }}>
-                    {obj.label} — <span style={{ color: "var(--emerald-neon)" }}>{obj.conf}</span>
-                  </div>
-                  <div style={{ fontSize: "0.72rem", color: "var(--text-secondary)" }}>
-                    BBox: [{obj.bbox}]
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ fontSize: "0.72rem", color: "var(--text-muted)", fontFamily: "var(--font-mono)" }}>
-              Vectorized NMS filter eliminated 14 overlapping anchor candidates.
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    if (project.id === "exoplanet-detection") {
-      const candidates = {
-        kepler186f: { name: "Kepler-186f", period: "129.9 Days", depth: "512 ppm", score: "97.4%", label: "Confirmed Earth-Sized Exoplanet" },
-        kepler452b: { name: "Kepler-452b", period: "384.8 Days", depth: "210 ppm", score: "96.1%", label: "Super-Earth in Habitable Zone" },
-        binary: { name: "TCE-9832227", period: "1.2 Days", depth: "4,500 ppm", score: "4.2%", label: "Eclipsing Binary False Alarm" },
-      };
-      const cur = candidates[exoplanetCandidate];
-
+    // 2. Campus-Trade Simulator
+    if (project.id === "campus-trade") {
       return (
         <div style={{ padding: "1.25rem", background: "rgba(8, 12, 20, 0.9)" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
             <div style={{ display: "flex", gap: "0.5rem" }}>
-              {Object.keys(candidates).map((key) => (
+              {["student", "campus_seller", "admin"].map((role) => (
                 <button
-                  key={key}
+                  key={role}
                   type="button"
-                  onClick={() => setExoplanetCandidate(key)}
+                  onClick={() => {
+                    setTradeRole(role);
+                    soundFX.playClick();
+                  }}
                   style={{
                     padding: "0.3rem 0.75rem",
                     borderRadius: "6px",
-                    background: exoplanetCandidate === key ? "rgba(56, 189, 248, 0.25)" : "rgba(255, 255, 255, 0.05)",
-                    border: exoplanetCandidate === key ? "1px solid var(--cyan-neon)" : "1px solid rgba(255, 255, 255, 0.1)",
-                    color: exoplanetCandidate === key ? "#ffffff" : "var(--text-secondary)",
+                    background: tradeRole === role ? "rgba(56, 189, 248, 0.25)" : "rgba(255, 255, 255, 0.05)",
+                    border: tradeRole === role ? "1px solid var(--cyan-neon)" : "1px solid rgba(255, 255, 255, 0.1)",
+                    color: tradeRole === role ? "#ffffff" : "var(--text-secondary)",
                     fontSize: "0.78rem",
                     fontFamily: "var(--font-mono)",
+                    textTransform: "capitalize",
                     cursor: "pointer",
                   }}
                 >
-                  {candidates[key].name}
+                  {role.replace("_", " ")}
                 </button>
               ))}
             </div>
 
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", color: "var(--cyan-neon)" }}>
-              BLS Transit Period: {cur.period}
-            </div>
+            <span style={{ fontSize: "0.78rem", fontFamily: "var(--font-mono)", color: "var(--emerald-neon)" }}>
+              ● Verified SRM University AP Student Network
+            </span>
           </div>
 
-          {/* Light Curve Transit Dip Visualizer */}
           <div
             style={{
               padding: "1rem",
               borderRadius: "10px",
-              background: "#050810",
-              border: "1px solid rgba(56, 189, 248, 0.2)",
+              background: "#0a0f1d",
+              border: "1px solid rgba(56, 189, 248, 0.15)",
               display: "flex",
               flexDirection: "column",
-              gap: "0.6rem",
+              gap: "0.75rem",
             }}
           >
-            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.75rem", fontFamily: "var(--font-mono)", color: "var(--text-secondary)" }}>
-              <span>Phase Folded Flux (Detrended Kepler Photometry)</span>
-              <span>Dip Depth: {cur.depth}</span>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div style={{ fontSize: "0.85rem", color: "#ffffff", fontWeight: 600 }}>
+                Listing #CT-2041 — "Introduction to Algorithms (CLRS) 4th Edition"
+              </div>
+              <span style={{ fontSize: "0.82rem", color: "var(--cyan-neon)", fontWeight: 700 }}>₹650 (Campus Pick-up)</span>
             </div>
 
-            {/* SVG Synthetic Transit Dip */}
-            <svg width="100%" height="70" viewBox="0 0 500 70" preserveAspectRatio="none">
-              <path
-                d={
-                  exoplanetCandidate === "binary"
-                    ? "M 0 20 L 180 20 L 250 65 L 320 20 L 500 20"
-                    : "M 0 25 L 210 25 L 235 48 L 265 48 L 290 25 L 500 25"
-                }
-                fill="none"
-                stroke="var(--cyan-neon)"
-                strokeWidth="2.5"
-              />
-              <circle cx="250" cy={exoplanetCandidate === "binary" ? "65" : "48"} r="4" fill="var(--emerald-neon)" />
-            </svg>
+            <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+              {["1. Listing Active", "2. Peer Offer Made", "3. In-Person Handover", "4. Trade Completed"].map((step, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => {
+                    setEscrowStep(idx + 1);
+                    soundFX.playClick();
+                  }}
+                  style={{
+                    padding: "0.35rem 0.75rem",
+                    borderRadius: "6px",
+                    background: idx < escrowStep ? "rgba(16, 185, 129, 0.15)" : "rgba(255, 255, 255, 0.05)",
+                    border: idx < escrowStep ? "1px solid var(--emerald-neon)" : "1px solid rgba(255, 255, 255, 0.1)",
+                    color: idx < escrowStep ? "var(--emerald-neon)" : "var(--text-secondary)",
+                    fontSize: "0.75rem",
+                    fontFamily: "var(--font-mono)",
+                    cursor: "pointer",
+                  }}
+                >
+                  {step}
+                </button>
+              ))}
+            </div>
 
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid rgba(255, 255, 255, 0.08)", paddingTop: "0.5rem" }}>
-              <span style={{ fontSize: "0.82rem", color: "#ffffff", fontWeight: 600 }}>
-                1D CNN Vetting Result: <span style={{ color: cur.score > "50%" ? "var(--emerald-neon)" : "#ef4444" }}>{cur.label}</span>
+            <p style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>
+              Direct student communication avoids retail markups and shipping delays with same-day handoffs.
+            </p>
+          </div>
+        </div>
+      );
+    }
+
+    // 3. U-Needs Delivery Simulator
+    if (project.id === "uneeds") {
+      return (
+        <div style={{ padding: "1.25rem", background: "rgba(8, 12, 20, 0.9)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              {["hosteler", "campus_helper", "admin"].map((r) => (
+                <button
+                  key={r}
+                  type="button"
+                  onClick={() => {
+                    setUneedsRole(r);
+                    soundFX.playClick();
+                  }}
+                  style={{
+                    padding: "0.3rem 0.75rem",
+                    borderRadius: "6px",
+                    background: uneedsRole === r ? "rgba(56, 189, 248, 0.25)" : "rgba(255, 255, 255, 0.05)",
+                    border: uneedsRole === r ? "1px solid var(--cyan-neon)" : "1px solid rgba(255, 255, 255, 0.1)",
+                    color: uneedsRole === r ? "#ffffff" : "var(--text-secondary)",
+                    fontSize: "0.78rem",
+                    fontFamily: "var(--font-mono)",
+                    textTransform: "capitalize",
+                    cursor: "pointer",
+                  }}
+                >
+                  {r.replace("_", " ")}
+                </button>
+              ))}
+            </div>
+
+            <span style={{ fontSize: "0.78rem", fontFamily: "var(--font-mono)", color: "var(--emerald-neon)" }}>
+              ● Live Errand Dispatcher
+            </span>
+          </div>
+
+          <div
+            style={{
+              padding: "1rem",
+              borderRadius: "10px",
+              background: "#070c18",
+              border: "1px solid rgba(56, 189, 248, 0.15)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.75rem",
+            }}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div style={{ fontSize: "0.85rem", color: "#ffffff", fontWeight: 600 }}>
+                Delivery Request #UN-782: "Hostel Block A - Cafeteria Late Snack"
+              </div>
+              <span style={{ fontSize: "0.78rem", color: "var(--emerald-neon)", fontFamily: "var(--font-mono)" }}>
+                OTP: 8492
               </span>
-              <span style={{ fontSize: "0.85rem", fontFamily: "var(--font-mono)", color: "var(--cyan-neon)", fontWeight: 700 }}>
-                Exoplanet Probability: {cur.score}
-              </span>
+            </div>
+
+            <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+              {["1. Order Placed", "2. Helper Accepted", "3. Items Picked Up", "4. OTP Verified"].map((stg, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => {
+                    setOrderStage(idx + 1);
+                    soundFX.playClick();
+                  }}
+                  style={{
+                    padding: "0.3rem 0.65rem",
+                    borderRadius: "6px",
+                    background: idx < orderStage ? "rgba(16, 185, 129, 0.15)" : "rgba(255, 255, 255, 0.05)",
+                    border: idx < orderStage ? "1px solid var(--emerald-neon)" : "1px solid rgba(255, 255, 255, 0.1)",
+                    color: idx < orderStage ? "var(--emerald-neon)" : "var(--text-secondary)",
+                    fontSize: "0.75rem",
+                    fontFamily: "var(--font-mono)",
+                    cursor: "pointer",
+                  }}
+                >
+                  {stg}
+                </button>
+              ))}
             </div>
           </div>
         </div>
       );
     }
 
-    // Default / Campus-Trade Simulator
-    return (
-      <div style={{ padding: "1.25rem", background: "rgba(8, 12, 20, 0.9)" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
-          <div style={{ display: "flex", gap: "0.5rem" }}>
-            {["student", "cafeteria_admin", "delivery"].map((role) => (
-              <button
-                key={role}
-                type="button"
-                onClick={() => setTradeRole(role)}
-                style={{
-                  padding: "0.3rem 0.75rem",
-                  borderRadius: "6px",
-                  background: tradeRole === role ? "rgba(56, 189, 248, 0.25)" : "rgba(255, 255, 255, 0.05)",
-                  border: tradeRole === role ? "1px solid var(--cyan-neon)" : "1px solid rgba(255, 255, 255, 0.1)",
-                  color: tradeRole === role ? "#ffffff" : "var(--text-secondary)",
-                  fontSize: "0.78rem",
-                  fontFamily: "var(--font-mono)",
-                  textTransform: "capitalize",
-                  cursor: "pointer",
-                }}
-              >
-                {role.replace("_", " ")}
-              </button>
-            ))}
+    // 4. Contact Book Simulator
+    if (project.id === "contact-book") {
+      const sampleContacts = [
+        { name: "SRM Computer Science Dept", phone: "+91 863 2343000", tag: "Academic" },
+        { name: "Campus Health Center", phone: "+91 863 2343111", tag: "Emergency" },
+        { name: "Hostel Warden Office", phone: "+91 863 2343222", tag: "Hostel" },
+        { name: "Library Helpdesk", phone: "+91 863 2343333", tag: "Campus" },
+      ];
+
+      const matches = sampleContacts.filter((c) =>
+        c.name.toLowerCase().includes(contactSearch.toLowerCase()) ||
+        c.phone.includes(contactSearch)
+      );
+
+      return (
+        <div style={{ padding: "1.25rem", background: "rgba(8, 12, 20, 0.9)" }}>
+          <div style={{ marginBottom: "0.85rem" }}>
+            <input
+              type="text"
+              value={contactSearch}
+              onChange={(e) => setContactSearch(e.target.value)}
+              placeholder="Search contacts by name or number..."
+              style={{
+                width: "100%",
+                background: "rgba(15, 23, 42, 0.8)",
+                border: "1px solid rgba(56, 189, 248, 0.25)",
+                borderRadius: "8px",
+                padding: "0.55rem 0.9rem",
+                color: "#ffffff",
+                fontSize: "0.85rem",
+                outline: "none",
+              }}
+            />
           </div>
 
-          <span style={{ fontSize: "0.78rem", fontFamily: "var(--font-mono)", color: "var(--emerald-neon)" }}>
-            ● Session Active: SRM University Campus Network
-          </span>
-        </div>
-
-        <div
-          style={{
-            padding: "1rem",
-            borderRadius: "10px",
-            background: "#0a0f1d",
-            border: "1px solid rgba(56, 189, 248, 0.15)",
-            display: "flex",
-            flexDirection: "column",
-            gap: "0.75rem",
-          }}
-        >
-          <div style={{ fontSize: "0.85rem", color: "#ffffff", fontWeight: 600 }}>
-            Active Escrow Transaction #CB-8492 — Quadrangle Cafeteria
-          </div>
-          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-            {["1. Order Placed", "2. Payment in Escrow", "3. OTP Peer Handover", "4. Funds Released"].map((step, idx) => (
-              <span
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+            {matches.map((c, idx) => (
+              <div
                 key={idx}
                 style={{
-                  padding: "0.25rem 0.65rem",
-                  borderRadius: "6px",
-                  background: idx <= escrowStep ? "rgba(16, 185, 129, 0.15)" : "rgba(255, 255, 255, 0.05)",
-                  border: idx <= escrowStep ? "1px solid var(--emerald-neon)" : "1px solid rgba(255, 255, 255, 0.1)",
-                  color: idx <= escrowStep ? "var(--emerald-neon)" : "var(--text-secondary)",
-                  fontSize: "0.75rem",
-                  fontFamily: "var(--font-mono)",
+                  padding: "0.6rem 0.85rem",
+                  borderRadius: "8px",
+                  background: "rgba(255, 255, 255, 0.03)",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
                 }}
               >
-                {step}
-              </span>
+                <div>
+                  <div style={{ fontSize: "0.88rem", color: "#ffffff", fontWeight: 600 }}>{c.name}</div>
+                  <div style={{ fontSize: "0.78rem", color: "var(--cyan-neon)", fontFamily: "var(--font-mono)" }}>{c.phone}</div>
+                </div>
+                <span style={{ fontSize: "0.72rem", padding: "0.2rem 0.55rem", borderRadius: "var(--radius-full)", background: "rgba(56, 189, 248, 0.12)", color: "var(--cyan-neon)" }}>
+                  {c.tag}
+                </span>
+              </div>
             ))}
           </div>
+        </div>
+      );
+    }
+
+    // Default Fallback
+    return (
+      <div style={{ padding: "1.5rem", background: "rgba(8, 12, 20, 0.9)", textAlign: "center" }}>
+        <p style={{ fontSize: "0.95rem", color: "var(--text-secondary)", marginBottom: "1rem" }}>
+          Explore this project in action directly through the live deployment or view the full source code on GitHub.
+        </p>
+        <div style={{ display: "flex", justifyContent: "center", gap: "1rem" }}>
+          {project.hasLiveDemo && (
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                textDecoration: "none",
+                padding: "0.6rem 1.4rem",
+                borderRadius: "var(--radius-full)",
+                background: "linear-gradient(135deg, #0284c7 0%, #2563eb 100%)",
+                color: "#ffffff",
+                fontSize: "0.88rem",
+                fontWeight: 700,
+              }}
+            >
+              Open Live Application ↗
+            </a>
+          )}
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              textDecoration: "none",
+              padding: "0.6rem 1.4rem",
+              borderRadius: "var(--radius-full)",
+              background: "rgba(255, 255, 255, 0.08)",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
+              color: "#ffffff",
+              fontSize: "0.88rem",
+              fontWeight: 600,
+            }}
+          >
+            View GitHub Repository
+          </a>
         </div>
       </div>
     );
@@ -654,7 +458,7 @@ export default function ProjectDetailsModal({ project, onClose }) {
       }}
     >
       <div
-        className="modal-dialog"
+        className="modal-dialog project-modal-dialog"
         onClick={(e) => e.stopPropagation()}
         style={{
           width: "100%",
@@ -671,6 +475,7 @@ export default function ProjectDetailsModal({ project, onClose }) {
       >
         {/* Top Header Strip with Breadcrumb & Action CTAs */}
         <div
+          className="modal-header-strip"
           style={{
             padding: "1.5rem 2rem",
             borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
@@ -711,7 +516,7 @@ export default function ProjectDetailsModal({ project, onClose }) {
             </span>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+          <div className="modal-action-btns" style={{ display: "flex", alignItems: "center", gap: "0.65rem", flexWrap: "wrap" }}>
             {/* Live Demo CTA */}
             {project.hasLiveDemo && project.demoUrl && (
               <a
@@ -787,7 +592,7 @@ export default function ProjectDetailsModal({ project, onClose }) {
         </div>
 
         {/* Modal Scrollable Content */}
-        <div style={{ padding: "2rem", overflowY: "auto", display: "flex", flexDirection: "column", gap: "2rem" }}>
+        <div className="modal-content-scroll" style={{ padding: "2rem", overflowY: "auto", display: "flex", flexDirection: "column", gap: "2rem" }}>
           {/* Interactive Showcase Window */}
           <div
             style={{
@@ -838,6 +643,7 @@ export default function ProjectDetailsModal({ project, onClose }) {
 
           {/* Sub-Tabs Bar */}
           <div
+            className="filter-chips-row modal-tabs-strip"
             style={{
               display: "flex",
               gap: "0.5rem",
@@ -1042,14 +848,16 @@ export default function ProjectDetailsModal({ project, onClose }) {
 
                   {caseStudy.metricsTable ? (
                     <div
+                      className="table-responsive-wrapper"
                       style={{
                         borderRadius: "12px",
-                        overflow: "hidden",
+                        overflowX: "auto",
+                        WebkitOverflowScrolling: "touch",
                         border: "1px solid rgba(56, 189, 248, 0.2)",
                         marginBottom: "1.5rem",
                       }}
                     >
-                      <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", fontSize: "0.88rem" }}>
+                      <table style={{ width: "100%", minWidth: "480px", borderCollapse: "collapse", textAlign: "left", fontSize: "0.85rem" }}>
                         <thead>
                           <tr style={{ background: "rgba(15, 23, 42, 0.8)", borderBottom: "1px solid rgba(255, 255, 255, 0.1)" }}>
                             <th style={{ padding: "0.75rem 1rem", color: "#ffffff", fontWeight: 700 }}>Evaluation Metric</th>

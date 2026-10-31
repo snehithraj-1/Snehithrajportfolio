@@ -83,6 +83,7 @@ export default function SkillsMatrix() {
 
           {/* 3D Glowing Isometric Cubes SVG Graphic */}
           <div
+            className="skills-cubes-graphic"
             style={{
               position: "relative",
               width: "120px",
@@ -127,6 +128,7 @@ export default function SkillsMatrix() {
 
         {/* Filter Chips Bar matching Screen 3 */}
         <div
+          className="filter-chips-row"
           style={{
             display: "flex",
             flexWrap: "wrap",

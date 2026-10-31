@@ -135,6 +135,7 @@ export default function Hero({ onOpenResume }) {
 
             {/* Action Buttons */}
             <div
+              className="hero-cta-group"
               style={{
                 display: "flex",
                 flexWrap: "wrap",
@@ -198,6 +199,7 @@ export default function Hero({ onOpenResume }) {
 
             {/* Location & Social Icons Row */}
             <div
+              className="hero-meta-row"
               style={{
                 display: "flex",
                 flexWrap: "wrap",
@@ -327,10 +329,11 @@ export default function Hero({ onOpenResume }) {
               display: "flex",
               justifyContent: "center",
               position: "relative",
+              width: "100%",
             }}
           >
             <TiltCard
-              className="glass-card"
+              className="glass-card hero-image-card"
               style={{
                 position: "relative",
                 width: "100%",
@@ -352,37 +355,38 @@ export default function Hero({ onOpenResume }) {
                 }}
               >
                 <img
-                  src={portfolioAssets.heroCosmic}
-                  alt="Snehith Raj - AI/ML Engineer with Cosmic Horizon"
+                  src={portfolioAssets.heroProfile}
+                  alt="Snehith Raj - AI/ML Engineer & Full Stack Developer"
                   style={{
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    objectPosition: "center top",
+                    objectPosition: "center 15%",
                     display: "block",
                   }}
                 />
 
-                {/* Ambient vignette and cosmic gradient overlay */}
+                {/* Subtle bottom gradient to blend with card footer */}
                 <div
                   style={{
                     position: "absolute",
                     inset: 0,
                     background:
-                      "linear-gradient(180deg, rgba(8, 12, 20, 0.1) 0%, rgba(8, 12, 20, 0.25) 60%, rgba(8, 12, 20, 0.95) 100%)",
+                      "linear-gradient(180deg, rgba(8, 12, 20, 0) 0%, rgba(8, 12, 20, 0.05) 60%, rgba(8, 12, 20, 0.9) 100%)",
                     pointerEvents: "none",
                   }}
                 />
 
                 {/* Cosmic Cutout Badge */}
                 <div
+                  className="hero-floating-badge"
                   style={{
                     position: "absolute",
-                    top: "1.4rem",
-                    right: "1.4rem",
-                    padding: "0.55rem 0.95rem",
+                    top: "1.2rem",
+                    right: "1.2rem",
+                    padding: "0.5rem 0.85rem",
                     borderRadius: "14px",
-                    background: "rgba(15, 23, 42, 0.8)",
+                    background: "rgba(15, 23, 42, 0.85)",
                     backdropFilter: "blur(12px)",
                     border: "1px solid rgba(56, 189, 248, 0.4)",
                     boxShadow: "0 0 20px rgba(56, 189, 248, 0.25)",
@@ -394,7 +398,7 @@ export default function Hero({ onOpenResume }) {
                   <p
                     style={{
                       fontFamily: "var(--font-heading)",
-                      fontSize: "0.85rem",
+                      fontSize: "0.82rem",
                       fontWeight: 700,
                       color: "#38bdf8",
                       lineHeight: 1.25,
@@ -407,10 +411,11 @@ export default function Hero({ onOpenResume }) {
 
                 {/* Vertical Floating Social Ribbon on right edge */}
                 <div
+                  className="hero-floating-social"
                   style={{
                     position: "absolute",
-                    right: "1rem",
-                    bottom: "2.5rem",
+                    right: "0.85rem",
+                    bottom: "2.25rem",
                     display: "flex",
                     flexDirection: "column",
                     gap: "0.75rem",

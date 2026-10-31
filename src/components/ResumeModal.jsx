@@ -41,7 +41,7 @@ export default function ResumeModal({ isOpen, onClose }) {
       }}
     >
       <div
-        className="modal-dialog"
+        className="modal-dialog resume-modal-dialog"
         onClick={(e) => e.stopPropagation()}
         style={{
           width: "100%",
@@ -57,6 +57,7 @@ export default function ResumeModal({ isOpen, onClose }) {
       >
         {/* Top Control Bar matching Screen 10 */}
         <div
+          className="modal-control-bar"
           style={{
             display: "flex",
             alignItems: "flex-start",
@@ -77,7 +78,7 @@ export default function ResumeModal({ isOpen, onClose }) {
             </p>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "0.65rem" }}>
+          <div className="resume-action-btns" style={{ display: "flex", alignItems: "center", gap: "0.65rem", flexWrap: "wrap" }}>
             {/* Download PDF Button */}
             <a
               href={personal.resumeUrl}
@@ -190,7 +191,7 @@ export default function ResumeModal({ isOpen, onClose }) {
               <span>•</span>
               <span>github.com/snehithraj-1</span>
               <span>•</span>
-              <span>linkedin.com/in/snehithraj</span>
+              <span>linkedin.com/in/snehithraj-gaddam</span>
             </div>
           </div>
 

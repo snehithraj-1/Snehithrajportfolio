@@ -54,7 +54,7 @@ export default function Research() {
 
         {/* Featured Paper Hero Card matching Screen 6 */}
         <TiltCard
-          className="glass-card"
+          className="glass-card research-featured-grid"
           style={{
             borderRadius: "22px",
             overflow: "hidden",
@@ -97,6 +97,7 @@ export default function Research() {
 
           {/* Featured Content Details */}
           <div
+            className="research-featured-content"
             style={{
               padding: "2.5rem",
               display: "flex",

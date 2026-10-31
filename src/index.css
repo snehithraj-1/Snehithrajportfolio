@@ -9,7 +9,7 @@
   --bg-card-hover: rgba(22, 34, 61, 0.85);
   --bg-surface: #0f172a;
   --bg-elevated: #162036;
-  
+
   --cyan-neon: #38bdf8;
   --cyan-glow: rgba(56, 189, 248, 0.15);
   --cyan-subtle: rgba(56, 189, 248, 0.08);
@@ -23,15 +23,15 @@
   --emerald-subtle: rgba(16, 185, 129, 0.08);
 
   --amber-neon: #f59e0b;
-  
+
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
-  
+
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-neon: rgba(56, 189, 248, 0.22);
   --border-glow: 0 0 12px rgba(56, 189, 248, 0.12);
-  
+
   --font-heading: 'Outfit', sans-serif;
   --font-accent: 'Space Grotesk', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -54,7 +54,7 @@
   --bg-card-hover: #ffffff;
   --bg-surface: #f1f5f9;
   --bg-elevated: #ffffff;
-  
+
   --cyan-neon: #0284c7;
   --cyan-glow: rgba(2, 132, 199, 0.1);
   --cyan-subtle: rgba(2, 132, 199, 0.06);
@@ -68,17 +68,19 @@
   --emerald-subtle: rgba(5, 150, 105, 0.06);
 
   --amber-neon: #d97706;
-  
+
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #64748b;
-  
+
   --border-subtle: rgba(15, 23, 42, 0.08);
   --border-neon: rgba(2, 132, 199, 0.22);
   --border-glow: 0 0 10px rgba(2, 132, 199, 0.08);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -93,7 +95,8 @@ html {
   scroll-behavior: smooth;
 }
 
-[data-theme="dark"] html, html:not([data-theme="light"]) {
+[data-theme="dark"] html,
+html:not([data-theme="light"]) {
   color-scheme: dark;
 }
 
@@ -117,7 +120,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: 
+  background:
     radial-gradient(circle 800px at 50% -100px, rgba(56, 189, 248, 0.08), transparent 70%),
     radial-gradient(circle 600px at 90% 400px, rgba(167, 139, 250, 0.04), transparent 60%);
   pointer-events: none;
@@ -128,13 +131,16 @@ body::before {
 ::-webkit-scrollbar {
   width: 7px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-deep);
 }
+
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
   border-radius: var(--radius-full);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #334155;
 }
@@ -150,7 +156,12 @@ body::before {
 }
 
 /* Typography Utilities */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   color: var(--text-primary);
   font-weight: 700;
@@ -343,8 +354,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes pulse-ring {
-  0% { transform: scale(0.8); opacity: 1; }
-  100% { transform: scale(2.4); opacity: 0; }
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
 }
 
 /* Section Header Component */
@@ -384,18 +402,37 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Animations */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 @keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(1000%); }
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(1000%);
+  }
 }
 
 @keyframes glow-pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
 }
 
 .animate-float {
@@ -407,6 +444,7 @@ h1, h2, h3, h4, h5, h6 {
   .container {
     padding: 0 1rem;
   }
+
   .glass-card {
     padding: 1.25rem;
   }
@@ -512,9 +550,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive Rules for 10-Screen Interface */
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-8px);
   }
@@ -526,7 +567,8 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-2px);
 }
 
-.project-thumb-img:hover, .blog-thumb-img:hover {
+.project-thumb-img:hover,
+.blog-thumb-img:hover {
   transform: scale(1.04);
 }
 
@@ -545,23 +587,38 @@ h1, h2, h3, h4, h5, h6 {
   .desktop-nav {
     display: none !important;
   }
+
   .mobile-menu-toggle {
     display: flex !important;
   }
+
   .hero-grid {
     grid-template-columns: 1fr !important;
   }
+
   .about-pillars-grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
+
   .skills-screen-grid {
     grid-template-columns: 1fr !important;
   }
+
   .contact-screen-grid {
     grid-template-columns: 1fr !important;
   }
+
   .modal-body-grid {
     grid-template-columns: 1fr !important;
+  }
+
+  .about-narrative-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  .about-narrative-grid > div:first-child {
+    margin: 0 auto;
   }
 }
 
@@ -570,12 +627,15 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 1.25rem !important;
   }
+
   .about-details-grid {
     grid-template-columns: 1fr !important;
   }
+
   .about-pillars-grid {
     grid-template-columns: 1fr !important;
   }
+
   .human-grid-layout {
     grid-template-columns: 1fr !important;
   }
@@ -590,7 +650,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   border-radius: 4px 4px 18px 4px;
   padding: 1.5rem 1.35rem 1.6rem 1.35rem;
-  box-shadow: 
+  box-shadow:
     0 10px 25px rgba(0, 0, 0, 0.4),
     0 2px 6px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
@@ -702,9 +762,11 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1;
     transform: translateY(0) scale(0.8) rotate(0deg);
   }
+
   50% {
     transform: translateY(-40px) scale(1.2) rotate(15deg);
   }
+
   100% {
     opacity: 0;
     transform: translateY(-80px) scale(0.9) rotate(-15deg);
@@ -725,10 +787,12 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0.3;
     transform: translateY(0) scaleX(1);
   }
+
   50% {
     opacity: 0.7;
     transform: translateY(-8px) scaleX(1.15);
   }
+
   100% {
     opacity: 0;
     transform: translateY(-16px) scaleX(0.9);
@@ -762,4 +826,55 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--cyan-neon);
 }
 
+/* ==========================================================================
+   Print Styles for Clean Professional Resume Output
+   ========================================================================== */
+@media print {
+  body * {
+    visibility: hidden;
+  }
 
+  .modal-overlay,
+  .modal-dialog,
+  #printable-cv,
+  #printable-cv * {
+    visibility: visible;
+  }
+
+  .modal-overlay {
+    position: static !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+  }
+
+  .modal-dialog {
+    max-width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .modal-control-bar,
+  .resume-action-btns,
+  header,
+  footer,
+  nav,
+  .mobile-nav-drawer {
+    display: none !important;
+  }
+
+  #printable-cv {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20mm;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    color: #0f172a !important;
+    background: #ffffff !important;
+  }
+}
