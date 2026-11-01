@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { ExternalLink, Sparkles, ArrowRight, Eye, Code2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink, Sparkles, ArrowRight, Code2 } from "lucide-react";
 import { GithubIcon } from "./Icons";
 import { portfolioData } from "../data/portfolioData";
 import TiltCard from "./TiltCard";
@@ -15,11 +16,14 @@ export default function Projects() {
 
   const matchesFilter = (project, filterKey) => {
     if (filterKey === "All") return true;
-    if (filterKey === "Web Apps") return project.category === "Web Apps" || project.tags.includes("Web Apps") || project.tags.includes("PWA");
-    if (filterKey === "Full Stack") return project.category === "Full Stack" || project.tags.includes("Full Stack");
+    if (filterKey === "Web Apps")
+      return project.category === "Web Apps" || project.tags.includes("Web Apps") || project.tags.includes("PWA");
+    if (filterKey === "Full Stack")
+      return project.category === "Full Stack" || project.tags.includes("Full Stack");
     if (filterKey === "TypeScript") return project.tags.includes("TypeScript");
     if (filterKey === "Python") return project.tags.includes("Python");
-    if (filterKey === "C++ / DSA") return project.category === "Core CS" || project.tags.includes("C++") || project.tags.includes("DSA");
+    if (filterKey === "C++ / DSA")
+      return project.category === "Core CS" || project.tags.includes("C++") || project.tags.includes("DSA");
     return project.category === filterKey || project.tags.includes(filterKey);
   };
 
@@ -30,21 +34,47 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" style={{ padding: "5.5rem 0", position: "relative" }}>
+    <section id="projects" style={{ padding: "6rem 0", position: "relative" }}>
       <div className="container">
         {/* Section Header */}
-        <div style={{ marginBottom: "2.5rem" }}>
-          <h2
+        <div style={{ marginBottom: "3rem" }}>
+          <div
             style={{
-              fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
-              fontWeight: 800,
-              color: "#ffffff",
-              letterSpacing: "-0.03em",
-              lineHeight: 1.15,
-              marginBottom: "0.4rem",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              padding: "0.3rem 0.85rem",
+              borderRadius: "9999px",
+              background: "rgba(255, 255, 255, 0.04)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              marginBottom: "0.85rem",
             }}
           >
-            My Projects & Case Studies
+            <Sparkles size={13} color="#ffffff" />
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.72rem",
+                color: "#f4f4f5",
+                fontWeight: 600,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+              }}
+            >
+              Selected Work // Case Studies
+            </span>
+          </div>
+          <h2
+            style={{
+              fontSize: "clamp(2.2rem, 4vw, 3rem)",
+              fontWeight: 800,
+              color: "#ffffff",
+              letterSpacing: "-0.035em",
+              lineHeight: 1.12,
+              marginBottom: "0.5rem",
+            }}
+          >
+            Engineered Systems & Case Studies.
           </h2>
           <p
             style={{
@@ -57,14 +87,19 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Filter Chips matching Screen 4 */}
+        {/* Filter Chips Bar with Framer Motion Active Indicator */}
         <div
           className="filter-chips-row"
           style={{
             display: "flex",
             flexWrap: "wrap",
-            gap: "0.6rem",
-            marginBottom: "2.5rem",
+            gap: "0.5rem",
+            marginBottom: "3rem",
+            background: "rgba(18, 18, 23, 0.6)",
+            padding: "0.35rem",
+            borderRadius: "9999px",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
+            width: "fit-content",
           }}
         >
           {filters.map((filter) => {
@@ -78,34 +113,45 @@ export default function Projects() {
                 }}
                 onMouseEnter={() => soundFX.playHover()}
                 style={{
+                  position: "relative",
                   padding: "0.45rem 1.15rem",
-                  borderRadius: "var(--radius-full)",
-                  border: isSelected
-                    ? "1px solid rgba(255, 255, 255, 0.4)"
-                    : "1px solid rgba(255, 255, 255, 0.08)",
-                  background: isSelected
-                    ? "#ffffff"
-                    : "rgba(18, 18, 23, 0.6)",
+                  borderRadius: "9999px",
+                  border: "none",
+                  background: "transparent",
                   color: isSelected ? "#09090b" : "var(--text-secondary)",
                   fontFamily: "var(--font-accent)",
-                  fontSize: "0.88rem",
+                  fontSize: "0.86rem",
                   fontWeight: isSelected ? 700 : 500,
                   cursor: "pointer",
-                  transition: "all 0.2s ease",
-                  boxShadow: isSelected ? "0 0 15px rgba(255, 255, 255, 0.2)" : "none",
+                  transition: "color 0.2s ease",
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: "0.35rem",
+                  gap: "0.45rem",
+                  zIndex: 1,
                 }}
               >
+                {isSelected && (
+                  <motion.div
+                    layoutId="projects-filter-pill"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      borderRadius: "9999px",
+                      background: "#ffffff",
+                      boxShadow: "0 2px 14px rgba(255, 255, 255, 0.25)",
+                      zIndex: -1,
+                    }}
+                  />
+                )}
                 <span>{filter}</span>
                 <span
                   style={{
-                    fontSize: "0.72rem",
+                    fontSize: "0.7rem",
                     fontFamily: "var(--font-mono)",
                     padding: "0.1rem 0.4rem",
-                    borderRadius: "var(--radius-full)",
-                    background: isSelected ? "rgba(0, 0, 0, 0.12)" : "rgba(255, 255, 255, 0.08)",
+                    borderRadius: "9999px",
+                    background: isSelected ? "rgba(0, 0, 0, 0.15)" : "rgba(255, 255, 255, 0.08)",
                     color: isSelected ? "#09090b" : "var(--text-muted)",
                     fontWeight: 600,
                   }}
@@ -117,219 +163,284 @@ export default function Projects() {
           })}
         </div>
 
-        {/* 6-Card Grid matching Screen 4 */}
-        <div
+        {/* Responsive Grid of Flagship Project Cards */}
+        <motion.div
+          layout
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(350px, 1fr))",
             gap: "2rem",
           }}
           className="projects-screen-grid"
         >
-          {filteredProjects.map((project) => (
-            <TiltCard
-              key={project.id}
-              className="glass-card"
-              onClick={() => {
-                soundFX.playClick();
-                setActiveProject(project);
-              }}
-              style={{
-                borderRadius: "18px",
-                overflow: "hidden",
-                background: "rgba(18, 18, 23, 0.75)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
-                cursor: "pointer",
-                display: "flex",
-                flexDirection: "column",
-                transition: "all 0.3s ease",
-              }}
-            >
-              {/* Thumbnail Container */}
-              <div
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  aspectRatio: "16 / 9",
-                  overflow: "hidden",
-                  background: "#09090b",
-                }}
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.3 }}
               >
-                {project.image ? (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    loading="lazy"
-                    decoding="async"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      transition: "transform 0.5s ease",
-                    }}
-                    className="project-thumb-img"
-                  />
-                ) : (
+                <TiltCard
+                  className="bento-card"
+                  onClick={() => {
+                    soundFX.playClick();
+                    setActiveProject(project);
+                  }}
+                  style={{
+                    padding: "0",
+                    overflow: "hidden",
+                    cursor: "pointer",
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "100%",
+                  }}
+                >
+                  {/* 16:9 Thumbnail Container */}
                   <div
                     style={{
+                      position: "relative",
                       width: "100%",
-                      height: "100%",
-                      background: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "var(--cyan-neon)",
+                      aspectRatio: "16 / 9",
+                      overflow: "hidden",
+                      background: "#09090b",
                     }}
                   >
-                    <Code2 size={40} />
-                  </div>
-                )}
-
-                {/* Ambient Gradient overlay */}
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background: "linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.85) 100%)",
-                  }}
-                />
-
-                {/* Tags on Image */}
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "0.85rem",
-                    left: "0.85rem",
-                    display: "flex",
-                    gap: "0.4rem",
-                    flexWrap: "wrap",
-                  }}
-                >
-                  {project.tags.map((tag, idx) => (
-                    <span
-                      key={idx}
-                      style={{
-                        padding: "0.2rem 0.65rem",
-                        borderRadius: "var(--radius-full)",
-                        background: "rgba(9, 9, 11, 0.85)",
-                        backdropFilter: "blur(8px)",
-                        border: "1px solid rgba(255, 255, 255, 0.18)",
-                        color: "#f4f4f5",
-                        fontSize: "0.72rem",
-                        fontFamily: "var(--font-mono)",
-                        fontWeight: 600,
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Card Body */}
-              <div
-                style={{
-                  padding: "1.5rem",
-                  display: "flex",
-                  flexDirection: "column",
-                  flex: 1,
-                  gap: "0.75rem",
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "1.25rem",
-                    fontWeight: 700,
-                    color: "#ffffff",
-                    letterSpacing: "-0.02em",
-                  }}
-                >
-                  {project.title}
-                </h3>
-
-                <p
-                  style={{
-                    fontSize: "0.88rem",
-                    color: "var(--text-secondary)",
-                    lineHeight: 1.55,
-                    flex: 1,
-                  }}
-                >
-                  {project.shortDescription}
-                </p>
-
-                {/* Footer Action Strip */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    paddingTop: "0.75rem",
-                    borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-                  }}
-                >
-                  <span
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "0.35rem",
-                      fontSize: "0.82rem",
-                      color: "var(--cyan-neon)",
-                      fontWeight: 600,
-                    }}
-                  >
-                    <span>View Showcase</span>
-                    <ArrowRight size={14} />
-                  </span>
-
-                  <div style={{ display: "flex", gap: "0.6rem" }}>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        soundFX.playClick();
-                      }}
-                      style={{
-                        color: "var(--text-secondary)",
-                        padding: "0.3rem",
-                        borderRadius: "6px",
-                      }}
-                      title="GitHub Repository"
-                    >
-                      <GithubIcon size={16} />
-                    </a>
-
-                    {project.hasLiveDemo && project.demoUrl && (
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          soundFX.playClick();
-                        }}
+                    {project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        loading="lazy"
+                        decoding="async"
                         style={{
-                          color: "var(--cyan-neon)",
-                          padding: "0.3rem",
-                          borderRadius: "6px",
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
                         }}
-                        title="Live Demonstration"
+                        className="project-thumb-img"
+                      />
+                    ) : (
+                      <div
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          background: "linear-gradient(135deg, #18181f 0%, #09090b 100%)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#ffffff",
+                        }}
                       >
-                        <ExternalLink size={16} />
-                      </a>
+                        <Code2 size={40} />
+                      </div>
                     )}
+
+                    {/* Ambient overlay */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background:
+                          "linear-gradient(180deg, transparent 40%, rgba(9, 9, 11, 0.9) 100%)",
+                      }}
+                    />
+
+                    {/* Tags on Image */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "0.95rem",
+                        left: "0.95rem",
+                        display: "flex",
+                        gap: "0.4rem",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      {project.tags.slice(0, 3).map((tag, idx) => (
+                        <span
+                          key={idx}
+                          style={{
+                            padding: "0.22rem 0.65rem",
+                            borderRadius: "9999px",
+                            background: "rgba(9, 9, 11, 0.85)",
+                            backdropFilter: "blur(10px)",
+                            WebkitBackdropFilter: "blur(10px)",
+                            border: "1px solid rgba(255, 255, 255, 0.18)",
+                            color: "#f4f4f5",
+                            fontSize: "0.72rem",
+                            fontFamily: "var(--font-mono)",
+                            fontWeight: 600,
+                          }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </div>
-            </TiltCard>
-          ))}
-        </div>
+
+                  {/* Card Content */}
+                  <div
+                    style={{
+                      padding: "1.75rem",
+                      display: "flex",
+                      flexDirection: "column",
+                      flex: 1,
+                      gap: "0.85rem",
+                    }}
+                  >
+                    <h3
+                      style={{
+                        fontSize: "1.3rem",
+                        fontWeight: 700,
+                        color: "#ffffff",
+                        letterSpacing: "-0.02em",
+                        lineHeight: 1.25,
+                      }}
+                    >
+                      {project.title}
+                    </h3>
+
+                    <p
+                      style={{
+                        fontSize: "0.9rem",
+                        color: "var(--text-secondary)",
+                        lineHeight: 1.6,
+                        flex: 1,
+                      }}
+                    >
+                      {project.shortDescription}
+                    </p>
+
+                    {/* Key Metrics / Highlights if present */}
+                    {project.stats && (
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: `repeat(${project.stats.length}, 1fr)`,
+                          gap: "0.5rem",
+                          padding: "0.75rem",
+                          borderRadius: "12px",
+                          background: "rgba(255, 255, 255, 0.03)",
+                          border: "1px solid rgba(255, 255, 255, 0.06)",
+                        }}
+                      >
+                        {project.stats.map((s, idx) => (
+                          <div key={idx} style={{ textAlign: "center" }}>
+                            <span
+                              style={{
+                                fontFamily: "var(--font-heading)",
+                                fontWeight: 800,
+                                fontSize: "0.95rem",
+                                color: "#ffffff",
+                                display: "block",
+                              }}
+                            >
+                              {s.value}
+                            </span>
+                            <span
+                              style={{
+                                fontFamily: "var(--font-mono)",
+                                fontSize: "0.65rem",
+                                color: "var(--text-muted)",
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {s.label}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Card Action Footer */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        paddingTop: "1rem",
+                        borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+                      }}
+                    >
+                      <span
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "0.4rem",
+                          fontSize: "0.84rem",
+                          color: "#ffffff",
+                          fontWeight: 600,
+                          fontFamily: "var(--font-accent)",
+                        }}
+                      >
+                        <span>Case Study & Details</span>
+                        <ArrowRight size={15} />
+                      </span>
+
+                      <div style={{ display: "flex", gap: "0.5rem" }}>
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            soundFX.playClick();
+                          }}
+                          style={{
+                            color: "var(--text-secondary)",
+                            padding: "0.4rem",
+                            borderRadius: "8px",
+                            background: "rgba(255, 255, 255, 0.04)",
+                            border: "1px solid rgba(255, 255, 255, 0.08)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            transition: "all 0.2s ease",
+                          }}
+                          title="GitHub Repository"
+                        >
+                          <GithubIcon size={16} />
+                        </a>
+
+                        {project.hasLiveDemo && project.demoUrl && (
+                          <a
+                            href={project.demoUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              soundFX.playClick();
+                            }}
+                            style={{
+                              color: "#ffffff",
+                              padding: "0.4rem",
+                              borderRadius: "8px",
+                              background: "rgba(255, 255, 255, 0.08)",
+                              border: "1px solid rgba(255, 255, 255, 0.16)",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              transition: "all 0.2s ease",
+                            }}
+                            title="Live Demonstration"
+                          >
+                            <ExternalLink size={16} />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </TiltCard>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
 
-      {/* Interactive Detail Modal matching Screen 5 */}
+      {/* Case Study Detail Modal */}
       {activeProject && (
         <ProjectDetailsModal
           project={activeProject}

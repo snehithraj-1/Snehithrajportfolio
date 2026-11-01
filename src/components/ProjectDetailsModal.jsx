@@ -3,6 +3,7 @@ import {
   X,
   ExternalLink,
   CheckCircle2,
+  AlertTriangle,
 } from "lucide-react";
 import { GithubIcon } from "./Icons";
 import { soundFX } from "../utils/audioFX";

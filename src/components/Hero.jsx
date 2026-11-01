@@ -1,6 +1,7 @@
 import React from "react";
-import { ArrowRight, Download, MapPin, Sparkles, ChevronDown } from "lucide-react";
-import { GithubIcon, LinkedinIcon, LeetcodeIcon } from "./Icons";
+import { motion } from "framer-motion";
+import { ArrowRight, Download, MapPin, ChevronDown } from "lucide-react";
+import { GithubIcon, LinkedinIcon, LeetcodeIcon, YoutubeIcon } from "./Icons";
 import { portfolioData, portfolioAssets } from "../data/portfolioData";
 import TiltCard from "./TiltCard";
 import { soundFX } from "../utils/audioFX";
@@ -8,12 +9,32 @@ import { soundFX } from "../utils/audioFX";
 export default function Hero({ onOpenResume }) {
   const { personal } = portfolioData;
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 16 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
   return (
     <section
       id="hero"
       style={{
-        paddingTop: "6.5rem",
-        paddingBottom: "3.5rem",
+        paddingTop: "7.5rem",
+        paddingBottom: "4.5rem",
         position: "relative",
         minHeight: "92vh",
         display: "flex",
@@ -21,325 +42,360 @@ export default function Hero({ onOpenResume }) {
       }}
     >
       <div className="container" style={{ position: "relative", zIndex: 2 }}>
-        {/* Main 2-Column Hero Layout matching Screen 1 */}
-        <div
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
           style={{
             display: "grid",
             gridTemplateColumns: "1.15fr 0.85fr",
-            gap: "3rem",
+            gap: "3.5rem",
             alignItems: "center",
           }}
           className="hero-grid"
         >
-          {/* Left Column: Heading, Subtitle, Actions, Location & Stats */}
+          {/* Left Column: Heading, Focus Tags, Actions & Stats */}
           <div style={{ display: "flex", flexDirection: "column" }}>
-            {/* Pill Badge */}
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "0.35rem 0.95rem",
-                borderRadius: "var(--radius-full)",
-                background: "rgba(255, 255, 255, 0.05)",
-                border: "1px solid rgba(255, 255, 255, 0.15)",
-                marginBottom: "1.5rem",
-                width: "fit-content",
-              }}
-            >
-              <Sparkles size={14} color="var(--cyan-neon)" />
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.78rem",
-                  color: "#f4f4f5",
-                  fontWeight: 600,
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                }}
-              >
-                {personal.badgeRole}
-              </span>
-            </div>
-
-            {/* Main Headline */}
-            <h1
-              style={{
-                fontSize: "clamp(2.5rem, 5vw, 4.1rem)",
-                lineHeight: 1.12,
-                fontWeight: 900,
-                letterSpacing: "-0.035em",
-                color: "#ffffff",
-                marginBottom: "1.2rem",
-                fontFamily: "var(--font-heading)",
-              }}
-            >
-              Building <br />
-              Intelligent Systems <br />
-              <span
-                style={{
-                  background: "linear-gradient(180deg, #ffffff 0%, #e2e8f0 45%, #a1a1aa 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  textShadow: "0 0 35px rgba(255, 255, 255, 0.15)",
-                }}
-              >
-                With AI & Machine Learning.
-              </span>
-            </h1>
-
-            {/* AI/ML Focus Tags */}
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "0.5rem",
-                marginBottom: "1.35rem",
-              }}
-            >
-              {[
-                "Machine Learning",
-                "Deep Learning & Vision",
-                "Generative AI & RAG",
-                "AI Application Engineering",
-              ].map((interest, idx) => (
-                <span
-                  key={idx}
-                  style={{
-                    fontSize: "0.78rem",
-                    fontFamily: "var(--font-mono)",
-                    color: "#f4f4f5",
-                    background: "rgba(255, 255, 255, 0.05)",
-                    border: "1px solid rgba(255, 255, 255, 0.12)",
-                    padding: "0.25rem 0.65rem",
-                    borderRadius: "6px",
-                  }}
-                >
-                  {interest}
-                </span>
-              ))}
-            </div>
-
-            {/* Subtitle Bio */}
-            <p
-              style={{
-                fontSize: "clamp(1rem, 1.3vw, 1.15rem)",
-                lineHeight: 1.65,
-                color: "var(--text-secondary)",
-                maxWidth: "540px",
-                marginBottom: "2rem",
-              }}
-            >
-              {personal.tagline}
-            </p>
-
-            {/* Action Buttons */}
-            <div
-              className="hero-cta-group"
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "center",
-                gap: "1rem",
-                marginBottom: "2.25rem",
-              }}
-            >
-              {/* Explore Projects */}
-              <a
-                href="#projects"
-                onClick={() => soundFX.playClick()}
-                onMouseEnter={() => soundFX.playHover()}
-                style={{
-                  textDecoration: "none",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.6rem",
-                  padding: "0.85rem 1.75rem",
-                  background: "#ffffff",
-                  color: "#09090b",
-                  borderRadius: "var(--radius-full)",
-                  fontWeight: 700,
-                  fontSize: "0.98rem",
-                  boxShadow: "0 0 25px rgba(255, 255, 255, 0.18)",
-                  transition: "all 0.25s ease",
-                  border: "1px solid rgba(255, 255, 255, 0.4)",
-                }}
-              >
-                <span>Explore Projects</span>
-                <ArrowRight size={17} />
-              </a>
-
-              {/* Download Resume Button */}
-              <button
-                onClick={() => {
-                  soundFX.playClick();
-                  onOpenResume();
-                }}
-                onMouseEnter={() => soundFX.playHover()}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.55rem",
-                  padding: "0.82rem 1.6rem",
-                  background: "rgba(18, 18, 23, 0.75)",
-                  color: "var(--text-primary)",
-                  borderRadius: "var(--radius-full)",
-                  fontWeight: 600,
-                  fontSize: "0.95rem",
-                  border: "1px solid rgba(255, 255, 255, 0.15)",
-                  cursor: "pointer",
-                  backdropFilter: "blur(12px)",
-                  transition: "all 0.25s ease",
-                }}
-              >
-                <Download size={16} color="var(--cyan-neon)" />
-                <span>Download Resume</span>
-              </button>
-            </div>
-
-            {/* Location & Social Icons Row */}
-            <div
-              className="hero-meta-row"
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "center",
-                gap: "1.5rem",
-                paddingBottom: "2.25rem",
-                borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
-                marginBottom: "2rem",
-              }}
-            >
+            {/* Live Availability Radar Pill */}
+            <motion.div variants={itemVariants}>
               <div
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: "0.45rem",
-                  color: "var(--text-secondary)",
-                  fontSize: "0.88rem",
+                  gap: "0.6rem",
+                  padding: "0.4rem 1rem",
+                  borderRadius: "9999px",
+                  background: "rgba(255, 255, 255, 0.04)",
+                  border: "1px solid rgba(255, 255, 255, 0.12)",
+                  boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.08)",
+                  marginBottom: "1.5rem",
+                  width: "fit-content",
                 }}
               >
-                <MapPin size={16} color="var(--cyan-neon)" />
-                <span>{personal.location}</span>
+                <span className="radar-beacon" style={{ width: "8px", height: "8px" }} />
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "0.78rem",
+                    color: "#f4f4f5",
+                    fontWeight: 600,
+                    letterSpacing: "0.04em",
+                  }}
+                >
+                  {personal.status || "Available for AI/ML Engineering Roles"}
+                </span>
               </div>
+            </motion.div>
 
-              <div style={{ display: "flex", alignItems: "center", gap: "0.85rem" }}>
-                <a
-                  href={personal.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => soundFX.playClick()}
-                  onMouseEnter={() => soundFX.playHover()}
-                  aria-label="GitHub Profile"
-                  style={{
-                    color: "var(--text-secondary)",
-                    transition: "color 0.2s ease",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <GithubIcon size={18} />
-                </a>
+            {/* Main Headline */}
+            <motion.div variants={itemVariants}>
+              <h1
+                style={{
+                  fontSize: "clamp(2.6rem, 5.2vw, 4.3rem)",
+                  lineHeight: 1.08,
+                  fontWeight: 900,
+                  letterSpacing: "-0.038em",
+                  color: "#ffffff",
+                  marginBottom: "1.25rem",
+                  fontFamily: "var(--font-heading)",
+                }}
+              >
+                Engineering <br />
+                Intelligent Systems <br />
+                <span className="headline-metallic">
+                  With AI & Machine Learning.
+                </span>
+              </h1>
+            </motion.div>
 
-                <a
-                  href={personal.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => soundFX.playClick()}
-                  onMouseEnter={() => soundFX.playHover()}
-                  aria-label="LinkedIn Profile"
-                  style={{
-                    color: "var(--text-secondary)",
-                    transition: "color 0.2s ease",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <LinkedinIcon size={18} />
-                </a>
-
-                <a
-                  href={personal.leetcode}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => soundFX.playClick()}
-                  onMouseEnter={() => soundFX.playHover()}
-                  aria-label="LeetCode Profile"
-                  style={{
-                    color: "var(--text-secondary)",
-                    transition: "color 0.2s ease",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <LeetcodeIcon size={18} />
-                </a>
-              </div>
-            </div>
-
-            {/* 4-Stat Bar matching Screen 1 */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(4, 1fr)",
-                gap: "0.85rem",
-              }}
-              className="hero-stats-row"
-            >
-              {personal.stats.map((stat, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    padding: "0.85rem 1rem",
-                    borderRadius: "14px",
-                    background: "rgba(18, 18, 23, 0.65)",
-                    border: "1px solid rgba(255, 255, 255, 0.08)",
-                    boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.06)",
-                    backdropFilter: "blur(8px)",
-                    transition: "transform 0.2s ease, border-color 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)";
-                    e.currentTarget.style.transform = "translateY(-2px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.08)";
-                    e.currentTarget.style.transform = "translateY(0)";
-                  }}
-                >
+            {/* AI/ML Competency Chips */}
+            <motion.div variants={itemVariants}>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "0.5rem",
+                  marginBottom: "1.35rem",
+                }}
+              >
+                {[
+                  "Machine Learning",
+                  "Deep Learning & Vision",
+                  "Generative AI & RAG",
+                  "AI Application Engineering",
+                ].map((interest, idx) => (
                   <span
+                    key={idx}
                     style={{
-                      fontFamily: "var(--font-heading)",
-                      fontSize: "clamp(1.35rem, 2vw, 1.75rem)",
-                      fontWeight: 800,
-                      color: "#ffffff",
-                      lineHeight: 1.1,
-                      letterSpacing: "-0.02em",
-                    }}
-                  >
-                    {stat.value}
-                  </span>
-                  <span
-                    style={{
+                      fontSize: "0.78rem",
                       fontFamily: "var(--font-mono)",
-                      fontSize: "0.72rem",
-                      color: "var(--text-secondary)",
-                      marginTop: "0.3rem",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.06em",
+                      color: "#f4f4f5",
+                      background: "rgba(255, 255, 255, 0.04)",
+                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      padding: "0.3rem 0.75rem",
+                      borderRadius: "8px",
+                      boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.05)",
+                      transition: "all 0.2s ease",
                     }}
                   >
-                    {stat.label}
+                    {interest}
                   </span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Editorial Bio Tagline */}
+            <motion.div variants={itemVariants}>
+              <p
+                style={{
+                  fontSize: "clamp(1.02rem, 1.35vw, 1.15rem)",
+                  lineHeight: 1.68,
+                  color: "var(--text-secondary)",
+                  maxWidth: "560px",
+                  marginBottom: "2rem",
+                }}
+              >
+                {personal.tagline}
+              </p>
+            </motion.div>
+
+            {/* Primary & Secondary Action CTAs */}
+            <motion.div variants={itemVariants}>
+              <div
+                className="hero-cta-group"
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  gap: "1rem",
+                  marginBottom: "2.25rem",
+                }}
+              >
+                {/* Explore Projects CTA */}
+                <a
+                  href="#projects"
+                  onClick={() => soundFX.playClick()}
+                  onMouseEnter={() => soundFX.playHover()}
+                  style={{
+                    textDecoration: "none",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.6rem",
+                    padding: "0.85rem 1.85rem",
+                    background: "#ffffff",
+                    color: "#09090b",
+                    borderRadius: "9999px",
+                    fontWeight: 700,
+                    fontSize: "0.98rem",
+                    fontFamily: "var(--font-accent)",
+                    boxShadow: "0 0 25px rgba(255, 255, 255, 0.18), inset 0 1px 0 #ffffff",
+                    transition: "all 0.25s ease",
+                    border: "1px solid rgba(255, 255, 255, 0.8)",
+                  }}
+                  className="sheen-effect"
+                >
+                  <span>Explore Projects</span>
+                  <ArrowRight size={17} />
+                </a>
+
+                {/* Download Resume Button */}
+                <button
+                  onClick={() => {
+                    soundFX.playClick();
+                    onOpenResume();
+                  }}
+                  onMouseEnter={() => soundFX.playHover()}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.55rem",
+                    padding: "0.85rem 1.7rem",
+                    background: "rgba(18, 18, 23, 0.75)",
+                    color: "var(--text-primary)",
+                    borderRadius: "9999px",
+                    fontWeight: 600,
+                    fontSize: "0.95rem",
+                    fontFamily: "var(--font-accent)",
+                    border: "1px solid rgba(255, 255, 255, 0.14)",
+                    cursor: "pointer",
+                    backdropFilter: "blur(12px)",
+                    transition: "all 0.25s ease",
+                  }}
+                  className="specular-border"
+                >
+                  <Download size={16} />
+                  <span>Download Resume</span>
+                </button>
+              </div>
+            </motion.div>
+
+            {/* Location & Social Connections Strip */}
+            <motion.div variants={itemVariants}>
+              <div
+                className="hero-meta-row"
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  gap: "1.5rem",
+                  paddingBottom: "2rem",
+                  borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+                  marginBottom: "2rem",
+                }}
+              >
+                <div
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.45rem",
+                    color: "var(--text-secondary)",
+                    fontSize: "0.88rem",
+                  }}
+                >
+                  <MapPin size={16} color="var(--cyan-neon)" />
+                  <span>{personal.location}</span>
                 </div>
-              ))}
-            </div>
+
+                <div style={{ display: "flex", alignItems: "center", gap: "0.85rem" }}>
+                  <a
+                    href={personal.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => soundFX.playClick()}
+                    onMouseEnter={() => soundFX.playHover()}
+                    aria-label="GitHub Profile"
+                    style={{
+                      color: "var(--text-secondary)",
+                      transition: "color 0.2s ease",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <GithubIcon size={18} />
+                  </a>
+
+                  <a
+                    href={personal.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => soundFX.playClick()}
+                    onMouseEnter={() => soundFX.playHover()}
+                    aria-label="LinkedIn Profile"
+                    style={{
+                      color: "var(--text-secondary)",
+                      transition: "color 0.2s ease",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <LinkedinIcon size={18} />
+                  </a>
+
+                  <a
+                    href={personal.leetcode}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => soundFX.playClick()}
+                    onMouseEnter={() => soundFX.playHover()}
+                    aria-label="LeetCode Profile"
+                    style={{
+                      color: "var(--text-secondary)",
+                      transition: "color 0.2s ease",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <LeetcodeIcon size={18} />
+                  </a>
+
+                  {personal.youtube && (
+                    <a
+                      href={personal.youtube}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => soundFX.playClick()}
+                      onMouseEnter={() => soundFX.playHover()}
+                      aria-label="YouTube Channel"
+                      style={{
+                        color: "var(--text-secondary)",
+                        transition: "color 0.2s ease",
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <YoutubeIcon size={18} />
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 4-Stat Hardware Metric Bar */}
+            <motion.div variants={itemVariants}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(4, 1fr)",
+                  gap: "0.85rem",
+                }}
+                className="hero-stats-row"
+              >
+                {personal.stats.map((stat, idx) => (
+                  <div
+                    key={idx}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      padding: "0.95rem 1rem",
+                      borderRadius: "16px",
+                      background: "rgba(18, 18, 23, 0.65)",
+                      border: "1px solid rgba(255, 255, 255, 0.08)",
+                      boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.06)",
+                      backdropFilter: "blur(12px)",
+                      transition: "transform 0.2s ease, border-color 0.2s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.22)";
+                      e.currentTarget.style.transform = "translateY(-2px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.08)";
+                      e.currentTarget.style.transform = "translateY(0)";
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "var(--font-heading)",
+                        fontSize: "clamp(1.35rem, 2vw, 1.85rem)",
+                        fontWeight: 800,
+                        color: "#ffffff",
+                        lineHeight: 1.1,
+                        letterSpacing: "-0.025em",
+                      }}
+                    >
+                      {stat.value}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.72rem",
+                        color: "var(--text-muted)",
+                        marginTop: "0.35rem",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.06em",
+                      }}
+                    >
+                      {stat.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
 
-          {/* Right Column: Cosmic Developer Cutout Portrait matching Screen 1 */}
-          <div
+          {/* Right Column: Holographic Developer Cutout Portrait Card */}
+          <motion.div
+            variants={itemVariants}
             style={{
               display: "flex",
               justifyContent: "center",
@@ -348,19 +404,20 @@ export default function Hero({ onOpenResume }) {
             }}
           >
             <TiltCard
-              className="glass-card hero-image-card"
+              className="glass-card hero-image-card specular-border"
               style={{
                 position: "relative",
                 width: "100%",
-                maxWidth: "460px",
-                borderRadius: "24px",
+                maxWidth: "450px",
+                borderRadius: "26px",
                 overflow: "hidden",
                 border: "1px solid rgba(255, 255, 255, 0.12)",
-                boxShadow: "0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 255, 255, 0.04)",
-                background: "rgba(18, 18, 23, 0.8)",
+                boxShadow: "0 28px 65px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.18)",
+                background: "rgba(18, 18, 23, 0.82)",
+                padding: "0",
               }}
             >
-              {/* Cosmic Cutout Image */}
+              {/* Cutout Portrait Container */}
               <div
                 style={{
                   position: "relative",
@@ -384,32 +441,33 @@ export default function Hero({ onOpenResume }) {
                   }}
                 />
 
-                {/* Subtle bottom gradient to blend with card footer */}
+                {/* Bottom gradient blending seamlessly with card base */}
                 <div
                   style={{
                     position: "absolute",
                     inset: 0,
                     background:
-                      "linear-gradient(180deg, rgba(8, 12, 20, 0) 0%, rgba(9, 9, 11, 0.1) 60%, rgba(9, 9, 11, 0.95) 100%)",
+                      "linear-gradient(180deg, rgba(8, 12, 20, 0) 0%, rgba(9, 9, 11, 0.1) 50%, rgba(9, 9, 11, 0.95) 100%)",
                     pointerEvents: "none",
                   }}
                 />
 
-                {/* Cosmic Cutout Badge */}
+                {/* Floating Achievement Capsule */}
                 <div
                   className="hero-floating-badge"
                   style={{
                     position: "absolute",
-                    top: "1.2rem",
-                    right: "1.2rem",
-                    padding: "0.5rem 0.85rem",
-                    borderRadius: "14px",
-                    background: "rgba(24, 24, 27, 0.88)",
-                    backdropFilter: "blur(12px)",
+                    top: "1.25rem",
+                    right: "1.25rem",
+                    padding: "0.55rem 0.95rem",
+                    borderRadius: "16px",
+                    background: "rgba(20, 20, 26, 0.88)",
+                    backdropFilter: "blur(14px)",
+                    WebkitBackdropFilter: "blur(14px)",
                     border: "1px solid rgba(255, 255, 255, 0.18)",
-                    boxShadow: "0 10px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 255, 255, 0.06)",
-                    transform: "rotate(3deg)",
-                    maxWidth: "180px",
+                    boxShadow: "0 12px 28px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+                    transform: "rotate(2.5deg)",
+                    maxWidth: "200px",
                     textAlign: "center",
                   }}
                 >
@@ -419,7 +477,7 @@ export default function Hero({ onOpenResume }) {
                       fontSize: "0.82rem",
                       fontWeight: 700,
                       color: "#ffffff",
-                      lineHeight: 1.25,
+                      lineHeight: 1.3,
                     }}
                   >
                     Building AI for a Better Tomorrow! 🚀
@@ -437,10 +495,10 @@ export default function Hero({ onOpenResume }) {
                     flexDirection: "column",
                     gap: "0.75rem",
                     padding: "0.6rem 0.45rem",
-                    borderRadius: "var(--radius-full)",
+                    borderRadius: "9999px",
                     background: "rgba(18, 18, 23, 0.85)",
-                    border: "1px solid rgba(255, 255, 255, 0.12)",
-                    backdropFilter: "blur(10px)",
+                    border: "1px solid rgba(255, 255, 255, 0.14)",
+                    backdropFilter: "blur(12px)",
                     zIndex: 3,
                   }}
                 >
@@ -480,23 +538,24 @@ export default function Hero({ onOpenResume }) {
               {/* Bottom Card Footer: Scroll Down Indicator */}
               <div
                 style={{
-                  padding: "0.85rem 1.25rem",
-                  background: "rgba(8, 12, 20, 0.85)",
+                  padding: "0.95rem 1.25rem",
+                  background: "rgba(12, 12, 16, 0.95)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   gap: "0.5rem",
                   color: "var(--text-secondary)",
-                  fontSize: "0.8rem",
+                  fontSize: "0.82rem",
                   fontFamily: "var(--font-mono)",
+                  borderTop: "1px solid rgba(255, 255, 255, 0.08)",
                 }}
               >
-                <span>Scroll Down</span>
-                <ChevronDown size={14} className="animate-bounce" color="var(--cyan-neon)" />
+                <span>Scroll to Explore</span>
+                <ChevronDown size={14} className="animate-bounce" color="#ffffff" />
               </div>
             </TiltCard>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
