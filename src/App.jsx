@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Lenis from "lenis";
 import NeuralCanvas from "./components/NeuralCanvas";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -12,6 +13,8 @@ import ResumeModal from "./components/ResumeModal";
 import Footer from "./components/Footer";
 import TerminalEmulator from "./components/TerminalEmulator";
 import CommandPalette from "./components/CommandPalette";
+import ScrollProgressBar from "./components/ScrollProgressBar";
+import Toast from "./components/Toast";
 import { X } from "lucide-react";
 
 export default function App() {
@@ -19,11 +22,51 @@ export default function App() {
   const [isTerminalModalOpen, setIsTerminalModalOpen] = useState(false);
   const [isCmdPaletteOpen, setIsCmdPaletteOpen] = useState(false);
 
-  React.useEffect(() => {
+  const isAnyModalOpen = isResumeOpen || isTerminalModalOpen || isCmdPaletteOpen;
+
+  // Lock body scroll whenever any modal dialog is active
+  useEffect(() => {
+    if (isAnyModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isAnyModalOpen]);
+
+  // Initialize smooth inertia momentum scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.1,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    const rafId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, []);
+
+  useEffect(() => {
     const handleGlobalKey = (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
         setIsCmdPaletteOpen((prev) => !prev);
+      }
+      if (e.key === "Escape") {
+        setIsCmdPaletteOpen(false);
+        setIsResumeOpen(false);
+        setIsTerminalModalOpen(false);
       }
     };
     window.addEventListener("keydown", handleGlobalKey);
@@ -32,6 +75,12 @@ export default function App() {
 
   return (
     <div className="portfolio-app" style={{ position: "relative", minHeight: "100vh" }}>
+      {/* Global Interactive Notification Toasts */}
+      <Toast />
+
+      {/* Precision Scroll Reading Beam */}
+      <ScrollProgressBar />
+
       {/* Dynamic Synaptic Neural Background */}
       <NeuralCanvas />
 

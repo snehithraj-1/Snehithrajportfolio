@@ -1,22 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { X, Download, ExternalLink, Printer, GraduationCap, Mail, MapPin, AlertCircle, FileText, CheckCircle2 } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 import { soundFX } from "../utils/audioFX";
+import { triggerToast } from "./Toast";
 
 export default function ResumeModal({ isOpen, onClose }) {
   const [downloadNotice, setDownloadNotice] = useState(false);
   const { personal, education, skillsCategories, projects, achievements } = portfolioData;
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const handlePrint = () => {
     soundFX.playClick();
+    triggerToast("Opening printable resume view...");
     window.print();
   };
 
   const handleDownload = () => {
     soundFX.playClick();
     setDownloadNotice(true);
+    triggerToast("Resume downloaded successfully! 📄");
     setTimeout(() => setDownloadNotice(false), 5000);
   };
 
@@ -46,8 +58,8 @@ export default function ResumeModal({ isOpen, onClose }) {
         style={{
           width: "100%",
           maxWidth: "860px",
-          background: "rgba(12, 18, 32, 0.98)",
-          border: "1px solid rgba(56, 189, 248, 0.28)",
+          background: "rgba(14, 14, 18, 0.98)",
+          border: "1px solid rgba(255, 255, 255, 0.15)",
           borderRadius: "22px",
           boxShadow: "0 25px 70px rgba(0, 0, 0, 0.85)",
           padding: "2.5rem",
@@ -91,11 +103,12 @@ export default function ResumeModal({ isOpen, onClose }) {
                 gap: "0.45rem",
                 padding: "0.55rem 1.25rem",
                 borderRadius: "var(--radius-full)",
-                background: "linear-gradient(135deg, #0284c7 0%, #2563eb 100%)",
-                color: "#ffffff",
+                background: "#ffffff",
+                color: "#09090b",
                 fontSize: "0.88rem",
                 fontWeight: 700,
-                boxShadow: "0 0 15px rgba(37, 99, 235, 0.4)",
+                boxShadow: "0 0 15px rgba(255, 255, 255, 0.18)",
+                border: "1px solid rgba(255, 255, 255, 0.4)",
               }}
             >
               <Download size={15} />

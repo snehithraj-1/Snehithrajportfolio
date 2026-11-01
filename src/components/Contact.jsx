@@ -1,15 +1,29 @@
 import React, { useState } from "react";
-import { Mail, MapPin, Send, CheckCircle2, MessageSquare, ExternalLink, Sparkles } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle2, MessageSquare, ExternalLink, Sparkles, Copy, Check } from "lucide-react";
 import { GithubIcon, LinkedinIcon, YoutubeIcon } from "./Icons";
 import { portfolioData, portfolioAssets } from "../data/portfolioData";
 import TiltCard from "./TiltCard";
 import { soundFX } from "../utils/audioFX";
+import { triggerToast } from "./Toast";
 
 export default function Contact() {
   const { personal } = portfolioData;
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  const handleCopyEmail = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    soundFX.playClick();
+    if (navigator?.clipboard) {
+      navigator.clipboard.writeText(personal.email);
+    }
+    setCopiedEmail(true);
+    triggerToast("✓ Email copied to clipboard: " + personal.email);
+    setTimeout(() => setCopiedEmail(false), 2500);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,6 +31,7 @@ export default function Contact() {
 
     soundFX.playClick();
     setIsSubmitting(true);
+    triggerToast("Preparing email draft...");
 
     const mailSubject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
     const mailBody = encodeURIComponent(`Hello Snehith,\n\n${formData.message}\n\n--\nFrom: ${formData.name}\nEmail: ${formData.email}`);
@@ -27,6 +42,7 @@ export default function Contact() {
       setSubmitted(true);
       soundFX.playSuccess();
       setFormData({ name: "", email: "", message: "" });
+      triggerToast("Draft launched in your mail client!");
     }, 600);
   };
 
@@ -71,41 +87,75 @@ export default function Contact() {
             {/* Direct Channel Cards List */}
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
               {/* Email */}
-              <a
-                href={`mailto:${personal.email}`}
-                onClick={() => soundFX.playClick()}
+              <div
                 style={{
-                  textDecoration: "none",
                   display: "flex",
                   alignItems: "center",
-                  gap: "0.85rem",
+                  justifyContent: "space-between",
                   padding: "0.75rem 1rem",
                   borderRadius: "12px",
-                  background: "rgba(15, 23, 42, 0.6)",
-                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  background: "rgba(18, 18, 23, 0.75)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
                   color: "var(--text-secondary)",
                   transition: "all 0.2s ease",
                 }}
               >
-                <div
+                <a
+                  href={`mailto:${personal.email}`}
+                  onClick={() => soundFX.playClick()}
                   style={{
-                    width: "32px",
-                    height: "32px",
-                    borderRadius: "8px",
-                    background: "rgba(56, 189, 248, 0.15)",
+                    textDecoration: "none",
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "center",
-                    color: "var(--cyan-neon)",
+                    gap: "0.85rem",
+                    flex: 1,
+                  }}
+                  title="Click to open default mail client"
+                >
+                  <div
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "8px",
+                      background: "rgba(255, 255, 255, 0.08)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#ffffff",
+                    }}
+                  >
+                    <Mail size={16} />
+                  </div>
+                  <div>
+                    <span style={{ fontSize: "0.72rem", color: "var(--text-muted)", display: "block" }}>Email</span>
+                    <span style={{ fontSize: "0.9rem", color: "#ffffff", fontWeight: 600 }}>{personal.email}</span>
+                  </div>
+                </a>
+
+                {/* One-click copy email button */}
+                <button
+                  onClick={handleCopyEmail}
+                  type="button"
+                  title="Copy email address"
+                  style={{
+                    background: copiedEmail ? "rgba(34, 197, 94, 0.15)" : "rgba(255, 255, 255, 0.08)",
+                    border: copiedEmail ? "1px solid rgba(34, 197, 94, 0.4)" : "1px solid rgba(255, 255, 255, 0.15)",
+                    color: copiedEmail ? "#4ade80" : "#ffffff",
+                    borderRadius: "8px",
+                    padding: "0.35rem 0.75rem",
+                    fontSize: "0.78rem",
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.35rem",
+                    transition: "all 0.2s ease",
                   }}
                 >
-                  <Mail size={16} />
-                </div>
-                <div>
-                  <span style={{ fontSize: "0.72rem", color: "var(--text-muted)", display: "block" }}>Email</span>
-                  <span style={{ fontSize: "0.9rem", color: "#ffffff", fontWeight: 600 }}>{personal.email}</span>
-                </div>
-              </a>
+                  {copiedEmail ? <Check size={13} /> : <Copy size={13} />}
+                  <span>{copiedEmail ? "Copied" : "Copy"}</span>
+                </button>
+              </div>
 
               {/* LinkedIn */}
               <a
@@ -120,8 +170,8 @@ export default function Contact() {
                   gap: "0.85rem",
                   padding: "0.75rem 1rem",
                   borderRadius: "12px",
-                  background: "rgba(15, 23, 42, 0.6)",
-                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  background: "rgba(18, 18, 23, 0.75)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
                   color: "var(--text-secondary)",
                   transition: "all 0.2s ease",
                 }}
@@ -131,11 +181,11 @@ export default function Contact() {
                     width: "32px",
                     height: "32px",
                     borderRadius: "8px",
-                    background: "rgba(37, 99, 235, 0.15)",
+                    background: "rgba(255, 255, 255, 0.08)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: "#38bdf8",
+                    color: "#ffffff",
                   }}
                 >
                   <LinkedinIcon size={16} />
@@ -159,8 +209,8 @@ export default function Contact() {
                   gap: "0.85rem",
                   padding: "0.75rem 1rem",
                   borderRadius: "12px",
-                  background: "rgba(15, 23, 42, 0.6)",
-                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  background: "rgba(18, 18, 23, 0.75)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
                   color: "var(--text-secondary)",
                   transition: "all 0.2s ease",
                 }}
@@ -170,7 +220,7 @@ export default function Contact() {
                     width: "32px",
                     height: "32px",
                     borderRadius: "8px",
-                    background: "rgba(255, 255, 255, 0.1)",
+                    background: "rgba(255, 255, 255, 0.08)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -193,8 +243,8 @@ export default function Contact() {
                   gap: "0.85rem",
                   padding: "0.75rem 1rem",
                   borderRadius: "12px",
-                  background: "rgba(15, 23, 42, 0.6)",
-                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  background: "rgba(18, 18, 23, 0.75)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
                   color: "var(--text-secondary)",
                 }}
               >
@@ -203,7 +253,8 @@ export default function Contact() {
                     width: "32px",
                     height: "32px",
                     borderRadius: "8px",
-                    background: "rgba(16, 185, 129, 0.15)",
+                    background: "rgba(16, 185, 129, 0.12)",
+                    border: "1px solid rgba(16, 185, 129, 0.3)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -226,11 +277,12 @@ export default function Contact() {
                 display: "flex",
                 flexDirection: "column",
                 gap: "1rem",
-                background: "rgba(15, 23, 42, 0.7)",
-                border: "1px solid rgba(56, 189, 248, 0.2)",
+                background: "rgba(18, 18, 23, 0.75)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
                 borderRadius: "18px",
-                padding: "1.75rem",
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.4)",
+                padding: "2rem",
+                backdropFilter: "blur(16px)",
+                boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 15px 35px rgba(0, 0, 0, 0.5)",
               }}
             >
               {submitted ? (
@@ -333,9 +385,9 @@ export default function Contact() {
                     style={{
                       padding: "0.85rem",
                       borderRadius: "var(--radius-full)",
-                      background: "linear-gradient(135deg, #0284c7 0%, #2563eb 100%)",
-                      border: "none",
-                      color: "#ffffff",
+                      background: "#ffffff",
+                      border: "1px solid rgba(255, 255, 255, 0.4)",
+                      color: "#09090b",
                       fontSize: "0.95rem",
                       fontWeight: 700,
                       cursor: isSubmitting ? "not-allowed" : "pointer",
@@ -343,8 +395,9 @@ export default function Contact() {
                       alignItems: "center",
                       justifyContent: "center",
                       gap: "0.5rem",
-                      boxShadow: "0 0 20px rgba(37, 99, 235, 0.4)",
+                      boxShadow: "0 0 20px rgba(255, 255, 255, 0.18)",
                       marginTop: "0.5rem",
+                      transition: "all 0.2s ease",
                     }}
                   >
                     <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
@@ -371,9 +424,9 @@ export default function Contact() {
                 maxWidth: "460px",
                 borderRadius: "24px",
                 overflow: "hidden",
-                border: "1px solid rgba(56, 189, 248, 0.25)",
-                boxShadow: "0 20px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(56, 189, 248, 0.15)",
-                background: "rgba(10, 16, 30, 0.8)",
+                border: "1px solid rgba(255, 255, 255, 0.12)",
+                boxShadow: "0 20px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 255, 255, 0.05)",
+                background: "rgba(18, 18, 23, 0.85)",
               }}
             >
               {/* Image Container */}
@@ -388,6 +441,8 @@ export default function Contact() {
                 <img
                   src={portfolioAssets.contactAstronaut}
                   alt="Astronaut on lunar surface looking at earth"
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     width: "100%",
                     height: "100%",
@@ -402,7 +457,7 @@ export default function Contact() {
                     position: "absolute",
                     inset: 0,
                     background:
-                      "linear-gradient(180deg, rgba(8, 12, 20, 0.1) 0%, rgba(8, 12, 20, 0.3) 60%, rgba(8, 12, 20, 0.95) 100%)",
+                      "linear-gradient(180deg, rgba(8, 12, 20, 0.1) 0%, rgba(9, 9, 11, 0.3) 60%, rgba(9, 9, 11, 0.95) 100%)",
                   }}
                 />
 
@@ -415,10 +470,10 @@ export default function Contact() {
                     right: "1.25rem",
                     padding: "0.85rem 1.25rem",
                     borderRadius: "16px",
-                    background: "rgba(15, 23, 42, 0.85)",
+                    background: "rgba(24, 24, 27, 0.9)",
                     backdropFilter: "blur(14px)",
-                    border: "1px solid rgba(56, 189, 248, 0.35)",
-                    boxShadow: "0 0 25px rgba(56, 189, 248, 0.2)",
+                    border: "1px solid rgba(255, 255, 255, 0.18)",
+                    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.08)",
                     textAlign: "center",
                   }}
                 >
@@ -427,9 +482,9 @@ export default function Contact() {
                       fontFamily: "'Caveat', cursive, var(--font-heading)",
                       fontSize: "1.25rem",
                       fontWeight: 700,
-                      color: "#38bdf8",
+                      color: "#ffffff",
                       lineHeight: 1.3,
-                      textShadow: "0 0 12px rgba(56, 189, 248, 0.5)",
+                      textShadow: "0 0 15px rgba(255, 255, 255, 0.3)",
                     }}
                   >
                     "If You Can Dream It, You Can Build It!"

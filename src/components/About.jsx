@@ -44,9 +44,9 @@ export default function About() {
               <p
                 style={{
                   fontSize: "1.05rem",
-                  color: "var(--cyan-neon)",
+                  color: "var(--text-secondary)",
                   fontFamily: "var(--font-accent)",
-                  fontWeight: 600,
+                  fontWeight: 500,
                 }}
               >
                 Get to know me better.
@@ -94,8 +94,8 @@ export default function About() {
             style={{
               padding: "2rem",
               borderRadius: "18px",
-              background: "rgba(15, 23, 42, 0.6)",
-              border: "1px solid rgba(56, 189, 248, 0.15)",
+              background: "rgba(18, 18, 23, 0.75)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
               color: "var(--text-secondary)",
               fontSize: "1.05rem",
               lineHeight: 1.8,
@@ -113,14 +113,16 @@ export default function About() {
                 height: "150px",
                 borderRadius: "22px",
                 overflow: "hidden",
-                border: "2px solid rgba(56, 189, 248, 0.35)",
-                boxShadow: "0 0 25px rgba(56, 189, 248, 0.2)",
+                border: "1.5px solid rgba(255, 255, 255, 0.3)",
+                boxShadow: "0 0 25px rgba(255, 255, 255, 0.08)",
                 flexShrink: 0,
               }}
             >
               <img
                 src={portfolioAssets.heroProfile}
                 alt="Snehith Raj"
+                loading="lazy"
+                decoding="async"
                 style={{
                   width: "100%",
                   height: "100%",
@@ -275,13 +277,13 @@ export default function About() {
               style={{
                 padding: "2rem",
                 borderRadius: "18px",
-                background: "linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.6) 100%)",
-                border: "1px solid rgba(56, 189, 248, 0.2)",
+                background: "linear-gradient(135deg, rgba(18, 18, 23, 0.9) 0%, rgba(28, 28, 35, 0.7) 100%)",
+                border: "1px solid rgba(255, 255, 255, 0.12)",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
                 position: "relative",
-                boxShadow: "0 0 25px rgba(56, 189, 248, 0.1)",
+                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 255, 255, 0.04)",
               }}
             >
               <div>
@@ -345,12 +347,12 @@ export default function About() {
                       width: "44px",
                       height: "44px",
                       borderRadius: "12px",
-                      background: "rgba(56, 189, 248, 0.12)",
-                      border: "1px solid rgba(56, 189, 248, 0.25)",
+                      background: "rgba(255, 255, 255, 0.06)",
+                      border: "1px solid rgba(255, 255, 255, 0.15)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      color: "var(--cyan-neon)",
+                      color: "#ffffff",
                       marginBottom: "0.25rem",
                     }}
                   >

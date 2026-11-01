@@ -123,7 +123,7 @@ export default function Footer({ onToggleTerminal }) {
 
           {/* Quick Navigation Links */}
           <div>
-            <h4 style={{ fontSize: "0.95rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--cyan-neon)", marginBottom: "1rem" }}>
+            <h4 style={{ fontSize: "0.95rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "#ffffff", marginBottom: "1rem" }}>
               Navigation
             </h4>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "0.6rem 2rem", fontSize: "0.88rem" }}>
@@ -156,7 +156,7 @@ export default function Footer({ onToggleTerminal }) {
 
           {/* Scroll to top */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "0.75rem" }}>
-            <h4 style={{ fontSize: "0.95rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--purple-neon)" }}>
+            <h4 style={{ fontSize: "0.95rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "#ffffff" }}>
               Back to Top
             </h4>
             <button

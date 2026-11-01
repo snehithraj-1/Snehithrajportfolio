@@ -100,27 +100,27 @@ export default function SkillsMatrix() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               style={{
-                filter: "drop-shadow(0 0 16px rgba(56, 189, 248, 0.45))",
+                filter: "drop-shadow(0 0 16px rgba(255, 255, 255, 0.15))",
                 animation: "float 4s ease-in-out infinite",
               }}
             >
               {/* Isometric Cube 1 */}
               <g transform="translate(45, 10)">
-                <polygon points="20,0 40,11.5 20,23 0,11.5" fill="#38bdf8" fillOpacity="0.85" />
-                <polygon points="0,11.5 20,23 20,46 0,34.5" fill="#0284c7" fillOpacity="0.95" />
-                <polygon points="20,23 40,11.5 40,34.5 20,46" fill="#1e3a8a" fillOpacity="0.9" />
+                <polygon points="20,0 40,11.5 20,23 0,11.5" fill="#ffffff" fillOpacity="0.9" />
+                <polygon points="0,11.5 20,23 20,46 0,34.5" fill="#e2e8f0" fillOpacity="0.95" />
+                <polygon points="20,23 40,11.5 40,34.5 20,46" fill="#a1a1aa" fillOpacity="0.9" />
               </g>
               {/* Isometric Cube 2 */}
               <g transform="translate(15, 30)">
-                <polygon points="20,0 40,11.5 20,23 0,11.5" fill="#818cf8" fillOpacity="0.8" />
-                <polygon points="0,11.5 20,23 20,46 0,34.5" fill="#4f46e5" fillOpacity="0.9" />
-                <polygon points="20,23 40,11.5 40,34.5 20,46" fill="#312e81" fillOpacity="0.85" />
+                <polygon points="20,0 40,11.5 20,23 0,11.5" fill="#f4f4f5" fillOpacity="0.85" />
+                <polygon points="0,11.5 20,23 20,46 0,34.5" fill="#cbd5e1" fillOpacity="0.9" />
+                <polygon points="20,23 40,11.5 40,34.5 20,46" fill="#71717a" fillOpacity="0.85" />
               </g>
               {/* Isometric Cube 3 */}
               <g transform="translate(65, 35)">
-                <polygon points="16,0 32,9.2 16,18.4 0,9.2" fill="#c084fc" fillOpacity="0.8" />
-                <polygon points="0,9.2 16,18.4 16,36.8 0,27.6" fill="#9333ea" fillOpacity="0.9" />
-                <polygon points="16,18.4 32,9.2 32,27.6 16,36.8" fill="#581c87" fillOpacity="0.85" />
+                <polygon points="16,0 32,9.2 16,18.4 0,9.2" fill="#e4e4e7" fillOpacity="0.85" />
+                <polygon points="0,9.2 16,18.4 16,36.8 0,27.6" fill="#94a3b8" fillOpacity="0.9" />
+                <polygon points="16,18.4 32,9.2 32,27.6 16,36.8" fill="#52525b" fillOpacity="0.85" />
               </g>
             </svg>
           </div>
@@ -150,18 +150,18 @@ export default function SkillsMatrix() {
                   padding: "0.45rem 1.15rem",
                   borderRadius: "var(--radius-full)",
                   border: isSelected
-                    ? "1px solid var(--cyan-neon)"
-                    : "1px solid rgba(255, 255, 255, 0.1)",
+                    ? "1px solid rgba(255, 255, 255, 0.4)"
+                    : "1px solid rgba(255, 255, 255, 0.08)",
                   background: isSelected
-                    ? "linear-gradient(135deg, rgba(56, 189, 248, 0.25) 0%, rgba(37, 99, 235, 0.35) 100%)"
-                    : "rgba(15, 23, 42, 0.6)",
-                  color: isSelected ? "#ffffff" : "var(--text-secondary)",
+                    ? "#ffffff"
+                    : "rgba(18, 18, 23, 0.6)",
+                  color: isSelected ? "#09090b" : "var(--text-secondary)",
                   fontFamily: "var(--font-accent)",
                   fontSize: "0.88rem",
                   fontWeight: isSelected ? 700 : 500,
                   cursor: "pointer",
                   transition: "all 0.2s ease",
-                  boxShadow: isSelected ? "0 0 15px rgba(56, 189, 248, 0.3)" : "none",
+                  boxShadow: isSelected ? "0 0 15px rgba(255, 255, 255, 0.2)" : "none",
                 }}
               >
                 {tab}
@@ -189,9 +189,9 @@ export default function SkillsMatrix() {
                 style={{
                   padding: "2rem",
                   borderRadius: "18px",
-                  background: "rgba(15, 23, 42, 0.7)",
-                  border: "1px solid rgba(56, 189, 248, 0.18)",
-                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.4)",
+                  background: "rgba(18, 18, 23, 0.75)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
                   display: "flex",
                   flexDirection: "column",
                   gap: "1.25rem",
@@ -203,11 +203,11 @@ export default function SkillsMatrix() {
                       width: "38px",
                       height: "38px",
                       borderRadius: "10px",
-                      background: "rgba(56, 189, 248, 0.15)",
+                      background: "rgba(255, 255, 255, 0.08)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      color: "var(--cyan-neon)",
+                      color: "#ffffff",
                     }}
                   >
                     <Icon size={20} />
@@ -241,8 +241,9 @@ export default function SkillsMatrix() {
                         gap: "0.6rem",
                         padding: "0.55rem 0.75rem",
                         borderRadius: "10px",
-                        background: "rgba(30, 41, 59, 0.5)",
+                        background: "rgba(24, 24, 27, 0.6)",
                         border: "1px solid rgba(255, 255, 255, 0.08)",
+                        boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.05)",
                         transition: "all 0.2s ease",
                       }}
                       className="tech-badge-item"

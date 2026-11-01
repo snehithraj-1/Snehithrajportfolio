@@ -55,7 +55,7 @@ export default function NeuralCanvas() {
         radius: 10,
         maxRadius: isMobile ? 220 : 320,
         alpha: 0.95,
-        color: "#00f2fe",
+        color: "#ffffff",
       });
 
       // Spawn 18 vibrant spark particles
@@ -68,7 +68,7 @@ export default function NeuralCanvas() {
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed,
           radius: Math.random() * 2.8 + 1.4,
-          color: i % 3 === 0 ? "#00f2fe" : i % 3 === 1 ? "#a78bfa" : "#10b981",
+          color: i % 3 === 0 ? "#ffffff" : i % 3 === 1 ? "#e2e8f0" : "#94a3b8",
           alpha: 1,
           decay: Math.random() * 0.025 + 0.015,
         });
@@ -101,7 +101,7 @@ export default function NeuralCanvas() {
     window.addEventListener("click", handleClick);
 
     const nodes = [];
-    const colors = ["#00f2fe", "#38bdf8", "#818cf8", "#a78bfa", "#34d399"];
+    const colors = ["#ffffff", "#f8fafc", "#e2e8f0", "#cbd5e1", "#94a3b8"];
 
     for (let i = 0; i < nodeCount; i++) {
       nodes.push({
@@ -139,7 +139,7 @@ export default function NeuralCanvas() {
             y2: dest.y,
             progress: 0,
             speed: Math.random() * 0.035 + 0.025,
-            color: Math.random() > 0.5 ? "#00f2fe" : "#a78bfa",
+            color: Math.random() > 0.5 ? "#ffffff" : "#e2e8f0",
           });
           break;
         }
@@ -151,7 +151,7 @@ export default function NeuralCanvas() {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Deep ambient cyber glow backdrops
+      // Deep ambient titanium glow backdrops
       const grad1 = ctx.createRadialGradient(
         width * 0.2,
         height * 0.25,
@@ -160,7 +160,7 @@ export default function NeuralCanvas() {
         height * 0.25,
         width * 0.5
       );
-      grad1.addColorStop(0, "rgba(0, 242, 254, 0.065)");
+      grad1.addColorStop(0, "rgba(255, 255, 255, 0.035)");
       grad1.addColorStop(1, "transparent");
       ctx.fillStyle = grad1;
       ctx.fillRect(0, 0, width, height);
@@ -173,7 +173,7 @@ export default function NeuralCanvas() {
         height * 0.75,
         width * 0.5
       );
-      grad2.addColorStop(0, "rgba(167, 139, 250, 0.055)");
+      grad2.addColorStop(0, "rgba(226, 232, 240, 0.025)");
       grad2.addColorStop(1, "transparent");
       ctx.fillStyle = grad2;
       ctx.fillRect(0, 0, width, height);
@@ -269,11 +269,11 @@ export default function NeuralCanvas() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxDistance) {
-            const alpha = (1 - dist / maxDistance) * 0.40;
+            const alpha = (1 - dist / maxDistance) * 0.35;
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(other.x, other.y);
-            ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+            ctx.strokeStyle = `rgba(226, 232, 240, ${alpha})`;
             ctx.lineWidth = 1.0;
             ctx.stroke();
           }
@@ -286,13 +286,13 @@ export default function NeuralCanvas() {
           const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
 
           if (mDist < mouse.radius) {
-            const mAlpha = (1 - mDist / mouse.radius) * 0.80;
+            const mAlpha = (1 - mDist / mouse.radius) * 0.75;
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(0, 242, 254, ${mAlpha})`;
-            ctx.lineWidth = 1.5;
-            ctx.shadowColor = "#00f2fe";
+            ctx.strokeStyle = `rgba(255, 255, 255, ${mAlpha})`;
+            ctx.lineWidth = 1.4;
+            ctx.shadowColor = "#ffffff";
             ctx.shadowBlur = 8;
             ctx.stroke();
             ctx.shadowBlur = 0;

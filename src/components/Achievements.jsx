@@ -73,21 +73,21 @@ export default function Achievements() {
                   padding: "0.5rem 1.3rem",
                   borderRadius: "var(--radius-full)",
                   border: isSelected
-                    ? "1px solid var(--cyan-neon)"
-                    : "1px solid rgba(255, 255, 255, 0.1)",
+                    ? "1px solid rgba(255, 255, 255, 0.4)"
+                    : "1px solid rgba(255, 255, 255, 0.08)",
                   background: isSelected
-                    ? "linear-gradient(135deg, rgba(56, 189, 248, 0.25) 0%, rgba(37, 99, 235, 0.35) 100%)"
-                    : "rgba(15, 23, 42, 0.6)",
-                  color: isSelected ? "#ffffff" : "var(--text-secondary)",
+                    ? "#ffffff"
+                    : "rgba(18, 18, 23, 0.6)",
+                  color: isSelected ? "#09090b" : "var(--text-secondary)",
                   fontFamily: "var(--font-accent)",
                   fontSize: "0.9rem",
                   fontWeight: isSelected ? 700 : 500,
                   cursor: "pointer",
                   transition: "all 0.2s ease",
-                  boxShadow: isSelected ? "0 0 15px rgba(56, 189, 248, 0.3)" : "none",
+                  boxShadow: isSelected ? "0 0 15px rgba(255, 255, 255, 0.2)" : "none",
                 }}
               >
-                <Icon size={16} color={isSelected ? "var(--cyan-neon)" : "var(--text-muted)"} />
+                <Icon size={16} color={isSelected ? "#09090b" : "var(--text-muted)"} />
                 <span>{cat.label}</span>
               </button>
             );
@@ -109,9 +109,9 @@ export default function Achievements() {
               style={{
                 padding: "1.75rem 2rem",
                 borderRadius: "18px",
-                background: "rgba(15, 23, 42, 0.7)",
-                border: "1px solid rgba(56, 189, 248, 0.18)",
-                boxShadow: "0 10px 25px rgba(0, 0, 0, 0.4)",
+                background: "rgba(18, 18, 23, 0.75)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                boxShadow: "0 10px 25px rgba(0, 0, 0, 0.5)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
@@ -126,14 +126,14 @@ export default function Achievements() {
                     width: "44px",
                     height: "44px",
                     borderRadius: "12px",
-                    background: "rgba(56, 189, 248, 0.12)",
-                    border: "1px solid rgba(56, 189, 248, 0.3)",
+                    background: "rgba(255, 255, 255, 0.08)",
+                    border: "1px solid rgba(255, 255, 255, 0.18)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: "var(--cyan-neon)",
+                    color: "#ffffff",
                     flexShrink: 0,
-                    boxShadow: "0 0 15px rgba(56, 189, 248, 0.2)",
+                    boxShadow: "0 0 15px rgba(255, 255, 255, 0.08)",
                   }}
                 >
                   <Trophy size={20} />
@@ -190,13 +190,13 @@ export default function Achievements() {
                   display: "flex",
                   alignItems: "center",
                   gap: "0.6rem",
-                  color: "var(--cyan-neon)",
+                  color: "#ffffff",
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.85rem",
-                  background: "rgba(8, 12, 20, 0.6)",
+                  background: "rgba(18, 18, 23, 0.75)",
                   padding: "0.45rem 0.95rem",
                   borderRadius: "var(--radius-full)",
-                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  border: "1px solid rgba(255, 255, 255, 0.12)",
                 }}
               >
                 <Calendar size={14} />

@@ -58,9 +58,9 @@ export default function Research() {
           style={{
             borderRadius: "22px",
             overflow: "hidden",
-            background: "rgba(15, 23, 42, 0.75)",
-            border: "1px solid rgba(56, 189, 248, 0.22)",
-            boxShadow: "0 15px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(56, 189, 248, 0.12)",
+            background: "rgba(18, 18, 23, 0.75)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+            boxShadow: "0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 255, 255, 0.04)",
             marginBottom: "3rem",
             display: "grid",
             gridTemplateColumns: "1.1fr 0.9fr",
@@ -114,9 +114,9 @@ export default function Research() {
                   style={{
                     padding: "0.25rem 0.8rem",
                     borderRadius: "var(--radius-full)",
-                    background: "rgba(56, 189, 248, 0.12)",
-                    border: "1px solid rgba(56, 189, 248, 0.3)",
-                    color: "var(--cyan-neon)",
+                    background: "rgba(255, 255, 255, 0.06)",
+                    border: "1px solid rgba(255, 255, 255, 0.15)",
+                    color: "#f4f4f5",
                     fontSize: "0.78rem",
                     fontFamily: "var(--font-mono)",
                     fontWeight: 600,
@@ -326,8 +326,8 @@ export default function Research() {
           style={{
             padding: "1.25rem 1.75rem",
             borderRadius: "16px",
-            background: "rgba(15, 23, 42, 0.6)",
-            border: "1px solid rgba(56, 189, 248, 0.15)",
+            background: "rgba(18, 18, 23, 0.65)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -336,7 +336,7 @@ export default function Research() {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
-            <Sparkles size={18} color="var(--cyan-neon)" />
+            <Sparkles size={18} color="#ffffff" />
             <span
               style={{
                 fontFamily: "var(--font-heading)",
@@ -356,9 +356,9 @@ export default function Research() {
                 style={{
                   padding: "0.35rem 0.95rem",
                   borderRadius: "var(--radius-full)",
-                  background: "rgba(56, 189, 248, 0.1)",
-                  border: "1px solid rgba(56, 189, 248, 0.25)",
-                  color: "var(--cyan-neon)",
+                  background: "rgba(255, 255, 255, 0.06)",
+                  border: "1px solid rgba(255, 255, 255, 0.15)",
+                  color: "#f4f4f5",
                   fontFamily: "var(--font-accent)",
                   fontSize: "0.85rem",
                   fontWeight: 600,
@@ -394,15 +394,15 @@ export default function Research() {
             style={{
               width: "100%",
               maxWidth: "750px",
-              background: "rgba(12, 18, 32, 0.98)",
-              border: "1px solid rgba(56, 189, 248, 0.3)",
+              background: "rgba(14, 14, 18, 0.98)",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
               borderRadius: "20px",
               padding: "2rem",
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem" }}>
               <div>
-                <span style={{ fontSize: "0.8rem", color: "var(--cyan-neon)", fontFamily: "var(--font-mono)" }}>RESEARCH PAPER ABSTRACT</span>
+                <span style={{ fontSize: "0.8rem", color: "#ffffff", fontFamily: "var(--font-mono)" }}>RESEARCH PAPER ABSTRACT</span>
                 <h3 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#ffffff", marginTop: "0.25rem" }}>{selectedResearch.title}</h3>
               </div>
               <button

@@ -281,8 +281,8 @@ export default function CommandPalette({ isOpen, onClose, onOpenResume, onToggle
                     justifyContent: "space-between",
                     padding: "0.75rem 1rem",
                     borderRadius: "var(--radius-md)",
-                    background: isSelected ? "rgba(56, 189, 248, 0.1)" : "transparent",
-                    border: isSelected ? "1px solid rgba(56, 189, 248, 0.25)" : "1px solid transparent",
+                    background: isSelected ? "rgba(255, 255, 255, 0.08)" : "transparent",
+                    border: isSelected ? "1px solid rgba(255, 255, 255, 0.18)" : "1px solid transparent",
                     cursor: "pointer",
                     transition: "var(--transition-fast)",
                   }}

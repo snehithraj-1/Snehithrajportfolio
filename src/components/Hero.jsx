@@ -41,8 +41,8 @@ export default function Hero({ onOpenResume }) {
                 gap: "0.5rem",
                 padding: "0.35rem 0.95rem",
                 borderRadius: "var(--radius-full)",
-                background: "rgba(56, 189, 248, 0.08)",
-                border: "1px solid rgba(56, 189, 248, 0.25)",
+                background: "rgba(255, 255, 255, 0.05)",
+                border: "1px solid rgba(255, 255, 255, 0.15)",
                 marginBottom: "1.5rem",
                 width: "fit-content",
               }}
@@ -52,7 +52,7 @@ export default function Hero({ onOpenResume }) {
                 style={{
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.78rem",
-                  color: "var(--cyan-neon)",
+                  color: "#f4f4f5",
                   fontWeight: 600,
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
@@ -78,10 +78,10 @@ export default function Hero({ onOpenResume }) {
               Intelligent Systems <br />
               <span
                 style={{
-                  background: "linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #818cf8 100%)",
+                  background: "linear-gradient(180deg, #ffffff 0%, #e2e8f0 45%, #a1a1aa 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
-                  textShadow: "0 0 35px rgba(56, 189, 248, 0.35)",
+                  textShadow: "0 0 35px rgba(255, 255, 255, 0.15)",
                 }}
               >
                 With AI & Machine Learning.
@@ -108,9 +108,9 @@ export default function Hero({ onOpenResume }) {
                   style={{
                     fontSize: "0.78rem",
                     fontFamily: "var(--font-mono)",
-                    color: "var(--cyan-neon)",
-                    background: "rgba(56, 189, 248, 0.08)",
-                    border: "1px solid rgba(56, 189, 248, 0.2)",
+                    color: "#f4f4f5",
+                    background: "rgba(255, 255, 255, 0.05)",
+                    border: "1px solid rgba(255, 255, 255, 0.12)",
                     padding: "0.25rem 0.65rem",
                     borderRadius: "6px",
                   }}
@@ -155,14 +155,14 @@ export default function Hero({ onOpenResume }) {
                   alignItems: "center",
                   gap: "0.6rem",
                   padding: "0.85rem 1.75rem",
-                  background: "linear-gradient(135deg, #0284c7 0%, #2563eb 100%)",
-                  color: "#ffffff",
+                  background: "#ffffff",
+                  color: "#09090b",
                   borderRadius: "var(--radius-full)",
                   fontWeight: 700,
                   fontSize: "0.98rem",
-                  boxShadow: "0 0 25px rgba(37, 99, 235, 0.5)",
+                  boxShadow: "0 0 25px rgba(255, 255, 255, 0.18)",
                   transition: "all 0.25s ease",
-                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                  border: "1px solid rgba(255, 255, 255, 0.4)",
                 }}
               >
                 <span>Explore Projects</span>
@@ -181,12 +181,12 @@ export default function Hero({ onOpenResume }) {
                   alignItems: "center",
                   gap: "0.55rem",
                   padding: "0.82rem 1.6rem",
-                  background: "rgba(15, 23, 42, 0.65)",
+                  background: "rgba(18, 18, 23, 0.75)",
                   color: "var(--text-primary)",
                   borderRadius: "var(--radius-full)",
                   fontWeight: 600,
                   fontSize: "0.95rem",
-                  border: "1px solid rgba(255, 255, 255, 0.12)",
+                  border: "1px solid rgba(255, 255, 255, 0.15)",
                   cursor: "pointer",
                   backdropFilter: "blur(12px)",
                   transition: "all 0.25s ease",
@@ -282,7 +282,7 @@ export default function Hero({ onOpenResume }) {
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(4, 1fr)",
-                gap: "1rem",
+                gap: "0.85rem",
               }}
               className="hero-stats-row"
             >
@@ -292,12 +292,27 @@ export default function Hero({ onOpenResume }) {
                   style={{
                     display: "flex",
                     flexDirection: "column",
+                    padding: "0.85rem 1rem",
+                    borderRadius: "14px",
+                    background: "rgba(18, 18, 23, 0.65)",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
+                    boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.06)",
+                    backdropFilter: "blur(8px)",
+                    transition: "transform 0.2s ease, border-color 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.08)";
+                    e.currentTarget.style.transform = "translateY(0)";
                   }}
                 >
                   <span
                     style={{
                       fontFamily: "var(--font-heading)",
-                      fontSize: "clamp(1.4rem, 2.2vw, 1.85rem)",
+                      fontSize: "clamp(1.35rem, 2vw, 1.75rem)",
                       fontWeight: 800,
                       color: "#ffffff",
                       lineHeight: 1.1,
@@ -309,11 +324,11 @@ export default function Hero({ onOpenResume }) {
                   <span
                     style={{
                       fontFamily: "var(--font-mono)",
-                      fontSize: "0.78rem",
+                      fontSize: "0.72rem",
                       color: "var(--text-secondary)",
-                      marginTop: "0.25rem",
+                      marginTop: "0.3rem",
                       textTransform: "uppercase",
-                      letterSpacing: "0.05em",
+                      letterSpacing: "0.06em",
                     }}
                   >
                     {stat.label}
@@ -340,9 +355,9 @@ export default function Hero({ onOpenResume }) {
                 maxWidth: "460px",
                 borderRadius: "24px",
                 overflow: "hidden",
-                border: "1px solid rgba(56, 189, 248, 0.25)",
-                boxShadow: "0 20px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.15)",
-                background: "rgba(10, 16, 30, 0.75)",
+                border: "1px solid rgba(255, 255, 255, 0.12)",
+                boxShadow: "0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 255, 255, 0.04)",
+                background: "rgba(18, 18, 23, 0.8)",
               }}
             >
               {/* Cosmic Cutout Image */}
@@ -357,6 +372,9 @@ export default function Hero({ onOpenResume }) {
                 <img
                   src={portfolioAssets.heroProfile}
                   alt="Snehith Raj - AI/ML Engineer & Full Stack Developer"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   style={{
                     width: "100%",
                     height: "100%",
@@ -372,7 +390,7 @@ export default function Hero({ onOpenResume }) {
                     position: "absolute",
                     inset: 0,
                     background:
-                      "linear-gradient(180deg, rgba(8, 12, 20, 0) 0%, rgba(8, 12, 20, 0.05) 60%, rgba(8, 12, 20, 0.9) 100%)",
+                      "linear-gradient(180deg, rgba(8, 12, 20, 0) 0%, rgba(9, 9, 11, 0.1) 60%, rgba(9, 9, 11, 0.95) 100%)",
                     pointerEvents: "none",
                   }}
                 />
@@ -386,10 +404,10 @@ export default function Hero({ onOpenResume }) {
                     right: "1.2rem",
                     padding: "0.5rem 0.85rem",
                     borderRadius: "14px",
-                    background: "rgba(15, 23, 42, 0.85)",
+                    background: "rgba(24, 24, 27, 0.88)",
                     backdropFilter: "blur(12px)",
-                    border: "1px solid rgba(56, 189, 248, 0.4)",
-                    boxShadow: "0 0 20px rgba(56, 189, 248, 0.25)",
+                    border: "1px solid rgba(255, 255, 255, 0.18)",
+                    boxShadow: "0 10px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 255, 255, 0.06)",
                     transform: "rotate(3deg)",
                     maxWidth: "180px",
                     textAlign: "center",
@@ -400,9 +418,8 @@ export default function Hero({ onOpenResume }) {
                       fontFamily: "var(--font-heading)",
                       fontSize: "0.82rem",
                       fontWeight: 700,
-                      color: "#38bdf8",
+                      color: "#ffffff",
                       lineHeight: 1.25,
-                      textShadow: "0 0 10px rgba(56, 189, 248, 0.5)",
                     }}
                   >
                     Building AI for a Better Tomorrow! 🚀
@@ -421,7 +438,7 @@ export default function Hero({ onOpenResume }) {
                     gap: "0.75rem",
                     padding: "0.6rem 0.45rem",
                     borderRadius: "var(--radius-full)",
-                    background: "rgba(10, 16, 30, 0.75)",
+                    background: "rgba(18, 18, 23, 0.85)",
                     border: "1px solid rgba(255, 255, 255, 0.12)",
                     backdropFilter: "blur(10px)",
                     zIndex: 3,
@@ -443,7 +460,7 @@ export default function Hero({ onOpenResume }) {
                     rel="noreferrer"
                     aria-label="LinkedIn"
                     onClick={() => soundFX.playClick()}
-                    style={{ color: "#38bdf8", opacity: 0.85, transition: "opacity 0.2s" }}
+                    style={{ color: "#e4e4e7", opacity: 0.85, transition: "opacity 0.2s" }}
                   >
                     <LinkedinIcon size={16} />
                   </a>
@@ -453,7 +470,7 @@ export default function Hero({ onOpenResume }) {
                     rel="noreferrer"
                     aria-label="LeetCode"
                     onClick={() => soundFX.playClick()}
-                    style={{ color: "#f59e0b", opacity: 0.85, transition: "opacity 0.2s" }}
+                    style={{ color: "#d4d4d8", opacity: 0.85, transition: "opacity 0.2s" }}
                   >
                     <LeetcodeIcon size={16} />
                   </a>

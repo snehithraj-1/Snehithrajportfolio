@@ -57,14 +57,14 @@ export default function Navbar({ onOpenResume }) {
         zIndex: 100,
         transition: "all 0.3s ease",
         background: scrolled
-          ? "rgba(8, 12, 20, 0.88)"
-          : "rgba(8, 12, 20, 0.45)",
-        backdropFilter: "blur(18px)",
-        WebkitBackdropFilter: "blur(18px)",
+          ? "rgba(9, 9, 11, 0.92)"
+          : "rgba(9, 9, 11, 0.45)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
         borderBottom: scrolled
-          ? "1px solid rgba(56, 189, 248, 0.18)"
-          : "1px solid rgba(255, 255, 255, 0.05)",
-        boxShadow: scrolled ? "0 10px 30px rgba(0, 0, 0, 0.5)" : "none",
+          ? "1px solid rgba(255, 255, 255, 0.1)"
+          : "1px solid rgba(255, 255, 255, 0.04)",
+        boxShadow: scrolled ? "0 10px 30px rgba(0, 0, 0, 0.7)" : "none",
       }}
     >
       <div
@@ -96,8 +96,8 @@ export default function Navbar({ onOpenResume }) {
               height: "40px",
               borderRadius: "50%",
               overflow: "hidden",
-              border: "2px solid var(--cyan-neon)",
-              boxShadow: "0 0 16px rgba(56, 189, 248, 0.4)",
+              border: "1.5px solid rgba(255, 255, 255, 0.4)",
+              boxShadow: "0 0 16px rgba(255, 255, 255, 0.1)",
               flexShrink: 0,
             }}
           >
@@ -182,12 +182,12 @@ export default function Navbar({ onOpenResume }) {
                   fontSize: "0.88rem",
                   fontFamily: "var(--font-accent)",
                   fontWeight: isActive ? 700 : 500,
-                  color: isActive ? "var(--cyan-neon)" : "var(--text-secondary)",
+                  color: isActive ? "#ffffff" : "var(--text-secondary)",
                   transition: "var(--transition-fast)",
                   padding: "0.35rem 0.55rem",
                   borderRadius: "var(--radius-sm)",
                   position: "relative",
-                  background: isActive ? "rgba(56, 189, 248, 0.08)" : "transparent",
+                  background: isActive ? "rgba(255, 255, 255, 0.08)" : "transparent",
                 }}
               >
                 {link.label}
@@ -199,8 +199,8 @@ export default function Navbar({ onOpenResume }) {
                       left: "0.55rem",
                       right: "0.55rem",
                       height: "2px",
-                      background: "var(--cyan-neon)",
-                      boxShadow: "0 0 8px var(--cyan-neon)",
+                      background: "#ffffff",
+                      boxShadow: "0 0 8px rgba(255, 255, 255, 0.6)",
                       borderRadius: "var(--radius-full)",
                     }}
                   />
@@ -250,14 +250,14 @@ export default function Navbar({ onOpenResume }) {
                 alignItems: "center",
                 gap: "0.4rem",
                 padding: "0.48rem 1.25rem",
-                background: "linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #4f46e5 100%)",
-                color: "#ffffff",
+                background: "#ffffff",
+                color: "#09090b",
                 borderRadius: "var(--radius-full)",
                 fontSize: "0.88rem",
                 fontWeight: 700,
-                boxShadow: "0 0 18px rgba(37, 99, 235, 0.45)",
+                boxShadow: "0 0 18px rgba(255, 255, 255, 0.18)",
                 transition: "all 0.2s ease",
-                border: "1px solid rgba(255, 255, 255, 0.2)",
+                border: "1px solid rgba(255, 255, 255, 0.4)",
               }}
             >
               <span>Let's Talk</span>
@@ -272,17 +272,17 @@ export default function Navbar({ onOpenResume }) {
             }}
             className="mobile-menu-toggle"
             style={{
-              background: "rgba(15, 23, 42, 0.8)",
-              border: "1px solid var(--border-neon)",
+              background: "rgba(18, 18, 23, 0.8)",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
               borderRadius: "10px",
-              color: "var(--cyan-neon)",
+              color: "#ffffff",
               width: "42px",
               height: "42px",
               cursor: "pointer",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              boxShadow: "0 0 12px rgba(56, 189, 248, 0.15)",
+              boxShadow: "0 0 12px rgba(255, 255, 255, 0.05)",
             }}
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -301,7 +301,7 @@ export default function Navbar({ onOpenResume }) {
             left: 0,
             right: 0,
             bottom: 0,
-            background: "rgba(8, 12, 20, 0.98)",
+            background: "rgba(9, 9, 11, 0.98)",
             backdropFilter: "blur(24px)",
             WebkitBackdropFilter: "blur(24px)",
             padding: "1.75rem 1.5rem",
@@ -310,7 +310,7 @@ export default function Navbar({ onOpenResume }) {
             gap: "1.25rem",
             zIndex: 99,
             overflowY: "auto",
-            borderTop: "1px solid rgba(56, 189, 248, 0.15)",
+            borderTop: "1px solid rgba(255, 255, 255, 0.1)",
             animation: "fadeIn 0.2s ease-out",
           }}
         >
@@ -327,11 +327,11 @@ export default function Navbar({ onOpenResume }) {
                     fontSize: "1.1rem",
                     fontFamily: "var(--font-accent)",
                     fontWeight: isActive ? 700 : 500,
-                    color: isActive ? "var(--cyan-neon)" : "var(--text-primary)",
+                    color: isActive ? "#ffffff" : "var(--text-primary)",
                     padding: "0.85rem 1rem",
                     borderRadius: "12px",
-                    background: isActive ? "rgba(56, 189, 248, 0.12)" : "rgba(255, 255, 255, 0.02)",
-                    border: isActive ? "1px solid rgba(56, 189, 248, 0.25)" : "1px solid transparent",
+                    background: isActive ? "rgba(255, 255, 255, 0.08)" : "rgba(255, 255, 255, 0.02)",
+                    border: isActive ? "1px solid rgba(255, 255, 255, 0.18)" : "1px solid transparent",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
@@ -345,8 +345,8 @@ export default function Navbar({ onOpenResume }) {
                         width: "8px",
                         height: "8px",
                         borderRadius: "50%",
-                        background: "var(--cyan-neon)",
-                        boxShadow: "0 0 8px var(--cyan-neon)",
+                        background: "#ffffff",
+                        boxShadow: "0 0 8px rgba(255, 255, 255, 0.8)",
                       }}
                     />
                   )}
@@ -389,14 +389,14 @@ export default function Navbar({ onOpenResume }) {
                 textDecoration: "none",
                 padding: "0.95rem",
                 borderRadius: "12px",
-                background: "linear-gradient(135deg, #0284c7 0%, #2563eb 100%)",
-                color: "#ffffff",
+                background: "#ffffff",
+                color: "#09090b",
                 fontWeight: 700,
                 fontSize: "0.95rem",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                boxShadow: "0 0 20px rgba(37, 99, 235, 0.4)",
+                boxShadow: "0 0 20px rgba(255, 255, 255, 0.18)",
                 width: "100%",
               }}
             >

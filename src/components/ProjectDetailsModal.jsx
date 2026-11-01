@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { GithubIcon } from "./Icons";
 import { soundFX } from "../utils/audioFX";
+import { triggerToast } from "./Toast";
 
 export default function ProjectDetailsModal({ project, onClose }) {
   const [activeTab, setActiveTab] = useState("overview");
@@ -26,11 +27,15 @@ export default function ProjectDetailsModal({ project, onClose }) {
   const [contactSearch, setContactSearch] = useState("");
 
   useEffect(() => {
+    document.body.style.overflow = "hidden";
     const handleKeyDown = (e) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, [onClose]);
 
   if (!project) return null;
@@ -463,10 +468,10 @@ export default function ProjectDetailsModal({ project, onClose }) {
         style={{
           width: "100%",
           maxWidth: "1050px",
-          background: "rgba(12, 18, 32, 0.96)",
-          border: "1px solid rgba(56, 189, 248, 0.25)",
+          background: "rgba(14, 14, 18, 0.98)",
+          border: "1px solid rgba(255, 255, 255, 0.15)",
           borderRadius: "24px",
-          boxShadow: "0 25px 70px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.15)",
+          boxShadow: "0 25px 70px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 255, 255, 0.05)",
           overflow: "hidden",
           maxHeight: "90vh",
           display: "flex",
@@ -523,7 +528,10 @@ export default function ProjectDetailsModal({ project, onClose }) {
                 href={project.demoUrl}
                 target="_blank"
                 rel="noreferrer"
-                onClick={() => soundFX.playClick()}
+                onClick={() => {
+                  soundFX.playClick();
+                  triggerToast("Opening live demo...");
+                }}
                 style={{
                   textDecoration: "none",
                   display: "inline-flex",
@@ -531,11 +539,12 @@ export default function ProjectDetailsModal({ project, onClose }) {
                   gap: "0.45rem",
                   padding: "0.5rem 1.15rem",
                   borderRadius: "var(--radius-full)",
-                  background: "linear-gradient(135deg, #0284c7 0%, #2563eb 100%)",
-                  color: "#ffffff",
+                  background: "#ffffff",
+                  color: "#09090b",
                   fontSize: "0.85rem",
                   fontWeight: 700,
-                  boxShadow: "0 0 15px rgba(37, 99, 235, 0.4)",
+                  boxShadow: "0 0 15px rgba(255, 255, 255, 0.2)",
+                  border: "1px solid rgba(255, 255, 255, 0.4)",
                 }}
               >
                 <span>Live Demo</span>
@@ -548,7 +557,10 @@ export default function ProjectDetailsModal({ project, onClose }) {
               href={project.githubUrl}
               target="_blank"
               rel="noreferrer"
-              onClick={() => soundFX.playClick()}
+              onClick={() => {
+                soundFX.playClick();
+                triggerToast("Opening GitHub repository...");
+              }}
               style={{
                 textDecoration: "none",
                 display: "inline-flex",
@@ -666,8 +678,8 @@ export default function ProjectDetailsModal({ project, onClose }) {
                     padding: "0.5rem 1.2rem",
                     borderRadius: "10px",
                     border: "none",
-                    background: isSelected ? "rgba(56, 189, 248, 0.15)" : "transparent",
-                    color: isSelected ? "var(--cyan-neon)" : "var(--text-secondary)",
+                    background: isSelected ? "rgba(255, 255, 255, 0.1)" : "transparent",
+                    color: isSelected ? "#ffffff" : "var(--text-secondary)",
                     fontWeight: isSelected ? 700 : 500,
                     fontSize: "0.9rem",
                     cursor: "pointer",

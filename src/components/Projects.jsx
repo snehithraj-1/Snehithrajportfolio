@@ -13,15 +13,21 @@ export default function Projects() {
 
   const filters = ["All", "Web Apps", "Full Stack", "TypeScript", "Python", "C++ / DSA"];
 
-  const filteredProjects = projects.filter((project) => {
-    if (selectedFilter === "All") return true;
-    if (selectedFilter === "Web Apps") return project.category === "Web Apps" || project.tags.includes("Web Apps") || project.tags.includes("PWA");
-    if (selectedFilter === "Full Stack") return project.category === "Full Stack" || project.tags.includes("Full Stack");
-    if (selectedFilter === "TypeScript") return project.tags.includes("TypeScript");
-    if (selectedFilter === "Python") return project.tags.includes("Python");
-    if (selectedFilter === "C++ / DSA") return project.category === "Core CS" || project.tags.includes("C++") || project.tags.includes("DSA");
-    return project.category === selectedFilter || project.tags.includes(selectedFilter);
-  });
+  const matchesFilter = (project, filterKey) => {
+    if (filterKey === "All") return true;
+    if (filterKey === "Web Apps") return project.category === "Web Apps" || project.tags.includes("Web Apps") || project.tags.includes("PWA");
+    if (filterKey === "Full Stack") return project.category === "Full Stack" || project.tags.includes("Full Stack");
+    if (filterKey === "TypeScript") return project.tags.includes("TypeScript");
+    if (filterKey === "Python") return project.tags.includes("Python");
+    if (filterKey === "C++ / DSA") return project.category === "Core CS" || project.tags.includes("C++") || project.tags.includes("DSA");
+    return project.category === filterKey || project.tags.includes(filterKey);
+  };
+
+  const filteredProjects = projects.filter((project) => matchesFilter(project, selectedFilter));
+
+  const countForFilter = (filterKey) => {
+    return projects.filter((project) => matchesFilter(project, filterKey)).length;
+  };
 
   return (
     <section id="projects" style={{ padding: "5.5rem 0", position: "relative" }}>
@@ -75,21 +81,37 @@ export default function Projects() {
                   padding: "0.45rem 1.15rem",
                   borderRadius: "var(--radius-full)",
                   border: isSelected
-                    ? "1px solid var(--cyan-neon)"
-                    : "1px solid rgba(255, 255, 255, 0.1)",
+                    ? "1px solid rgba(255, 255, 255, 0.4)"
+                    : "1px solid rgba(255, 255, 255, 0.08)",
                   background: isSelected
-                    ? "linear-gradient(135deg, rgba(56, 189, 248, 0.25) 0%, rgba(37, 99, 235, 0.35) 100%)"
-                    : "rgba(15, 23, 42, 0.6)",
-                  color: isSelected ? "#ffffff" : "var(--text-secondary)",
+                    ? "#ffffff"
+                    : "rgba(18, 18, 23, 0.6)",
+                  color: isSelected ? "#09090b" : "var(--text-secondary)",
                   fontFamily: "var(--font-accent)",
                   fontSize: "0.88rem",
                   fontWeight: isSelected ? 700 : 500,
                   cursor: "pointer",
                   transition: "all 0.2s ease",
-                  boxShadow: isSelected ? "0 0 15px rgba(56, 189, 248, 0.3)" : "none",
+                  boxShadow: isSelected ? "0 0 15px rgba(255, 255, 255, 0.2)" : "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.35rem",
                 }}
               >
-                {filter}
+                <span>{filter}</span>
+                <span
+                  style={{
+                    fontSize: "0.72rem",
+                    fontFamily: "var(--font-mono)",
+                    padding: "0.1rem 0.4rem",
+                    borderRadius: "var(--radius-full)",
+                    background: isSelected ? "rgba(0, 0, 0, 0.12)" : "rgba(255, 255, 255, 0.08)",
+                    color: isSelected ? "#09090b" : "var(--text-muted)",
+                    fontWeight: 600,
+                  }}
+                >
+                  {countForFilter(filter)}
+                </span>
               </button>
             );
           })}
@@ -115,9 +137,9 @@ export default function Projects() {
               style={{
                 borderRadius: "18px",
                 overflow: "hidden",
-                background: "rgba(15, 23, 42, 0.75)",
-                border: "1px solid rgba(56, 189, 248, 0.15)",
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.4)",
+                background: "rgba(18, 18, 23, 0.75)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
                 cursor: "pointer",
                 display: "flex",
                 flexDirection: "column",
@@ -131,13 +153,15 @@ export default function Projects() {
                   width: "100%",
                   aspectRatio: "16 / 9",
                   overflow: "hidden",
-                  background: "#080c14",
+                  background: "#09090b",
                 }}
               >
                 {project.image ? (
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
+                    decoding="async"
                     style={{
                       width: "100%",
                       height: "100%",
@@ -188,10 +212,10 @@ export default function Projects() {
                       style={{
                         padding: "0.2rem 0.65rem",
                         borderRadius: "var(--radius-full)",
-                        background: "rgba(8, 12, 20, 0.75)",
+                        background: "rgba(9, 9, 11, 0.85)",
                         backdropFilter: "blur(8px)",
-                        border: "1px solid rgba(56, 189, 248, 0.3)",
-                        color: "var(--cyan-neon)",
+                        border: "1px solid rgba(255, 255, 255, 0.18)",
+                        color: "#f4f4f5",
                         fontSize: "0.72rem",
                         fontFamily: "var(--font-mono)",
                         fontWeight: 600,

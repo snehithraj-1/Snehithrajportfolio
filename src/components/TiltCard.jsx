@@ -69,10 +69,10 @@ export default function TiltCard({
         position: "relative",
         zIndex: isHovered ? 15 : 1,
         boxShadow: isHovered
-          ? "0 24px 50px -10px rgba(0, 0, 0, 0.8), 0 0 30px rgba(56, 189, 248, 0.25)"
+          ? "0 24px 50px -10px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 255, 255, 0.1)"
           : (style.boxShadow || "0 4px 20px rgba(0, 0, 0, 0.3)"),
         borderColor: isHovered
-          ? "rgba(56, 189, 248, 0.45)"
+          ? "rgba(255, 255, 255, 0.3)"
           : (style.borderColor || "var(--border-subtle)"),
         overflow: "hidden",
       }}

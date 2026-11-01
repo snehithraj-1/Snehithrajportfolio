@@ -161,7 +161,7 @@ export default function TerminalEmulator({ onOpenResume }) {
         {history.map((item, idx) => (
           <div key={idx}>
             {item.type === "system" && (
-              <div style={{ color: "#38bdf8", whiteSpace: "pre-wrap" }}>
+              <div style={{ color: "#e2e8f0", whiteSpace: "pre-wrap" }}>
                 {item.content}
               </div>
             )}
