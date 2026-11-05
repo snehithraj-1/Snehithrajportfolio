@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { X, Download, ExternalLink, Printer, GraduationCap, Mail, MapPin, AlertCircle, FileText, CheckCircle2 } from "lucide-react";
+import { X, Download, ExternalLink, Printer, CheckCircle2 } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 import { soundFX } from "../utils/audioFX";
 import { triggerToast } from "./Toast";
 
 export default function ResumeModal({ isOpen, onClose }) {
   const [downloadNotice, setDownloadNotice] = useState(false);
-  const { personal, education, skillsCategories, projects, achievements } = portfolioData;
+  const { personal } = portfolioData;
 
   useEffect(() => {
     if (!isOpen) return;
@@ -32,6 +32,19 @@ export default function ResumeModal({ isOpen, onClose }) {
     setTimeout(() => setDownloadNotice(false), 5000);
   };
 
+  const sectionHeadingStyle = {
+    fontSize: "1.12rem",
+    fontWeight: 700,
+    color: "#000000",
+    textTransform: "capitalize",
+    borderBottom: "1.5px solid #000000",
+    paddingBottom: "2px",
+    marginBottom: "0.55rem",
+    marginTop: "1.25rem",
+    fontFamily: "'Latin Modern Roman', 'Times New Roman', Times, Georgia, serif",
+    letterSpacing: "0.01em",
+  };
+
   return (
     <div
       className="modal-overlay"
@@ -45,6 +58,7 @@ export default function ResumeModal({ isOpen, onClose }) {
         zIndex: 250,
         background: "rgba(5, 8, 16, 0.9)",
         backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -57,13 +71,13 @@ export default function ResumeModal({ isOpen, onClose }) {
         onClick={(e) => e.stopPropagation()}
         style={{
           width: "100%",
-          maxWidth: "860px",
+          maxWidth: "880px",
           background: "rgba(14, 14, 18, 0.98)",
           border: "1px solid rgba(255, 255, 255, 0.15)",
           borderRadius: "22px",
           boxShadow: "0 25px 70px rgba(0, 0, 0, 0.85)",
           padding: "2.5rem",
-          maxHeight: "90vh",
+          maxHeight: "92vh",
           overflowY: "auto",
         }}
       >
@@ -86,7 +100,7 @@ export default function ResumeModal({ isOpen, onClose }) {
               My Resume
             </h2>
             <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem" }}>
-              Download my latest resume or view it online.
+              Academic & industry resume matching standard Ivy League / LaTeX format.
             </p>
           </div>
 
@@ -115,7 +129,7 @@ export default function ResumeModal({ isOpen, onClose }) {
               <span>Download PDF</span>
             </a>
 
-            {/* View Online Button */}
+            {/* Print / Save PDF Button */}
             <button
               onClick={handlePrint}
               style={{
@@ -132,8 +146,8 @@ export default function ResumeModal({ isOpen, onClose }) {
                 cursor: "pointer",
               }}
             >
-              <ExternalLink size={15} />
-              <span>View Online</span>
+              <Printer size={15} />
+              <span>Print / Save PDF</span>
             </button>
 
             {/* Close Button */}
@@ -151,6 +165,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                 justifyContent: "center",
                 cursor: "pointer",
               }}
+              aria-label="Close modal"
             >
               <X size={18} />
             </button>
@@ -177,122 +192,206 @@ export default function ResumeModal({ isOpen, onClose }) {
           </div>
         )}
 
-        {/* Printable / Clean Resume Document Sheet matching Screen 10 */}
+        {/* Printable Resume Document Sheet Exactly in User Reference Format */}
         <div
           id="printable-cv"
           style={{
             background: "#ffffff",
-            color: "#0f172a",
-            borderRadius: "14px",
-            padding: "2.5rem",
-            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
-            fontFamily: "var(--font-heading)",
+            color: "#000000",
+            borderRadius: "4px",
+            padding: "2.75rem 3.25rem",
+            boxShadow: "0 10px 40px rgba(0, 0, 0, 0.45)",
+            fontFamily: "'Latin Modern Roman', 'Times New Roman', Times, Georgia, serif",
+            lineHeight: "1.4",
           }}
         >
-          {/* Header */}
-          <div style={{ borderBottom: "2px solid #2563eb", paddingBottom: "1.2rem", marginBottom: "1.5rem" }}>
-            <h1 style={{ fontSize: "2.2rem", fontWeight: 900, color: "#0f172a", letterSpacing: "-0.02em" }}>
-              SNEHITH RAJ
+          {/* Header (Centered) */}
+          <div style={{ textAlign: "center", marginBottom: "1.25rem" }}>
+            <h1
+              style={{
+                fontSize: "2.35rem",
+                fontWeight: 700,
+                color: "#000000",
+                letterSpacing: "-0.01em",
+                margin: 0,
+                lineHeight: 1.15,
+                fontFamily: "'Latin Modern Roman', 'Times New Roman', Times, Georgia, serif",
+              }}
+            >
+              Snehith Raj Gaddam
             </h1>
-            <p style={{ fontSize: "1.05rem", fontWeight: 700, color: "#2563eb", marginTop: "0.2rem" }}>
-              Full Stack Developer & AI Engineer | B.Tech CSE @ SRM AP
-            </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "0.6rem", fontSize: "0.85rem", color: "#475569" }}>
-              <span>{personal.location}</span>
-              <span>•</span>
-              <span>{personal.email}</span>
-              <span>•</span>
-              <span>github.com/snehithraj-1</span>
-              <span>•</span>
-              <span>linkedin.com/in/snehithraj-gaddam</span>
+            <div
+              style={{
+                marginTop: "0.45rem",
+                fontSize: "0.92rem",
+                color: "#000000",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexWrap: "wrap",
+                gap: "0.35rem",
+              }}
+            >
+              <a href="https://github.com/snehithraj-1" target="_blank" rel="noreferrer" style={{ color: "#0044cc", textDecoration: "none" }}>
+                GitHub
+              </a>
+              <span>|</span>
+              <a href="https://www.linkedin.com/in/snehithraj-gaddam-454852322/" target="_blank" rel="noreferrer" style={{ color: "#0044cc", textDecoration: "none" }}>
+                LinkedIn
+              </a>
+              <span>|</span>
+              <a href="https://leetcode.com/u/hcdiMGr9EW/" target="_blank" rel="noreferrer" style={{ color: "#0044cc", textDecoration: "none" }}>
+                LeetCode
+              </a>
+              <span>|</span>
+              <a href="mailto:snehithraj007@gmail.com" style={{ color: "#0044cc", textDecoration: "none" }}>
+                snehithraj007@gmail.com
+              </a>
+              <span>|</span>
+              <span>SRM University AP, Andhra Pradesh</span>
             </div>
           </div>
 
-          {/* Education */}
-          <div style={{ marginBottom: "1.5rem" }}>
-            <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#1e3a8a", textTransform: "uppercase", borderBottom: "1px solid #e2e8f0", paddingBottom: "0.3rem", marginBottom: "0.6rem" }}>
-              Education
-            </h3>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-              <div>
-                <strong style={{ fontSize: "0.98rem", color: "#0f172a" }}>SRM University AP</strong>
-                <p style={{ fontSize: "0.9rem", color: "#334155" }}>Bachelor of Technology in Computer Science and Engineering</p>
-              </div>
-              <div style={{ textAlign: "right" }}>
-                <span style={{ fontSize: "0.88rem", fontWeight: 700, color: "#2563eb" }}>2022 – 2026</span>
-                <p style={{ fontSize: "0.85rem", fontWeight: 700, color: "#059669" }}>CGPA: 8.44 / 10.0</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Technical Skills */}
-          <div style={{ marginBottom: "1.5rem" }}>
-            <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#1e3a8a", textTransform: "uppercase", borderBottom: "1px solid #e2e8f0", paddingBottom: "0.3rem", marginBottom: "0.6rem" }}>
-              Technical Skills
-            </h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", fontSize: "0.88rem", color: "#334155" }}>
-              <p><strong>Languages:</strong> Python, C++, Java, JavaScript, TypeScript, HTML5, CSS3, SQL</p>
-              <p><strong>AI & Machine Learning:</strong> TensorFlow, PyTorch, Scikit-learn, OpenCV, NumPy, Pandas, Keras, LangChain, Ollama</p>
-              <p><strong>Web & Cloud Development:</strong> React, Node.js, Express.js, Flask, Tailwind CSS, Next.js, SQLite, PostgreSQL, Supabase, Vercel</p>
-              <p><strong>Developer Tools:</strong> Git, GitHub, Docker, Linux, VS Code, Postman, Figma</p>
-            </div>
-          </div>
-
-          {/* Flagship Projects */}
-          <div style={{ marginBottom: "1.5rem" }}>
-            <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#1e3a8a", textTransform: "uppercase", borderBottom: "1px solid #e2e8f0", paddingBottom: "0.3rem", marginBottom: "0.6rem" }}>
-              Featured Projects
-            </h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
-              {projects.slice(0, 4).map((p) => (
-                <div key={p.id}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-                    <strong style={{ fontSize: "0.95rem", color: "#0f172a" }}>{p.title}</strong>
-                    <span style={{ fontSize: "0.8rem", color: "#64748b", fontStyle: "italic" }}>{p.techStack.slice(0, 4).join(", ")}</span>
-                  </div>
-                  <p style={{ fontSize: "0.88rem", color: "#334155", marginTop: "0.15rem" }}>{p.shortDescription}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Experience & Hackathons */}
-          <div style={{ marginBottom: "1.5rem" }}>
-            <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#1e3a8a", textTransform: "uppercase", borderBottom: "1px solid #e2e8f0", paddingBottom: "0.3rem", marginBottom: "0.6rem" }}>
-              Hackathons & Experience
-            </h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", fontSize: "0.88rem", color: "#334155" }}>
-              <p><strong>NASA International Space Apps Challenge 2025 (Shortlisted • Galactic Problem Solver):</strong> Shortlisted in the global hackathon solving critical challenges faced on Earth and in space.</p>
-              <p><strong>CMR HACKFEST 3.0 (36-Hour National Level • Team Vision-Crew):</strong> Competed in the 36-hour national sprint organized by CMR College of Engineering & Technology representing SRM University AP.</p>
-              <p><strong>SYNAPSE 2K25 (AIML Dept, Mohan Babu University & Hubexus Solutions):</strong> Participated in the intelligent systems hackathon in association with IEEE CIS MBU Chapter.</p>
-            </div>
-          </div>
-
-          {/* Verified Technical Certifications */}
+          {/* 1. Education Section */}
           <div>
-            <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#1e3a8a", textTransform: "uppercase", borderBottom: "1px solid #e2e8f0", paddingBottom: "0.3rem", marginBottom: "0.6rem" }}>
-              Verified Certifications
-            </h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", fontSize: "0.88rem", color: "#334155" }}>
-              <div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.4rem" }}>
-                  <strong style={{ color: "#0f172a" }}>MongoDB Associate Developer</strong>
-                  <span style={{ fontSize: "0.82rem", color: "#2563eb", fontWeight: 700 }}>01 May 2026 • Credly Verified</span>
-                </div>
-                <p style={{ fontSize: "0.84rem", color: "#64748b", marginTop: "0.15rem" }}>
-                  Issued by MongoDB | Document Modeling, Aggregation Pipelines & Database Performance
-                </p>
+            <h2 style={sectionHeadingStyle}>Education</h2>
+            <div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.5rem" }}>
+                <strong style={{ fontSize: "1rem", color: "#000000" }}>SRM AP University, Amaravati</strong>
+                <strong style={{ fontSize: "0.95rem", color: "#000000" }}>Aug 2022 – Jul 2026</strong>
               </div>
-              <div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.4rem" }}>
-                  <strong style={{ color: "#0f172a" }}>Java Programming: Solving Problems with Software</strong>
-                  <span style={{ fontSize: "0.82rem", color: "#2563eb", fontWeight: 700 }}>22 Oct 2026 • Duke University (Coursera)</span>
-                </div>
-                <p style={{ fontSize: "0.84rem", color: "#64748b", marginTop: "0.15rem" }}>
-                  Issued by Duke University | Algorithmic Problem Solving, CSV Data Processing & Automated Testing
-                </p>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.5rem", marginTop: "0.15rem" }}>
+                <span style={{ fontSize: "0.92rem", color: "#000000" }}>B.Tech in Computer Science and Engineering</span>
+                <strong style={{ fontSize: "0.95rem", color: "#000000" }}>CGPA: 8.44/10</strong>
+              </div>
+              <div style={{ fontSize: "0.88rem", color: "#111827", marginTop: "0.2rem" }}>
+                <span>Coursework: Data Structures & Algorithms, Operating Systems, DBMS, Computer Networks, Object-Oriented Programming</span>
               </div>
             </div>
+          </div>
+
+          {/* 2. Hackathons & Experience Section */}
+          <div>
+            <h2 style={sectionHeadingStyle}>Hackathons & Experience</h2>
+
+            {/* NASA Space Apps */}
+            <div style={{ marginBottom: "0.85rem" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.5rem" }}>
+                <strong style={{ fontSize: "0.98rem", color: "#000000" }}>
+                  NASA International Space Apps Challenge 2025 | Shortlisted • Galactic Problem Solver
+                </strong>
+                <strong style={{ fontSize: "0.92rem", color: "#000000" }}>Oct 2025</strong>
+              </div>
+              <ul style={{ margin: "0.3rem 0 0 1.35rem", padding: 0, fontSize: "0.88rem", color: "#000000", lineHeight: "1.45" }}>
+                <li style={{ marginBottom: "0.2rem" }}>
+                  <strong>Global Space Hackathon</strong>: Shortlisted in the world&apos;s largest space & Earth science hackathon for outstanding participation in developing solutions to critical planetary and space challenges.
+                </li>
+                <li>
+                  <strong>Collaborative Problem Solving</strong>: Collaborated on data-driven astronomical and Earth science challenge statements organized by NASA in partnership with ESA, ISRO, JAXA, and CSA.
+                </li>
+              </ul>
+            </div>
+
+            {/* CMR HACKFEST 3.0 */}
+            <div style={{ marginBottom: "0.85rem" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.5rem" }}>
+                <strong style={{ fontSize: "0.98rem", color: "#000000" }}>
+                  CMR HACKFEST 3.0 | 36-Hour National Level Hackathon (Team Vision-Crew)
+                </strong>
+                <strong style={{ fontSize: "0.92rem", color: "#000000" }}>Jan 2026</strong>
+              </div>
+              <ul style={{ margin: "0.3rem 0 0 1.35rem", padding: 0, fontSize: "0.88rem", color: "#000000", lineHeight: "1.45" }}>
+                <li style={{ marginBottom: "0.2rem" }}>
+                  <strong>36-Hour Continuous Sprint</strong>: Represented SRM University AP with Team &quot;Vision-Crew&quot; in an intensive 36-hour national-level hackathon organized by CMR College of Engineering & Technology.
+                </li>
+                <li>
+                  <strong>Rapid Prototype Engineering</strong>: Architected and implemented software solutions under competitive 36-hour sprint constraints with zero downtime.
+                </li>
+              </ul>
+            </div>
+
+            {/* SYNAPSE 2K25 */}
+            <div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.5rem" }}>
+                <strong style={{ fontSize: "0.98rem", color: "#000000" }}>
+                  SYNAPSE 2K25 — AI & ML Hackathon | Mohan Babu University & Hubexus
+                </strong>
+                <strong style={{ fontSize: "0.92rem", color: "#000000" }}>Oct 2025</strong>
+              </div>
+              <ul style={{ margin: "0.3rem 0 0 1.35rem", padding: 0, fontSize: "0.88rem", color: "#000000", lineHeight: "1.45" }}>
+                <li style={{ marginBottom: "0.2rem" }}>
+                  <strong>AI/ML Systems Development</strong>: Participated in intelligent systems challenge organized by the Department of AIML at Mohan Babu University in association with Hubexus Solutions and IEEE CIS Chapter.
+                </li>
+                <li>
+                  <strong>Algorithmic Solutions</strong>: Designed structured data processing workflows and machine learning pipelines to solve domain-specific problem statements.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* 3. Projects Section */}
+          <div>
+            <h2 style={sectionHeadingStyle}>Projects</h2>
+
+            <div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.5rem" }}>
+                <strong style={{ fontSize: "0.98rem", color: "#000000" }}>
+                  Interactive 3D Developer Portfolio
+                </strong>
+                <em style={{ fontSize: "0.88rem", color: "#333333" }}>
+                  React 19, JavaScript ES6+, HTML5 Canvas, Web Audio API, Vite
+                </em>
+              </div>
+              <ul style={{ margin: "0.3rem 0 0 1.35rem", padding: 0, fontSize: "0.88rem", color: "#000000", lineHeight: "1.45" }}>
+                <li style={{ marginBottom: "0.2rem" }}>
+                  <strong>HTML5 Neural Particle Canvas</strong>: Engineered a 60 FPS real-time vector particle canvas with distance-based synaptic connecting lines and kinetic mouse repulsion.
+                </li>
+                <li style={{ marginBottom: "0.2rem" }}>
+                  <strong>Synthesized Audio Engine</strong>: Built a zero-latency Web Audio API sound synthesizer delivering real-time tactile micro-feedback without external audio asset downloads.
+                </li>
+                <li style={{ marginBottom: "0.2rem" }}>
+                  <strong>Developer Tooling & UX</strong>: Integrated an embedded CLI terminal emulator and keyboard-driven &#x2318;K command palette for accessible, fluid developer navigation.
+                </li>
+                <li>
+                  <strong>Performance & Edge Deployment</strong>: Achieved 60 FPS steady animation and zero cumulative layout shift via Lenis momentum scrolling; deployed globally on Vercel.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* 4. Technical Skills Section */}
+          <div>
+            <h2 style={sectionHeadingStyle}>Technical Skills</h2>
+            <ul style={{ margin: "0.3rem 0 0 1.35rem", padding: 0, fontSize: "0.88rem", color: "#000000", lineHeight: "1.55" }}>
+              <li style={{ marginBottom: "0.2rem" }}>
+                <strong>Languages</strong>: Python, Java, C++, JavaScript, SQL, HTML/CSS
+              </li>
+              <li style={{ marginBottom: "0.2rem" }}>
+                <strong>Web & Frontend</strong>: React 19, HTML5 Canvas, Web Audio API, Tailwind CSS, Vite, Single Page Architectures
+              </li>
+              <li style={{ marginBottom: "0.2rem" }}>
+                <strong>Databases & Backend</strong>: MongoDB (Certified), SQLite, Flask, RESTful APIs, Supabase
+              </li>
+              <li style={{ marginBottom: "0.2rem" }}>
+                <strong>Tools & Platforms</strong>: Git, GitHub, Linux/Bash, VS Code, Postman, Vercel
+              </li>
+              <li>
+                <strong>Core Concepts</strong>: Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems, Operating Systems
+              </li>
+            </ul>
+          </div>
+
+          {/* 5. Certifications Section */}
+          <div>
+            <h2 style={sectionHeadingStyle}>Certifications</h2>
+            <ul style={{ margin: "0.3rem 0 0 1.35rem", padding: 0, fontSize: "0.88rem", color: "#000000", lineHeight: "1.55" }}>
+              <li style={{ marginBottom: "0.35rem" }}>
+                <strong>MongoDB Associate Developer</strong> | <em>MongoDB (Credly Verified)</em> — Certified in document data modeling, CRUD operations, aggregation pipelines, and database optimization. (Verify: <a href="https://www.credly.com/go/1C7PTLWN" target="_blank" rel="noreferrer" style={{ color: "#0044cc", textDecoration: "none" }}>credly.com/go/1C7PTLWN</a>)
+              </li>
+              <li>
+                <strong>Java Programming: Solving Problems with Software</strong> | <em>Duke University (Coursera Verified)</em> — Comprehensive software engineering course covering algorithms, Java syntax, CSV structured data parsing, and automated test design. (Verify: <a href="https://coursera.org/verify/S6UVEK4C9OE1" target="_blank" rel="noreferrer" style={{ color: "#0044cc", textDecoration: "none" }}>coursera.org/verify/S6UVEK4C9OE1</a>)
+              </li>
+            </ul>
           </div>
         </div>
       </div>
