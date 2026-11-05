@@ -33,6 +33,17 @@ export default function CommandPalette({ isOpen, onClose, onOpenResume, onToggle
 
   const actions = [
     {
+      id: "proj-cycle-care",
+      category: "Live Deployments",
+      title: "Launch Cycle-Care (Cycle Tracker PWA)",
+      subtitle: "React • TypeScript • Dexie (IndexedDB) • Chart.js",
+      icon: <ExternalLink size={16} color="var(--cyan-neon)" />,
+      run: () => {
+        window.open("https://cycle-care-six.vercel.app", "_blank");
+        onClose();
+      },
+    },
+    {
       id: "proj-campus-trade",
       category: "Live Deployments",
       title: "Launch Campus-Trade (University Marketplace)",
@@ -46,8 +57,8 @@ export default function CommandPalette({ isOpen, onClose, onOpenResume, onToggle
     {
       id: "proj-you-needs",
       category: "Live Deployments",
-      title: "Launch YOU NEEDS (Campus Peer Logistics)",
-      subtitle: "React 19 • TypeScript 5.8 • Vite 6 • Vercel",
+      title: "Launch U-Needs (Campus Peer Delivery)",
+      subtitle: "React • TypeScript • Tailwind CSS • Vite",
       icon: <ExternalLink size={16} color="var(--cyan-neon)" />,
       run: () => {
         window.open("https://uneeds-ten.vercel.app", "_blank");
@@ -62,6 +73,17 @@ export default function CommandPalette({ isOpen, onClose, onOpenResume, onToggle
       icon: <ExternalLink size={16} color="var(--cyan-neon)" />,
       run: () => {
         window.open("https://campus-trade-522i.vercel.app", "_blank");
+        onClose();
+      },
+    },
+    {
+      id: "proj-dsa",
+      category: "Live Deployments",
+      title: "View DSA Repository & LeetCode Profile",
+      subtitle: "Algorithms, Searching Techniques & Problem Solving in Java",
+      icon: <ExternalLink size={16} color="var(--cyan-neon)" />,
+      run: () => {
+        window.open("https://github.com/snehithraj-1/DSA", "_blank");
         onClose();
       },
     },

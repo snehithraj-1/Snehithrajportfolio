@@ -12,7 +12,7 @@ export default function Projects() {
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [activeProject, setActiveProject] = useState(null);
 
-  const filters = ["All", "Web Apps", "Full Stack", "TypeScript", "Python", "C++ / DSA"];
+  const filters = ["All", "Web Apps", "Full Stack", "TypeScript", "Python", "DSA"];
 
   const matchesFilter = (project, filterKey) => {
     if (filterKey === "All") return true;
@@ -22,8 +22,8 @@ export default function Projects() {
       return project.category === "Full Stack" || project.tags.includes("Full Stack");
     if (filterKey === "TypeScript") return project.tags.includes("TypeScript");
     if (filterKey === "Python") return project.tags.includes("Python");
-    if (filterKey === "C++ / DSA")
-      return project.category === "Core CS" || project.tags.includes("C++") || project.tags.includes("DSA");
+    if (filterKey === "DSA")
+      return project.category === "DSA" || project.tags.includes("DSA") || project.tags.includes("Algorithms") || project.tags.includes("Problem Solving");
     return project.category === filterKey || project.tags.includes(filterKey);
   };
 
@@ -61,7 +61,7 @@ export default function Projects() {
                 textTransform: "uppercase",
               }}
             >
-              Selected Work // Case Studies
+              GitHub Repositories // Deployed Projects
             </span>
           </div>
           <h2
@@ -74,7 +74,7 @@ export default function Projects() {
               marginBottom: "0.5rem",
             }}
           >
-            Engineered Systems & Case Studies.
+            Featured GitHub Projects.
           </h2>
           <p
             style={{
@@ -83,7 +83,7 @@ export default function Projects() {
               maxWidth: "640px",
             }}
           >
-            Flagship machine learning systems, deep learning models, generative AI applications, and empirical research case studies.
+            Production web applications, offline-first progressive web apps, campus peer platforms, and algorithmic problem-solving repositories directly from my GitHub.
           </p>
         </div>
 

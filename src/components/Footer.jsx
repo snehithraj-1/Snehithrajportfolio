@@ -197,7 +197,6 @@ export default function Footer({ onToggleTerminal }) {
                 { label: "About", href: "#about" },
                 { label: "Skills", href: "#skills" },
                 { label: "Projects", href: "#projects" },
-                { label: "Research", href: "#research" },
                 { label: "Achievements", href: "#achievements" },
                 { label: "Contact", href: "#contact" },
               ].map((item, idx) => (

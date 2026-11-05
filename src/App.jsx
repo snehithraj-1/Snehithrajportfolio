@@ -6,7 +6,6 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import SkillsMatrix from "./components/SkillsMatrix";
 import Projects from "./components/Projects";
-import Research from "./components/Research";
 import Achievements from "./components/Achievements";
 import Contact from "./components/Contact";
 import ResumeModal from "./components/ResumeModal";
@@ -113,10 +112,7 @@ export default function App() {
         {/* 4. Projects Page & 5. Project Detail Showcase */}
         <Projects />
 
-        {/* 6. Research Page */}
-        <Research />
-
-        {/* 7. Achievements & Experience Page */}
+        {/* 5. Achievements & Experience Page */}
         <Achievements />
 
         {/* 8. Contact Page */}

@@ -27,13 +27,13 @@ export const portfolioData = {
   personal: {
     name: "Snehith Raj",
     avatar: snehithRajImg,
-    title: "AI/ML Engineer & Full Stack Developer",
-    badgeRole: "👋 HELLO WORLD • ENGINEER & BUILDER",
-    headline: "Engineering Intelligent AI Systems & Robust Machine Learning Pipelines.",
-    tagline: "Computer Science undergraduate at SRM University AP specializing in Machine Learning, Deep Learning, Generative AI & RAG systems. Passionate about architecting production-grade AI pipelines and data-driven solutions that bridge theoretical machine learning and real-world utility.",
+    title: "Full Stack Developer & AI Engineer | B.Tech CSE @ SRM AP",
+    badgeRole: "👋 HELLO WORLD • DEVELOPER & BUILDER",
+    headline: "Engineering Practical Web Applications & Intelligent Systems.",
+    tagline: "Computer Science undergraduate at SRM University AP passionate about building full-stack web applications, progressive web apps, and machine learning solutions that solve practical human problems.",
     
     // Status & Availability
-    status: "Open for 2025–2026 AI/ML Engineering Internships",
+    status: "Open for 2025–2026 Software & AI Engineering Roles",
     isAvailable: true,
     
     // Location & Contact
@@ -53,29 +53,29 @@ export const portfolioData = {
     
     // Stats for Hero Bar (Screen 1)
     stats: [
-      { value: "6+", label: "Deployed Systems & Apps" },
+      { value: "6+", label: "GitHub Deployed Apps" },
       { value: "100%", label: "Client-Side Privacy (PWA)" },
       { value: "8.44", label: "Academic CGPA (SRM AP)" },
-      { value: "150+", label: "Algorithmic Challenges" }
+      { value: "150+", label: "DSA & Problem Solving" }
     ],
 
-    quote: "Building reliable AI systems requires rigorous evaluation, clean data pipelines, and a relentless focus on solving real human problems.",
+    quote: "Building reliable software requires clean modular architecture, practical engineering, and a relentless focus on solving real user problems.",
     
-    interests: ["Machine Learning", "Deep Learning", "Generative AI", "Computer Vision", "Quantum ML"]
+    interests: ["Full Stack Web", "TypeScript & React", "Python & Flask", "Machine Learning", "Data Structures & Algorithms"]
   },
 
   about: {
-    intro: "Hey there! I'm Snehith Raj — a 3rd-year Computer Science student at SRM University AP specializing in Machine Learning, Deep Learning, and Generative AI systems.",
+    intro: "Hey there! I'm Snehith Raj — a 3rd-year Computer Science undergraduate student at SRM University AP passionate about Full Stack Web Development, TypeScript, Python, and Machine Learning.",
     narrative: [
-      "I didn't start coding to chase benchmarks; I started because I saw how combining algorithmic math with robust software engineering could eliminate tedious human friction. Over the past three years at SRM University AP, that curiosity matured into building end-to-end Machine Learning systems, from training 1D Convolutional Neural Networks on NASA astronomical light curves to designing multilingual RAG agents for vernacular career counseling.",
-      "My technical philosophy centers on empirical rigor: understanding data distributions before selecting models, prioritizing reproducibility, and optimizing end-to-end latency. Whether fine-tuning vision backbones or architecting responsive microservices with FastAPI and React, I care deeply about clean modular design, algorithmic correctness, and real user impact."
+      "I love building software that solves practical daily problems. Over the past three years at SRM University AP, that curiosity matured into engineering full-stack platforms from scratch—including Campus-Trade (a verified peer-to-peer campus marketplace), U-Needs (a student errand and hostel delivery network), and Cycle-Care (an offline-first progressive web app protecting user health data with client-side IndexedDB).",
+      "My development philosophy centers on clean modular architecture, responsive performance, and intuitive user experiences. Whether developing relational database schemas, engineering type-safe React & TypeScript applications, or tackling algorithmic problem solving on LeetCode in Java and C++, I care deeply about writing clean, maintainable code that delivers real user value."
     ],
     details: {
       name: "Snehith Raj",
       education: "B.Tech CSE, SRM University AP (2022–2026)",
       location: "Andhra Pradesh, India",
       cgpa: "8.44 / 10.0",
-      interests: "Machine Learning, Deep Learning, Generative AI & RAG, Computer Vision, Space Tech"
+      interests: "Full Stack Web Development, React & TypeScript, Python & Flask, Machine Learning, DSA"
     },
     quote: "Build for the person on the other side of the glass. Everything else is secondary.",
     pillars: [
@@ -86,31 +86,31 @@ export const portfolioData = {
         icon: "Brain"
       },
       {
-        id: "research",
-        title: "Empirical AI Researcher",
-        desc: "Hands-on empirical exploration—from simulating Variational Quantum Circuits with PennyLane to sifting through NASA Kepler transit curves for hidden exoplanets.",
-        icon: "Search"
+        id: "systems-builder",
+        title: "Full-Stack & Systems Builder",
+        desc: "Hands-on engineering across the entire stack—from relational schemas and backend REST services to responsive 60fps React frontends and PWAs.",
+        icon: "Layers"
       },
       {
         id: "building-products",
         title: "Product Craftsmanship",
-        desc: "Code is only half the battle. I care deeply about how an app feels in your hands: snappy responses, intuitive UX, and zero fluff.",
+        desc: "Code is only half the battle. I care deeply about how an app feels in your hands: snappy responses, intuitive UX, and zero unnecessary fluff.",
         icon: "Layers"
       },
       {
         id: "continuous-learning",
-        title: "Relentless Student",
-        desc: "Tech evolves by the week. I stay hungry, experiment daily with local LLMs and system architectures, and love getting humbled by new concepts.",
+        title: "Relentless Learner",
+        desc: "Technology evolves rapidly. I stay curious, sharpen my algorithmic problem solving daily on LeetCode, and continuously explore modern developer tooling.",
         icon: "Zap"
       }
     ],
     sections: {
-      overview: "I'm an undergraduate developer at SRM University AP who loves understanding how things work under the hood. For me, every project is a story of curiosity, late-night debugging breakthroughs, and the thrill of seeing real people interact with what I build.",
-      education: "Pursuing Bachelor of Technology in Computer Science and Engineering at SRM University AP (2022–2026). Maintained an 8.44 CGPA while balancing core CS theory (Data Structures, OS, Networks, DBMS) with late-night hackathons and autonomous research.",
-      skills: "Specialized in Python, C++, Java, React, Flask, PyTorch, TensorFlow, OpenCV, Docker, and full-stack cloud web deployments.",
-      interests: "Passionate about Generative AI & local LLM orchestration, Quantum ML, Computer Vision, Space tech, cricket match tactics, and mechanical keyboards.",
-      achievements: "Finalist in NASA Space Apps Challenge 2024 (Exoplanet detection AI), MIND SPRINT 2K25 Finalist, and Smart India Hackathon R&D.",
-      doingNow: "Developing multilingual RAG agent architectures for rural student career counseling, fine-tuning lightweight edge models, and sipping late-night masala chai."
+      overview: "I'm a computer science undergraduate at SRM University AP who loves understanding how things work under the hood and turning ideas into production applications.",
+      education: "Pursuing Bachelor of Technology in Computer Science and Engineering at SRM University AP (2022–2026). Maintained an 8.44 CGPA while balancing core CS theory (Data Structures, OS, Networks, DBMS) with hackathons and software projects.",
+      skills: "Specialized in Python, Java, C++, TypeScript, JavaScript, React, Flask, IndexedDB (Dexie.js), Tailwind CSS, Git, and Vercel cloud deployments.",
+      interests: "Passionate about Full Stack Web, progressive web applications, local LLMs, algorithmic problem solving, and mechanical keyboards.",
+      achievements: "Finalist in NASA Space Apps Challenge 2024, MIND SPRINT 2K25 Finalist, and Smart India Hackathon participant.",
+      doingNow: "Building offline-first progressive web apps, campus peer platforms, and practicing algorithmic problem solving on LeetCode."
     }
   },
 
@@ -394,55 +394,55 @@ export const portfolioData = {
       learnings: "DOM manipulation, keyboard event shortcuts, and Python file I/O record persistence."
     },
     {
-      id: "dsa-cpp",
-      title: "DSA & Problem Solving in C++",
-      subtitle: "High-Performance Algorithms & LeetCode Repository",
-      category: "Core CS",
-      tags: ["C++", "DSA", "Algorithms", "Competitive Programming"],
+      id: "dsa",
+      title: "DSA & Problem Solving",
+      subtitle: "Data Structures, Searching Techniques & LeetCode Solutions",
+      category: "DSA",
+      tags: ["Java", "DSA", "Algorithms", "Problem Solving"],
       image: projectWaterImg,
-      featured: false,
+      featured: true,
       hasLiveDemo: true,
       demoUrl: "https://leetcode.com/u/hcdiMGr9EW/",
-      githubUrl: "https://github.com/snehithraj-1/DSA-CPP",
-      shortDescription: "Comprehensive repository of optimized C++ solutions covering fundamental data structures, array manipulation, matrix transformation, and competitive programming challenges.",
+      githubUrl: "https://github.com/snehithraj-1/DSA",
+      shortDescription: "Comprehensive Data Structures & Algorithms repository containing optimized implementations of core data structures, searching techniques (Binary Search, Linear Search), sorting algorithms, and LeetCode problem solutions in Java.",
       stats: [
         { value: "150+", label: "Problems Solved" },
-        { value: "C++", label: "Optimized STL" },
-        { value: "O(1)", label: "Space Optimized" }
+        { value: "Java", label: "Core Language" },
+        { value: "LeetCode", label: "Verified" }
       ],
       keyFeatures: [
-        "Optimal time and space complexity implementations in modern C++ (STL)",
-        "Matrix zeroing in-place transformation, two-pointer techniques, and monotonic stacks",
+        "Optimal time and space complexity implementations in Java and C++",
+        "Searching techniques including Binary Search variants, Linear Search, and matrix traversals",
         "Structured problem categories: Arrays, Searching, Sorting, and LeetCode classics",
         "Clean modular code structure with descriptive variable names and edge-case handling"
       ],
-      techStack: ["C++", "STL", "Data Structures", "Algorithms", "Git"],
-      architecture: "Modular C++ Header Libraries -> Standard Template Library (STL) -> Automated LeetCode Verification",
+      techStack: ["Java", "C++", "Data Structures", "Algorithms", "Git"],
+      architecture: "Java Packages -> Modular Algorithmic Implementations -> LeetCode Automated Verification",
       results: "Consistent top-tier runtime performance on competitive coding platforms.",
-      learnings: "Memory management, cache locality in modern C++, and asymptotic optimization under strict memory bounds."
+      learnings: "Memory management, algorithmic complexity optimization, and edge-case handling under strict time limits."
     },
     {
       id: "interactive-portfolio",
-      title: "Interactive 3D Portfolio & WebGL Core",
-      subtitle: "Production Developer Showcase with Web Audio & Particle Physics",
+      title: "Interactive 3D Portfolio",
+      subtitle: "Modern Developer Showcase with Web Audio & Canvas Physics",
       category: "Web Apps",
-      tags: ["React 19", "WebGL", "Canvas API", "Web Audio API"],
+      tags: ["React", "JavaScript", "HTML5 Canvas", "Web Audio API", "Vite"],
       image: heroCosmicImg,
-      featured: false,
+      featured: true,
       hasLiveDemo: true,
       demoUrl: "https://snehithrajportfolio.vercel.app",
       githubUrl: "https://github.com/snehithraj-1/Snehithrajportfolio",
-      shortDescription: "Production-grade portfolio featuring a 60 FPS WebGL neural particle canvas, 3D mouse parallax cards, interactive audio synthesizer, and terminal emulator.",
+      shortDescription: "Production-grade portfolio featuring a 60 FPS HTML5 neural particle canvas, 3D mouse parallax cards, interactive audio synthesizer, and terminal emulator.",
       stats: [
         { value: "60 FPS", label: "Canvas Engine" },
         { value: "Audio", label: "Synthesizer" },
-        { value: "100%", label: "Responsive" }
+        { value: "Live", label: "Vercel Deployed" }
       ],
       keyFeatures: [
-        "Real-time WebGL neural particle canvas with distance-based synaptic connecting lines",
+        "Real-time HTML5 neural particle canvas with distance-based synaptic connecting lines",
         "Mathematical 3D perspective mouse-tilt cards with specular light reflection highlights",
         "Synthesized Web Audio API sound engine providing haptic audio feedback on user interactions",
-        "Embedded cyber terminal emulator supporting system commands and interactive skill inspection modals"
+        "Embedded developer terminal emulator supporting system commands and interactive skill inspection"
       ],
       techStack: ["React 19", "JavaScript ES6+", "HTML5 Canvas", "Web Audio API", "Vite"],
       architecture: "React 19 Single Page App -> HTML5 Canvas Particle Engine -> Web Audio Synthesizer -> Vercel Edge CDN",

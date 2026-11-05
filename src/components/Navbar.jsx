@@ -13,7 +13,7 @@ export default function Navbar({ onOpenResume, onToggleTerminal, onOpenCmdPalett
     const handleScroll = () => {
       setScrolled(window.scrollY > 25);
 
-      const sections = ["hero", "about", "skills", "projects", "research", "achievements", "contact"];
+      const sections = ["hero", "about", "skills", "projects", "achievements", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -38,7 +38,6 @@ export default function Navbar({ onOpenResume, onToggleTerminal, onOpenCmdPalett
     { label: "About", href: "#about", id: "about" },
     { label: "Skills", href: "#skills", id: "skills" },
     { label: "Projects", href: "#projects", id: "projects" },
-    { label: "Research", href: "#research", id: "research" },
     { label: "Achievements", href: "#achievements", id: "achievements" },
     { label: "Contact", href: "#contact", id: "contact" },
   ];

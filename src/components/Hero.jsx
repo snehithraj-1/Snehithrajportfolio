@@ -119,10 +119,11 @@ export default function Hero({ onOpenResume }) {
                 }}
               >
                 {[
-                  "Machine Learning",
-                  "Deep Learning & Vision",
-                  "Generative AI & RAG",
-                  "AI Application Engineering",
+                  "Full Stack Web",
+                  "React & TypeScript",
+                  "Python & Flask",
+                  "Machine Learning & AI",
+                  "DSA & Algorithms",
                 ].map((interest, idx) => (
                   <span
                     key={idx}

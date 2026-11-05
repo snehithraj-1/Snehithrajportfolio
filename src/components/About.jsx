@@ -392,7 +392,7 @@ export default function About() {
                       fontWeight: 600,
                     }}
                   >
-                    High Academic Standing & Research Scholar
+                    B.Tech CSE Undergraduate • SRM University AP
                   </span>
                 </div>
               </TiltCard>
@@ -452,7 +452,7 @@ export default function About() {
                   — Snehith Raj
                 </span>
                 <span style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>
-                  • Machine Learning Engineer
+                  • Full-Stack & AI Engineer
                 </span>
               </div>
             </TiltCard>
