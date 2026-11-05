@@ -1,0 +1,18 @@
+{
+  "name": "Snehith Raj | Full Stack Developer & AI Engineer",
+  "short_name": "Snehith Raj",
+  "description": "Portfolio of Snehith Raj — Computer Science undergraduate at SRM University AP. Full Stack Developer & AI Engineer.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

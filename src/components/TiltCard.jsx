@@ -13,8 +13,10 @@ export default function TiltCard({
   const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0 });
   const [glarePos, setGlarePos] = useState({ x: 50, y: 50, opacity: 0 });
 
+  const isTouch = typeof window !== "undefined" && (window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window);
+
   const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
+    if (isTouch || !cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -36,10 +38,12 @@ export default function TiltCard({
   };
 
   const handleMouseEnter = () => {
+    if (isTouch) return;
     setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
+    if (isTouch) return;
     setIsHovered(false);
     setTilt({ rotateX: 0, rotateY: 0 });
     if (glare) {
@@ -47,8 +51,10 @@ export default function TiltCard({
     }
   };
 
-  // Card elevates forward towards the user on hover
-  const currentTransform = isHovered
+  // Card elevates forward towards the user on hover (desktop only; none on mobile)
+  const currentTransform = isTouch
+    ? "none"
+    : isHovered
     ? `perspective(1000px) translateY(-8px) translateZ(30px) rotateX(${tilt.rotateX.toFixed(2)}deg) rotateY(${tilt.rotateY.toFixed(2)}deg) scale3d(1.022, 1.022, 1.022)`
     : "perspective(1000px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
 

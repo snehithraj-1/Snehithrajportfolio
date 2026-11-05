@@ -790,6 +790,64 @@ button:active:not([disabled]) {
   }
 }
 
+/* Comprehensive Mobile Screen Optimizations (Phones & Tablets) */
+@media (max-width: 768px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .container {
+    padding-left: 1.15rem !important;
+    padding-right: 1.15rem !important;
+  }
+
+  /* Touch-friendly chip filters */
+  .filter-chips-row {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: nowrap !important;
+    padding: 0.35rem 0.5rem !important;
+  }
+  .filter-chips-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Mobile dialog & modal adaptation */
+  .modal-dialog {
+    max-height: 94vh !important;
+    margin: 0.5rem !important;
+    padding: 1.35rem !important;
+    border-radius: 18px !important;
+  }
+
+  .resume-modal-dialog {
+    padding: 1.25rem 0.75rem !important;
+    border-radius: 16px !important;
+  }
+
+  #printable-cv {
+    padding: 1.5rem 1rem !important;
+  }
+
+  #printable-cv h1 {
+    font-size: 1.75rem !important;
+  }
+
+  /* Safe area insets for mobile notches */
+  .portfolio-app {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
 @media (max-width: 640px) {
   .hero-stats-row {
     grid-template-columns: repeat(2, 1fr) !important;

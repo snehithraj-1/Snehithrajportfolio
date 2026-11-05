@@ -48,6 +48,18 @@ export default function NeuralCanvas() {
       mouse.y = null;
     };
 
+    const handleTouchMove = (e) => {
+      if (e.touches && e.touches.length > 0) {
+        mouse.x = e.touches[0].clientX;
+        mouse.y = e.touches[0].clientY;
+      }
+    };
+
+    const handleTouchEnd = () => {
+      mouse.x = null;
+      mouse.y = null;
+    };
+
     const spawnBurst = (x, y) => {
       ripples.push({
         x,
@@ -98,6 +110,9 @@ export default function NeuralCanvas() {
 
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseleave", handleMouseLeave);
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchstart", handleTouchMove, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
     window.addEventListener("click", handleClick);
 
     const nodes = [];
@@ -341,6 +356,9 @@ export default function NeuralCanvas() {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchstart", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
       window.removeEventListener("click", handleClick);
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
