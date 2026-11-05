@@ -464,48 +464,6 @@ Equipping yourself with the right tools transforms daily coding from a slog into
         category: "Certifications",
         tags: ["Java", "Duke University", "Coursera", "Problem Solving", "Software Engineering"]
       }
-    ],
-    competitions: [
-      {
-        id: "comp-algo",
-        title: "Algorithm Speed Coding Sprint",
-        badge: "Top 5%",
-        highlight: "Ranked in top 5% solving complex graph traversals, bitmask DP, and segment tree challenges.",
-        date: "2024",
-        category: "Competitions",
-        tags: ["C++", "DSA", "Competitive Programming"]
-      },
-      {
-        id: "comp-techfest",
-        title: "SRM AP Tech Fest Hackathon",
-        badge: "Special Mention",
-        highlight: "Engineered campus utility prototype in 24 hours with complete mobile responsive design.",
-        date: "2024",
-        category: "Competitions",
-        tags: ["SRM University AP", "Hackathon"]
-      }
-    ],
-    leadership: [
-      {
-        id: "lead-youtube",
-        title: "Content Creation on YouTube",
-        role: "Creator (@codewithraj-k7s)",
-        badge: "Creator",
-        highlight: "Authoring educational tutorials, code walk-throughs, and AI insights for aspiring developers.",
-        date: "2024 - Present",
-        category: "Leadership",
-        tags: ["YouTube", "Content", "Community"]
-      },
-      {
-        id: "lead-mentor",
-        title: "Open Source Contributor & Peer Mentor",
-        role: "Developer & Mentor",
-        badge: "Community",
-        highlight: "Mentoring junior students in Git workflows, web development, and algorithmic problem solving.",
-        date: "2024 - Present",
-        category: "Leadership",
-        tags: ["Open Source", "Mentorship", "Collaboration"]
-      }
     ]
   },
 
@@ -532,7 +490,7 @@ Equipping yourself with the right tools transforms daily coding from a slog into
   ],
 
   terminalCommands: {
-    help: "Available commands:\n  • whoami         - Display Snehith Raj's profile, role & core focus\n  • about          - View academic background, university & engineering goals\n  • skills         - Enumerate verified skills across 4 technical categories\n  • projects       - View featured GitHub repository & deployed showcase\n  • certificates   - View verified MongoDB & Duke University credentials\n  • coursework     - View core computer science subjects & theory\n  • achievements   - View hackathons, awards & leadership milestones\n  • contact        - Access email, social profiles & contact form\n  • resume         - Trigger resume preview & PDF download modal\n  • clear          - Clear the terminal screen",
+    help: "Available commands:\n  • whoami         - Display Snehith Raj's profile, role & core focus\n  • about          - View academic background, university & engineering goals\n  • skills         - Enumerate verified skills across 4 technical categories\n  • projects       - View featured GitHub repository & deployed showcase\n  • certificates   - View verified MongoDB & Duke University credentials\n  • coursework     - View core computer science subjects & theory\n  • achievements   - View verified hackathons & certification credentials\n  • contact        - Access email, social profiles & contact form\n  • resume         - Trigger resume preview & PDF download modal\n  • clear          - Clear the terminal screen",
     
     whoami: "IDENTITY: Snehith Raj\nROLE: Full Stack Developer & AI Engineer\nEDUCATION: B.Tech CSE @ SRM University AP\nCGPA: 8.44\nLOCATION: Andhra Pradesh, India\nSTATUS: Open to 2025–2026 Engineering Roles\nMOTTO: Engineering Practical Web Applications & Intelligent Systems.",
     
@@ -550,7 +508,7 @@ Equipping yourself with the right tools transforms daily coding from a slog into
 
     blog: "ENGINEERING NOTES:\n• Building 60 FPS HTML5 Canvas Physics Engines in Pure Vanilla JS\n• Synthesizing Low-Latency Web Audio Feedback Without External Assets\n• Modular React 19 Component Architecture for High-Performance SPAs",
 
-    achievements: "MILESTONES & CREDENTIALS:\n• MongoDB Certified Associate Developer (Credly Verified)\n• Duke University Java Programming Certified (Coursera Verified)\n• Flagship Open Source Project: Snehithrajportfolio\n• 150+ Algorithmic Challenges Solved on LeetCode\n• YouTube Educational Content Creator (@codewithraj-k7s)\n• B.Tech CSE at SRM University AP (CGPA: 8.44)",
+    achievements: "MILESTONES & CREDENTIALS:\n• MongoDB Certified Associate Developer (Credly Verified)\n• Duke University Java Programming Certified (Coursera Verified)\n• Flagship Open Source Project: Snehithrajportfolio\n• 150+ Algorithmic Challenges Solved on LeetCode\n• B.Tech CSE at SRM University AP (CGPA: 8.44)",
 
     contact: "COMMUNICATION & PROFILES:\n• Email: snehithraj007@gmail.com\n• GitHub: https://github.com/snehithraj-1\n• LinkedIn: https://www.linkedin.com/in/snehithraj-gaddam-454852322/\n• LeetCode: https://leetcode.com/u/hcdiMGr9EW/\n• YouTube: https://www.youtube.com/@codewithraj-k7s\n• Location: SRM University AP, Andhra Pradesh, India",
     

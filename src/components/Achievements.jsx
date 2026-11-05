@@ -3,8 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Trophy,
   Award,
-  Target,
-  Users,
   Calendar,
   Sparkles,
   CheckCircle2,
@@ -21,8 +19,6 @@ export default function Achievements() {
   const categories = [
     { id: "hackathons", label: "Hackathons", icon: Trophy },
     { id: "certifications", label: "Certifications", icon: Award },
-    { id: "competitions", label: "Competitions", icon: Target },
-    { id: "leadership", label: "Leadership", icon: Users },
   ];
 
   const currentList = achievements[activeCategory] || [];
@@ -77,7 +73,7 @@ export default function Achievements() {
               maxWidth: "600px",
             }}
           >
-            Competitive hackathons, verified technical certifications, algorithmic programming, and technical leadership.
+            Competitive hackathons and verified technical certifications directly from industry partners.
           </p>
         </div>
 
