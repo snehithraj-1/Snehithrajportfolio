@@ -6,9 +6,9 @@ import { soundFX } from "../utils/audioFX";
 const skillPlaybooks = {
   python: {
     title: "Python 3.11+",
-    role: "Backend APIs & Machine Learning Core",
-    projects: ["Campus-Trade", "Contact Book CLI", "Quantum ML Research"],
-    repoUrl: "https://github.com/snehithraj-1/Campus-trade",
+    role: "Backend Scripting & Algorithmic Foundations",
+    projects: ["Snehithrajportfolio", "Algorithmic Solvers"],
+    repoUrl: "https://github.com/snehithraj-1/Snehithrajportfolio",
     snippet: `# Python 3 SQLite Connection & Prepared Statement
 import sqlite3
 from typing import List, Dict
@@ -37,10 +37,10 @@ print(f"Loaded {len(results)} active student listings.")`,
 >> Memory footprint: 4.2 MB | Exit code: 0`,
   },
   react: {
-    title: "React 19 & TypeScript",
-    role: "Single Page Application Architecture & State Machines",
-    projects: ["YOU NEEDS", "Portfolio System"],
-    repoUrl: "https://github.com/snehithraj-1/uneeds",
+    title: "React 19 & JavaScript",
+    role: "Modern SPA Architecture & Canvas Physics Engines",
+    projects: ["Snehithrajportfolio"],
+    repoUrl: "https://github.com/snehithraj-1/Snehithrajportfolio",
     snippet: `// React 19 State Machine Transition Hook
 import { useState, useCallback } from 'react';
 
@@ -69,10 +69,10 @@ export function useErrandTracker(initial: ErrandState = 'requested') {
 >> React 19 Compiler memoization active`,
   },
   "c++": {
-    title: "C++ & STL Algorithms",
+    title: "C++ & Java DSA",
     role: "Competitive Programming & Monotonic Data Structures",
-    projects: ["DSA-CPP", "LeetCode Solutions"],
-    repoUrl: "https://github.com/snehithraj-1/DSA-CPP",
+    projects: ["DSA Repository", "LeetCode Solutions"],
+    repoUrl: "https://github.com/snehithraj-1/DSA",
     snippet: `// LeetCode 1475: Final Prices With a Special Discount
 // Monotonic Stack: O(N) Time Complexity | O(N) Auxiliary Space
 #include <vector>
@@ -99,10 +99,10 @@ vector<int> finalPrices(vector<int>& prices) {
 >> Memory consumption: 10.2 MB`,
   },
   sqlite: {
-    title: "SQLite & Relational Schema",
-    role: "Hyperlocal Serverless & Embedded Storage",
-    projects: ["Campus-Trade"],
-    repoUrl: "https://github.com/snehithraj-1/Campus-trade",
+    title: "SQL & Relational DBMS",
+    role: "Relational Queries & Database Foundations",
+    projects: ["Coursework DBMS", "DSA Lab"],
+    repoUrl: "https://github.com/snehithraj-1/DSA",
     snippet: `-- Campus-Trade Normalized Schema
 CREATE TABLE users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,

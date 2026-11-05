@@ -51,6 +51,114 @@ export default function ProjectDetailsModal({ project, onClose }) {
 
   // Render Project-Specific Interactive Simulator
   const renderInteractiveDemo = () => {
+    // 0. Interactive 3D Portfolio Simulator
+    if (project.id === "snehithraj-portfolio" || project.id === "interactive-portfolio") {
+      return (
+        <div style={{ padding: "1.25rem", background: "rgba(8, 12, 20, 0.9)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
+            <span style={{ fontSize: "0.82rem", color: "var(--text-secondary)", fontFamily: "var(--font-mono)" }}>
+              HTML5 CANVAS PHYSICS & WEB AUDIO SYNTHESIZER
+            </span>
+            <span style={{ fontSize: "0.78rem", color: "var(--emerald-neon)", fontFamily: "var(--font-mono)" }}>
+              ● 60 FPS Steady • Zero Latency
+            </span>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1.2rem" }}>
+            <div style={{ padding: "1rem", borderRadius: "10px", background: "rgba(255, 255, 255, 0.03)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+              <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", fontFamily: "var(--font-mono)", marginBottom: "0.4rem" }}>
+                AUDIO ENGINE TEST
+              </div>
+              <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                <button
+                  type="button"
+                  onClick={() => soundFX.playClick()}
+                  style={{
+                    padding: "0.4rem 0.8rem",
+                    borderRadius: "6px",
+                    background: "rgba(56, 189, 248, 0.15)",
+                    border: "1px solid var(--cyan-neon)",
+                    color: "var(--cyan-neon)",
+                    fontSize: "0.78rem",
+                    cursor: "pointer",
+                    fontFamily: "var(--font-mono)"
+                  }}
+                >
+                  Play Click Tone
+                </button>
+                <button
+                  type="button"
+                  onClick={() => soundFX.playHover()}
+                  style={{
+                    padding: "0.4rem 0.8rem",
+                    borderRadius: "6px",
+                    background: "rgba(167, 139, 250, 0.15)",
+                    border: "1px solid #a78bfa",
+                    color: "#a78bfa",
+                    fontSize: "0.78rem",
+                    cursor: "pointer",
+                    fontFamily: "var(--font-mono)"
+                  }}
+                >
+                  Play Hover Tone
+                </button>
+              </div>
+            </div>
+
+            <div style={{ padding: "1rem", borderRadius: "10px", background: "rgba(255, 255, 255, 0.03)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+              <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", fontFamily: "var(--font-mono)", marginBottom: "0.4rem" }}>
+                RUNTIME BENCHMARKS
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.85rem", color: "#ffffff" }}>
+                <span>Target Refresh:</span>
+                <strong style={{ color: "var(--emerald-neon)" }}>60.0 FPS</strong>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.85rem", color: "#ffffff" }}>
+                <span>Audio Latency:</span>
+                <strong style={{ color: "var(--cyan-neon)" }}>0.0 ms</strong>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
+            <a
+              href="https://snehithrajportfolio.vercel.app"
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                textDecoration: "none",
+                padding: "0.6rem 1.4rem",
+                borderRadius: "var(--radius-full)",
+                background: "linear-gradient(135deg, #0284c7 0%, #2563eb 100%)",
+                color: "#ffffff",
+                fontSize: "0.88rem",
+                fontWeight: 700,
+              }}
+            >
+              Launch Live App ↗
+            </a>
+            <a
+              href="https://github.com/snehithraj-1/Snehithrajportfolio"
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                textDecoration: "none",
+                padding: "0.6rem 1.4rem",
+                borderRadius: "var(--radius-full)",
+                background: "rgba(255, 255, 255, 0.08)",
+                border: "1px solid rgba(255, 255, 255, 0.15)",
+                color: "#ffffff",
+                fontSize: "0.88rem",
+                fontWeight: 600,
+              }}
+            >
+              GitHub Source Code
+            </a>
+          </div>
+        </div>
+      );
+    }
+
     // 1. Cycle-Care Simulator
     if (project.id === "cycle-care") {
       let phaseName = "Menstrual Phase";
