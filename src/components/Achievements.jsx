@@ -8,6 +8,7 @@ import {
   Calendar,
   Sparkles,
   CheckCircle2,
+  ExternalLink,
 } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 import TiltCard from "./TiltCard";
@@ -289,24 +290,63 @@ export default function Achievements() {
                     </div>
                   </div>
 
-                  {/* Date & Indicator */}
+                  {/* Date & Indicator & Verify URL */}
                   <div
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "0.6rem",
-                      color: "#ffffff",
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "0.85rem",
-                      background: "rgba(24, 24, 30, 0.8)",
-                      padding: "0.5rem 1rem",
-                      borderRadius: "9999px",
-                      border: "1px solid rgba(255, 255, 255, 0.12)",
-                      boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.08)",
+                      gap: "0.75rem",
+                      flexWrap: "wrap",
                     }}
                   >
-                    <Calendar size={14} />
-                    <span>{item.date}</span>
+                    {item.verifyUrl && (
+                      <a
+                        href={item.verifyUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          soundFX.playClick();
+                        }}
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "0.45rem",
+                          padding: "0.45rem 1rem",
+                          borderRadius: "9999px",
+                          background: "rgba(255, 255, 255, 0.08)",
+                          border: "1px solid rgba(255, 255, 255, 0.2)",
+                          color: "#ffffff",
+                          fontSize: "0.8rem",
+                          fontWeight: 600,
+                          textDecoration: "none",
+                          fontFamily: "var(--font-accent)",
+                          transition: "all 0.2s ease",
+                        }}
+                      >
+                        <span>Verify Credential</span>
+                        <ExternalLink size={13} />
+                      </a>
+                    )}
+
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.6rem",
+                        color: "#ffffff",
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.85rem",
+                        background: "rgba(24, 24, 30, 0.8)",
+                        padding: "0.5rem 1rem",
+                        borderRadius: "9999px",
+                        border: "1px solid rgba(255, 255, 255, 0.12)",
+                        boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.08)",
+                      }}
+                    >
+                      <Calendar size={14} />
+                      <span>{item.date}</span>
+                    </div>
                   </div>
                 </TiltCard>
               </motion.div>

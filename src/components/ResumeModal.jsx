@@ -195,7 +195,7 @@ export default function ResumeModal({ isOpen, onClose }) {
               SNEHITH RAJ
             </h1>
             <p style={{ fontSize: "1.05rem", fontWeight: 700, color: "#2563eb", marginTop: "0.2rem" }}>
-              AI/ML Engineer | Full Stack Developer
+              Full Stack Developer & AI Engineer | B.Tech CSE @ SRM AP
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", marginTop: "0.6rem", fontSize: "0.85rem", color: "#475569" }}>
               <span>{personal.location}</span>
@@ -257,7 +257,7 @@ export default function ResumeModal({ isOpen, onClose }) {
           </div>
 
           {/* Experience & Hackathons */}
-          <div>
+          <div style={{ marginBottom: "1.5rem" }}>
             <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#1e3a8a", textTransform: "uppercase", borderBottom: "1px solid #e2e8f0", paddingBottom: "0.3rem", marginBottom: "0.6rem" }}>
               Hackathons & Experience
             </h3>
@@ -265,6 +265,33 @@ export default function ResumeModal({ isOpen, onClose }) {
               <p><strong>NASA Space Apps Challenge 2024 (Participant):</strong> Built AI exoplanet detection pipeline from Kepler/TESS photometric light curves.</p>
               <p><strong>MIND SPRINT - 2K25 (Finalist):</strong> Developed innovative software solutions under strict 24-hour sprint constraints.</p>
               <p><strong>Smart India Hackathon (R&D):</strong> Worked on national problem statements in education and agriculture technology.</p>
+            </div>
+          </div>
+
+          {/* Verified Technical Certifications */}
+          <div>
+            <h3 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#1e3a8a", textTransform: "uppercase", borderBottom: "1px solid #e2e8f0", paddingBottom: "0.3rem", marginBottom: "0.6rem" }}>
+              Verified Certifications
+            </h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", fontSize: "0.88rem", color: "#334155" }}>
+              <div>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.4rem" }}>
+                  <strong style={{ color: "#0f172a" }}>MongoDB Associate Developer</strong>
+                  <span style={{ fontSize: "0.82rem", color: "#2563eb", fontWeight: 700 }}>01 May 2026 • Credly Verified</span>
+                </div>
+                <p style={{ fontSize: "0.84rem", color: "#64748b", marginTop: "0.15rem" }}>
+                  Issued by MongoDB | Document Modeling, Aggregation Pipelines & Database Performance
+                </p>
+              </div>
+              <div>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.4rem" }}>
+                  <strong style={{ color: "#0f172a" }}>Java Programming: Solving Problems with Software</strong>
+                  <span style={{ fontSize: "0.82rem", color: "#2563eb", fontWeight: 700 }}>22 Oct 2026 • Duke University (Coursera)</span>
+                </div>
+                <p style={{ fontSize: "0.84rem", color: "#64748b", marginTop: "0.15rem" }}>
+                  Issued by Duke University | Algorithmic Problem Solving, CSV Data Processing & Automated Testing
+                </p>
+              </div>
             </div>
           </div>
         </div>

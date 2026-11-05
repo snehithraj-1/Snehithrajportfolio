@@ -66,6 +66,28 @@ export default function CommandPalette({ isOpen, onClose, onOpenResume, onToggle
       },
     },
     {
+      id: "cert-mongodb",
+      category: "Verified Certifications",
+      title: "Verify MongoDB Associate Developer",
+      subtitle: "Credly Badge • Credential ID: 1C7PTLWN",
+      icon: <ExternalLink size={16} color="var(--emerald-neon)" />,
+      run: () => {
+        window.open("https://www.credly.com/go/1C7PTLWN", "_blank");
+        onClose();
+      },
+    },
+    {
+      id: "cert-java-duke",
+      category: "Verified Certifications",
+      title: "Verify Duke University Java Programming",
+      subtitle: "Coursera Verified • Credential ID: S6UVEK4C9OE1",
+      icon: <ExternalLink size={16} color="var(--cyan-neon)" />,
+      run: () => {
+        window.open("https://coursera.org/verify/S6UVEK4C9OE1", "_blank");
+        onClose();
+      },
+    },
+    {
       id: "jump-projects",
       category: "Navigation",
       title: "Jump to Featured Projects & Case Studies",

@@ -173,6 +173,7 @@ export const portfolioData = {
       name: "Backend & Full Stack Development",
       categoryKey: "Backend",
       items: [
+        { name: "MongoDB", level: "Certified Associate Developer (Credly)", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
         { name: "FastAPI", level: "High-Speed Async Python APIs", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
         { name: "Flask", level: "Lightweight Microservices", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
         { name: "REST APIs", level: "Contract Design & JSON Endpoints", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
@@ -442,34 +443,26 @@ Equipping yourself with the right tools transforms daily coding from a slog into
     ],
     certifications: [
       {
-        id: "cert-ml",
-        title: "Machine Learning & Deep Learning",
-        issuer: "Stanford Online / DeepLearning.AI",
-        badge: "Verified Certification",
-        highlight: "Supervised Learning, Neural Networks, Decision Trees, and Unsupervised Learning pipelines.",
-        date: "2024",
+        id: "cert-mongodb",
+        title: "MongoDB Associate Developer",
+        issuer: "MongoDB (Credly Verified)",
+        badge: "Associate Developer",
+        highlight: "Official industry certification covering document data modeling, CRUD operations, aggregation framework, indexing strategies, and database optimization.",
+        date: "01 May 2026",
+        verifyUrl: "https://www.credly.com/go/1C7PTLWN",
         category: "Certifications",
-        tags: ["Machine Learning", "Deep Learning"]
+        tags: ["MongoDB", "NoSQL", "Credly", "Database Modeling", "Aggregation"]
       },
       {
-        id: "cert-python",
-        title: "Python Data Science & Scientific Computing",
-        issuer: "IBM / Cognitive Class",
-        badge: "Verified Certification",
-        highlight: "Data wrangling with Pandas, matrix computations with NumPy, and visualization with Matplotlib.",
-        date: "2023",
+        id: "cert-java-duke",
+        title: "Java Programming: Solving Problems with Software",
+        issuer: "Duke University (Coursera)",
+        badge: "Duke University Verified",
+        highlight: "Software engineering course by Duke University covering algorithms, Java syntax, CSV structured data parsing, perimeter analysis, and automated test design.",
+        date: "22 Oct 2026",
+        verifyUrl: "https://coursera.org/verify/S6UVEK4C9OE1",
         category: "Certifications",
-        tags: ["Python", "Data Science"]
-      },
-      {
-        id: "cert-fullstack",
-        title: "Full Stack Web Development Architecture",
-        issuer: "Meta Professional Certification",
-        badge: "Verified Certification",
-        highlight: "React component architectures, REST API design, responsive UI design, and database normalization.",
-        date: "2024",
-        category: "Certifications",
-        tags: ["React", "APIs", "Web Dev"]
+        tags: ["Java", "Duke University", "Coursera", "Problem Solving", "Software Engineering"]
       }
     ],
     competitions: [
@@ -539,23 +532,25 @@ Equipping yourself with the right tools transforms daily coding from a slog into
   ],
 
   terminalCommands: {
-    help: "Available commands:\n  • whoami       - Display Snehith Raj's profile, role & core focus\n  • about        - View academic background, university & engineering goals\n  • skills       - Enumerate verified skills across 4 technical categories\n  • projects     - View featured GitHub repository & deployed showcase\n  • coursework   - View core computer science subjects & theory\n  • achievements - View hackathons, awards & leadership milestones\n  • contact      - Access email, social profiles & contact form\n  • resume       - Trigger resume preview & PDF download modal\n  • clear        - Clear the terminal screen",
+    help: "Available commands:\n  • whoami         - Display Snehith Raj's profile, role & core focus\n  • about          - View academic background, university & engineering goals\n  • skills         - Enumerate verified skills across 4 technical categories\n  • projects       - View featured GitHub repository & deployed showcase\n  • certificates   - View verified MongoDB & Duke University credentials\n  • coursework     - View core computer science subjects & theory\n  • achievements   - View hackathons, awards & leadership milestones\n  • contact        - Access email, social profiles & contact form\n  • resume         - Trigger resume preview & PDF download modal\n  • clear          - Clear the terminal screen",
     
     whoami: "IDENTITY: Snehith Raj\nROLE: Full Stack Developer & AI Engineer\nEDUCATION: B.Tech CSE @ SRM University AP\nCGPA: 8.44\nLOCATION: Andhra Pradesh, India\nSTATUS: Open to 2025–2026 Engineering Roles\nMOTTO: Engineering Practical Web Applications & Intelligent Systems.",
     
     about: "ACADEMIC & PROFESSIONAL BACKGROUND:\n• University: SRM University AP, Andhra Pradesh\n• Degree: B.Tech Computer Science and Engineering\n• CGPA: 8.44\n• Passions: Full Stack Web Development, Modern React, Python, Machine Learning, DSA\n• Philosophy: Clean modular architecture and relentless focus on building practical software.",
     
-    skills: "VERIFIED TECHNICAL SKILLS:\n[1] Programming: Python, C++, Java, JavaScript, SQL\n[2] Frontend & Core Web: React 19, HTML5 Canvas Physics, Web Audio API, Tailwind CSS, Vite\n[3] Backend & Data: Python, Flask, SQLite, RESTful APIs, Git & GitHub\n[4] Problem Solving: Data Structures & Algorithms on LeetCode",
+    skills: "VERIFIED TECHNICAL SKILLS:\n[1] Programming: Python, C++, Java, JavaScript, SQL\n[2] Frontend & Core Web: React 19, HTML5 Canvas Physics, Web Audio API, Tailwind CSS, Vite\n[3] Backend & Data: MongoDB, Python, Flask, SQLite, RESTful APIs, Git & GitHub\n[4] Problem Solving: Data Structures & Algorithms on LeetCode",
     
     projects: "VERIFIED GITHUB PROJECT:\n[1] Snehithrajportfolio: Interactive 3D Developer Portfolio (React 19, HTML5 Canvas Physics, Web Audio API, Vite)\n    Repo: https://github.com/snehithraj-1/Snehithrajportfolio\n    Live: https://snehithrajportfolio.vercel.app\n\nUPCOMING IN PIPELINE:\n• Full-Stack & Intelligent Web Applications in active development at github.com/snehithraj-1",
     
+    certificates: "VERIFIED INDUSTRY CERTIFICATIONS:\n[1] MongoDB Associate Developer (Issued by MongoDB • Credly Verified)\n    Verification: https://www.credly.com/go/1C7PTLWN\n[2] Java Programming: Solving Problems with Software (Duke University • Coursera)\n    Verification: https://coursera.org/verify/S6UVEK4C9OE1",
+
     coursework: "CORE COMPUTER SCIENCE FOUNDATIONS:\n• Data Structures and Algorithms (Searching Techniques, Graphs, Trees)\n• Database Management Systems (Relational Normalization & SQL)\n• Operating Systems & Process Management\n• Computer Networks & Protocol Stacks\n• Object-Oriented Software Engineering Principles",
 
     research: "CORE COMPUTER SCIENCE FOUNDATIONS:\n• Data Structures and Algorithms (Searching Techniques, Graphs, Trees)\n• Database Management Systems (Relational Normalization & SQL)\n• Operating Systems & Process Management\n• Computer Networks & Protocol Stacks",
 
     blog: "ENGINEERING NOTES:\n• Building 60 FPS HTML5 Canvas Physics Engines in Pure Vanilla JS\n• Synthesizing Low-Latency Web Audio Feedback Without External Assets\n• Modular React 19 Component Architecture for High-Performance SPAs",
 
-    achievements: "MILESTONES & CREDENTIALS:\n• Flagship Open Source Project: Snehithrajportfolio\n• 150+ Algorithmic Challenges Solved on LeetCode\n• YouTube Educational Content Creator (@codewithraj-k7s)\n• B.Tech CSE at SRM University AP (CGPA: 8.44)",
+    achievements: "MILESTONES & CREDENTIALS:\n• MongoDB Certified Associate Developer (Credly Verified)\n• Duke University Java Programming Certified (Coursera Verified)\n• Flagship Open Source Project: Snehithrajportfolio\n• 150+ Algorithmic Challenges Solved on LeetCode\n• YouTube Educational Content Creator (@codewithraj-k7s)\n• B.Tech CSE at SRM University AP (CGPA: 8.44)",
 
     contact: "COMMUNICATION & PROFILES:\n• Email: snehithraj007@gmail.com\n• GitHub: https://github.com/snehithraj-1\n• LinkedIn: https://www.linkedin.com/in/snehithraj-gaddam-454852322/\n• LeetCode: https://leetcode.com/u/hcdiMGr9EW/\n• YouTube: https://www.youtube.com/@codewithraj-k7s\n• Location: SRM University AP, Andhra Pradesh, India",
     
