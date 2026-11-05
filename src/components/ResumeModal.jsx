@@ -262,9 +262,9 @@ export default function ResumeModal({ isOpen, onClose }) {
               Hackathons & Experience
             </h3>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", fontSize: "0.88rem", color: "#334155" }}>
-              <p><strong>NASA Space Apps Challenge 2024 (Participant):</strong> Built AI exoplanet detection pipeline from Kepler/TESS photometric light curves.</p>
-              <p><strong>MIND SPRINT - 2K25 (Finalist):</strong> Developed innovative software solutions under strict 24-hour sprint constraints.</p>
-              <p><strong>Smart India Hackathon (R&D):</strong> Worked on national problem statements in education and agriculture technology.</p>
+              <p><strong>NASA International Space Apps Challenge 2025 (Shortlisted • Galactic Problem Solver):</strong> Shortlisted in the global hackathon solving critical challenges faced on Earth and in space.</p>
+              <p><strong>CMR HACKFEST 3.0 (36-Hour National Level • Team Vision-Crew):</strong> Competed in the 36-hour national sprint organized by CMR College of Engineering & Technology representing SRM University AP.</p>
+              <p><strong>SYNAPSE 2K25 (AIML Dept, Mohan Babu University & Hubexus Solutions):</strong> Participated in the intelligent systems hackathon in association with IEEE CIS MBU Chapter.</p>
             </div>
           </div>
 

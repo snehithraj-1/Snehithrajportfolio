@@ -109,7 +109,7 @@ export const portfolioData = {
       education: "Pursuing Bachelor of Technology in Computer Science and Engineering at SRM University AP (2022–2026). Maintained an 8.44 CGPA while balancing core CS theory (Data Structures, OS, Networks, DBMS) with hackathons and software projects.",
       skills: "Specialized in Python, Java, C++, JavaScript, React, HTML5 Canvas, Web Audio API, Tailwind CSS, Git, and Vercel cloud deployments.",
       interests: "Passionate about Full Stack Web, interactive canvas physics, local LLMs, algorithmic problem solving, and modern developer tools.",
-      achievements: "Finalist in NASA Space Apps Challenge 2024, MIND SPRINT 2K25 Finalist, and Smart India Hackathon participant.",
+      achievements: "Shortlisted in NASA International Space Apps Challenge 2025 (Galactic Problem Solver), participant in CMR HACKFEST 3.0 (Team Vision-Crew), and SYNAPSE 2K25 AI/ML Hackathon.",
       doingNow: "Engineering modern interactive web applications with React & Vite, building developer tooling, and practicing algorithmic problem solving on LeetCode."
     }
   },
@@ -411,34 +411,40 @@ Equipping yourself with the right tools transforms daily coding from a slog into
   achievements: {
     hackathons: [
       {
-        id: "nasa-2024",
-        title: "NASA Space Apps Challenge 2024",
-        role: "Participant",
-        badge: "Participant",
-        highlight: "Built an AI project for exoplanet detection using photometric light curve analysis.",
-        date: "2024",
+        id: "nasa-space-apps-2025",
+        title: "NASA International Space Apps Challenge 2025",
+        role: "Shortlisted • Galactic Problem Solver",
+        badge: "Shortlisted (Galactic Problem Solver)",
+        highlight: "Shortlisted in NASA's flagship global hackathon for outstanding participation in developing solutions to complex challenges faced on Earth and in space.",
+        date: "October 4–5, 2025",
+        organizer: "NASA (in partnership with ESA, ISRO, JAXA, CSA)",
+        recipient: "snehithraj gaddam",
         category: "Hackathons",
-        tags: ["AI/ML", "NASA", "Space Science"]
+        tags: ["NASA", "Space Apps", "Shortlisted", "Galactic Problem Solver", "AI/ML"]
       },
       {
-        id: "mindsprint-2025",
-        title: "MIND SPRINT - 2K25",
-        role: "Finalist",
-        badge: "Finalist",
-        highlight: "Developed innovative software solutions with team under competitive constraints.",
-        date: "2025",
+        id: "cmr-hackfest-3",
+        title: "CMR HACKFEST 3.0 (36-Hour National Level)",
+        role: "National Hackathon Participant (Team Vision-Crew)",
+        badge: "36-Hour National Hackathon",
+        highlight: "Competed in the 36-hour national-level hackathon organized by CMR College of Engineering & Technology, representing SRM University AP with Team 'Vision-Crew'.",
+        date: "January 9–10, 2026",
+        organizer: "CMR College of Engineering & Technology (UGC Autonomous), Hyderabad",
+        recipient: "Gaddam Snehith Raj (Team Vision-Crew, SRM University AP)",
         category: "Hackathons",
-        tags: ["Full Stack", "Problem Solving", "Finalist"]
+        tags: ["36-Hour Hackathon", "National Level", "Vision-Crew", "SRM University AP"]
       },
       {
-        id: "sih-2024",
-        title: "Smart India Hackathon",
-        role: "Research & Development",
-        badge: "Research & Development",
-        highlight: "Worked on problem statements related to education and agriculture technology.",
-        date: "2024",
+        id: "synapse-2k25",
+        title: "SYNAPSE 2K25 — AI & ML Hackathon",
+        role: "Hackathon Participant",
+        badge: "AI & Machine Learning",
+        highlight: "Actively participated in the intelligent systems hackathon organized by the Department of AIML at Mohan Babu University in association with Hubexus Solutions & IEEE CIS Chapter.",
+        date: "October 17–18, 2025",
+        organizer: "Mohan Babu University (AIML Dept) & Hubexus Solutions",
+        recipient: "Gaddam Snehith Raj (Hubexus ID: HUB-LMS/AIML-2510-0130)",
         category: "Hackathons",
-        tags: ["Govt Initiative", "Agritech", "Education"]
+        tags: ["AI/ML", "Mohan Babu University", "Hubexus", "IEEE CIS", "Synapse 2K25"]
       }
     ],
     certifications: [
@@ -508,7 +514,7 @@ Equipping yourself with the right tools transforms daily coding from a slog into
 
     blog: "ENGINEERING NOTES:\n• Building 60 FPS HTML5 Canvas Physics Engines in Pure Vanilla JS\n• Synthesizing Low-Latency Web Audio Feedback Without External Assets\n• Modular React 19 Component Architecture for High-Performance SPAs",
 
-    achievements: "MILESTONES & CREDENTIALS:\n• MongoDB Certified Associate Developer (Credly Verified)\n• Duke University Java Programming Certified (Coursera Verified)\n• Flagship Open Source Project: Snehithrajportfolio\n• 150+ Algorithmic Challenges Solved on LeetCode\n• B.Tech CSE at SRM University AP (CGPA: 8.44)",
+    achievements: "MILESTONES & CREDENTIALS:\n• NASA International Space Apps Challenge 2025 (Shortlisted • Galactic Problem Solver)\n• CMR HACKFEST 3.0 (36-Hour National Hackathon, Team Vision-Crew)\n• SYNAPSE 2K25 (AI/ML Hackathon, Mohan Babu University & Hubexus)\n• MongoDB Certified Associate Developer (Credly Verified)\n• Duke University Java Programming Certified (Coursera Verified)\n• Flagship Open Source Project: Snehithrajportfolio\n• 150+ Algorithmic Challenges Solved on LeetCode\n• B.Tech CSE at SRM University AP (CGPA: 8.44)",
 
     contact: "COMMUNICATION & PROFILES:\n• Email: snehithraj007@gmail.com\n• GitHub: https://github.com/snehithraj-1\n• LinkedIn: https://www.linkedin.com/in/snehithraj-gaddam-454852322/\n• LeetCode: https://leetcode.com/u/hcdiMGr9EW/\n• YouTube: https://www.youtube.com/@codewithraj-k7s\n• Location: SRM University AP, Andhra Pradesh, India",
     

@@ -132,6 +132,17 @@ export default function CommandPalette({ isOpen, onClose, onOpenResume, onToggle
       },
     },
     {
+      id: "jump-achievements",
+      category: "Navigation",
+      title: "Jump to Hackathons & Certifications",
+      subtitle: "NASA Space Apps 2025, CMR HACKFEST 3.0, SYNAPSE 2K25 & Certs",
+      icon: <ArrowRight size={16} color="var(--emerald-neon)" />,
+      run: () => {
+        document.getElementById("achievements")?.scrollIntoView({ behavior: "smooth" });
+        onClose();
+      },
+    },
+    {
       id: "open-resume",
       category: "Actions",
       title: "Open Resume Credentials & PDF Download",
