@@ -56,7 +56,7 @@ export const portfolioData = {
       { value: "8.44", label: "Academic CGPA (SRM AP)" },
       { value: "2026", label: "B.Tech CSE Batch" },
       { value: "1", label: "Flagship GitHub Project" },
-      { value: "150+", label: "DSA & Problem Solving" }
+      { value: "60 FPS", label: "Canvas Physics Engine" }
     ],
 
     quote: "Building reliable software requires clean modular architecture, practical engineering, and a relentless focus on solving real user problems.",
@@ -514,7 +514,7 @@ Equipping yourself with the right tools transforms daily coding from a slog into
 
     blog: "ENGINEERING NOTES:\n• Building 60 FPS HTML5 Canvas Physics Engines in Pure Vanilla JS\n• Synthesizing Low-Latency Web Audio Feedback Without External Assets\n• Modular React 19 Component Architecture for High-Performance SPAs",
 
-    achievements: "MILESTONES & CREDENTIALS:\n• NASA International Space Apps Challenge 2025 (Shortlisted • Galactic Problem Solver)\n• CMR HACKFEST 3.0 (36-Hour National Hackathon, Team Vision-Crew)\n• SYNAPSE 2K25 (AI/ML Hackathon, Mohan Babu University & Hubexus)\n• MongoDB Certified Associate Developer (Credly Verified)\n• Duke University Java Programming Certified (Coursera Verified)\n• Flagship Open Source Project: Snehithrajportfolio\n• 150+ Algorithmic Challenges Solved on LeetCode\n• B.Tech CSE at SRM University AP (CGPA: 8.44)",
+    achievements: "MILESTONES & CREDENTIALS:\n• NASA International Space Apps Challenge 2025 (Shortlisted • Galactic Problem Solver)\n• CMR HACKFEST 3.0 (36-Hour National Hackathon, Team Vision-Crew)\n• SYNAPSE 2K25 (AI/ML Hackathon, Mohan Babu University & Hubexus)\n• MongoDB Certified Associate Developer (Credly Verified)\n• Duke University Java Programming Certified (Coursera Verified)\n• Flagship Open Source Project: Snehithrajportfolio\n• B.Tech CSE at SRM University AP (CGPA: 8.44)",
 
     contact: "COMMUNICATION & PROFILES:\n• Email: snehithraj007@gmail.com\n• GitHub: https://github.com/snehithraj-1\n• LinkedIn: https://www.linkedin.com/in/snehithraj-gaddam-454852322/\n• LeetCode: https://leetcode.com/u/hcdiMGr9EW/\n• YouTube: https://www.youtube.com/@codewithraj-k7s\n• Location: SRM University AP, Andhra Pradesh, India",
     

@@ -618,10 +618,10 @@ export default function Projects() {
                 </div>
                 <div>
                   <div style={{ fontSize: "0.92rem", fontWeight: 700, color: "#ffffff" }}>
-                    150+ DSA Problems Solved
+                    Data Structures & Problem Solving
                   </div>
                   <div style={{ fontSize: "0.78rem", color: "var(--text-secondary)" }}>
-                    Verified algorithmic implementations on LeetCode & Java DSA repo
+                    Algorithmic implementations in Java & verified coursework
                   </div>
                 </div>
               </div>
