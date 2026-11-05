@@ -213,7 +213,7 @@ export const portfolioData = {
       subtitle: "Production Developer Showcase with HTML5 Canvas Physics & Web Audio",
       category: "Web Apps",
       tags: ["React 19", "JavaScript", "HTML5 Canvas", "Web Audio API", "Vite", "Tailwind CSS"],
-      image: heroCosmicImg,
+      image: snehithRajImg,
       featured: true,
       hasLiveDemo: true,
       demoUrl: "https://snehithrajportfolio.vercel.app",
